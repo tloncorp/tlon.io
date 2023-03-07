@@ -3,6 +3,8 @@ layout: ../../layouts/Writing.astro
 title: 'Why Landscape?'
 pubDate: 2023-03-23
 description: 'Test post'
+groupName: Tlon Public
+groupURL: "https://tlon.io"
 ---
 
 ![](https://cdn.sanity.io/images/p8faukar/production/d4d491fa756a62de1027ac6e48f1149ce0635fa7-1024x683.jpg)
