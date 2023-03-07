@@ -11,8 +11,24 @@ const pageTitle = 'Tlon Corporation';
 		<title>{pageTitle}</title>
 	</head>
 	<body class="p-4 lg:p-12 text-xl antialiased dark:bg-stone-800 dark:text-stone-300">
-		<p><a href="/">Tlon Corporation</a></p>
+		<a href="/"><img src="/favicon.svg" class="w-5 h-5 mb-5"/></a>
+		<!-- <p><a href="/">Tlon Corporation</a></p> -->
 		<slot/>
+		<p class="mt-5 pt-4 prose prose-xl prose-a:no-underline leading-7 text-black prose-a:text-gray-400 prose-p:text-black dark:text-stone-300">
+			Tlon exists to build exceptionally well-crafted software
+			for people’s everyday lives.
+			In order to build software of the highest quality, we had
+			to start with excellent raw material. <br> <br>
+
+			Our material is Urbit.<br> <br>
+
+			Tlon exists to animate the infrastructural material 
+			Urbit represents and give people a means to
+			inhabit it, play with it, make it theirs, and give it life.<br> <br>
+
+			Tlon exists to build truly simple, beautiful, 
+			durable, personal computers.
+		</p>
 	</body>
 </html>
 

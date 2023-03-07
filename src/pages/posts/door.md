@@ -7,7 +7,7 @@ groupName: Door Link
 groupURL: "https://door.link"
 ---
 
-Twenty questions with ~natnex-ronret — door.link
+Twenty questions with ~natnex-ronret
 
 1. What's your community's origin story?
 
