@@ -3,7 +3,7 @@ import Base from "./Base.astro";
 const { frontmatter } = Astro.props;
 ---
 <Base>
-	<p class="pt-4"><a href="/writing/" >Back to All Writing</a></p>
+	<p class="pt-4"><a href="/writing/" >Back to All Posts</a></p>
 	<h1 class="pt-4">{frontmatter.title}</h1>
 	<p class="pt-4">{frontmatter.pubDate.slice(0,10)}</p>
     <article class="pt-4 prose prose-xl prose-a:no-underline leading-7 prose-a:text-gray-400 prose-p:text-black dark:text-stone-300">
@@ -11,5 +11,5 @@ const { frontmatter } = Astro.props;
     </article>
 	<p class="pt-6">*</p>
 	<p class="pt-4"><a href="/writing/">Back to All Writing</a></p>
-	<p><a href="https://urcades.substack.com/">Subscribe</a></p>
+	<p><a href="https://tlon.us14.list-manage.com/subscribe?u=f9f52f752b920bad5e8b46282&id=bea6ffbefa">Subscribe to Newsletter</a></p>
 </Base>

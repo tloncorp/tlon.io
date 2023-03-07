@@ -23,29 +23,29 @@ And now, an overview of other updates and fixes in the pipeline. Highlight: Leap
 
 Immediately:
 
-Reintroducing group, channel, and DM navigation with Leap
-Reintroducing the beloved talk-cli
-Adding the ability to bulk invite multiple ships to a group simultaneously
-Improving the ability to invite ships to a group during initial creation
-Redesigning how pinned channels are rendered within Groups to allow better scroll of non-pinned channels or communities
-Implementing a persistent support and wayfinding button across Talk and Groups
-Improving notifications in Groups and within an individual group
-Applying a warning before deleting a message or other datum
-Enhancing accuracy of unread badges
-Overhauling the chat scroll and addressing major mobile malfunctions
-Rectifying the order in which comments appear on Notebook posts
+- Reintroducing group, channel, and DM navigation with Leap
+- Reintroducing the beloved talk-cli
+- Adding the ability to bulk invite multiple ships to a group simultaneously
+- Improving the ability to invite ships to a group during initial creation
+- Redesigning how pinned channels are rendered within Groups to allow better scroll of non-pinned channels or communities
+- Implementing a persistent support and wayfinding button across Talk and Groups
+- Improving notifications in Groups and within an individual group
+- Applying a warning before deleting a message or other datum
+- Enhancing accuracy of unread badges
+- Overhauling the chat scroll and addressing major mobile malfunctions
+- Rectifying the order in which comments appear on Notebook posts
 
 Soon:
 
-Migrating the My Channels group from Groups 1 as a new, secret group
-Fixing an issue that prevents profile edits from propagating to other ships
+- Migrating the My Channels group from Groups 1 as a new, secret group
+- Fixing an issue that prevents profile edits from propagating to other ships
 
 One month:
 
-Revamping and stabilizing the group admin view
-Renovating permissions, including adding new roles and rules
-Adding the ability to edit messages in Talk and Groups
-Improving time stamping within Talk and Groups
-Tackling phantom or disappearing messages within Talk and Groups
-Syncing Landscape notifications with other applications
-Reinforcing the privacy of secret group content and improving invitations
+- Revamping and stabilizing the group admin view
+- Renovating permissions, including adding new roles and rules
+- Adding the ability to edit messages in Talk and Groups
+- Improving time stamping within Talk and Groups
+- Tackling phantom or disappearing messages within Talk and Groups
+- Syncing Landscape notifications with other applications
+- Reinforcing the privacy of secret group content and improving invitations
