@@ -8,17 +8,28 @@ const pageTitle = 'Tlon Corporation';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 		<title>{pageTitle}</title>
 	</head>
-	<body class="p-4 lg:p-12 text-xl antialiased text-black dark:bg-stone-800 dark:text-stone-300">
-		<a href="/"><img src="/favicon.svg" class="w-5 h-5 mb-5 inline-block"/></a>
-		<!-- <p><a href="/">Tlon Corporation</a></p> -->
+	<body 
+		class="
+			p-4 
+			lg:p-16 
+			text-xl 
+			antialiased 
+			text-black 
+			dark:bg-stone-800 
+			dark:text-stone-300
+		">
+		<!-- <a href="/"><img src="/favicon.svg" class="w-5 h-5 mb-5 inline-block"/></a> -->
 		<slot/>
 	</body>
 </html>
 
 <style>
-    body {
-        font-family: serif;
-    }
+	:root { font-family: 'Inter', sans-serif; }
+	@supports (font-variation-settings: normal) {
+	:root { font-family: 'Inter var', sans-serif; }
+	}
 </style>

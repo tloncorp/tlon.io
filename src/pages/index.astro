@@ -1,25 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
-const allPosts = await Astro.glob('../pages/posts/*.md');
-const pageTitle = 'Tlon Corporation';
 ---
 <Base>
-    <ul class="pt-4">
-        {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
-    </ul>
-    <p class="mt-5 pt-4 prose prose-xl prose-a:no-underline leading-7 text-black prose-a:text-gray-500 prose-p:text-black dark:text-stone-300">
-        Tlon exists to build exceptionally well-crafted software
-        for people’s everyday lives.
-        In order to build software of the highest quality, we had
-        to start with excellent raw material. <br> <br>
+    
+        <h1 class="tracking-tight max-w-3xl text-5xl leading-tight py-16">You've reached Tlon's website. <br> You can find us on Urbit. <br> Don't worry, we made it easy.</h1>
+        
+        <a href="https://tlon.network/landing/tlon-public/1665b07c-eb63-4d65-bafa-5aa47d622a15">
+            <button class="bg-black text-white text-lg tracking-tight py-2 px-8 mb-16 rounded-lg">Get started for Free</button>
+        </a>
 
-        Our material is <a href="https://urbit.org" target="_blank">Urbit</a>.<br> <br>
+        <img 
+            src="https://nyc3.digitaloceanspaces.com/fabled-faster/fabled-faster/2023.3.02..21.30.04-Screen-Shot-2023-01-25-at-13.29.48.jpg"
+            class="w-100 py-16"
+        />
 
-        Tlon exists to animate the infrastructural material 
-        Urbit represents and give people a means to
-        inhabit it, play with it, make it theirs, and give it life.<br> <br>
+        <article class="tracking-tight max-w-xl">
+        <p class="py-4 text-lg">A product website used to live here, where we talked about who we are and what we build. The best way to understand all that is to just come talk to us. The world we're building is for communities to own, control, and shape on their own.</p>
+        <p class="py-4 text-lg">So we're going all in. If you want to get in touch, join us on the Urbit network. It's easier to join and use than ever before:</p>
 
-        Tlon exists to build truly simple, beautiful, 
-        durable, personal computers.
-    </p>
+        <a href="https://tlon.network/landing/tlon-public/1665b07c-eb63-4d65-bafa-5aa47d622a15">
+            <button class="bg-black text-white text-lg tracking-tight py-2 px-8 rounded-lg my-12">Join Us</button>
+        </a>
+
+    </article>
 </Base>
