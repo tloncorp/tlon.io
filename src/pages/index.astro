@@ -3,11 +3,13 @@ import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-        <section class="">
+    <header class="flex flex-col justify-center lg:text-center">
+        <section class="self-center">
             <h1 class="
                 tracking-tight
                 lg:max-w-4xl
                 text-4xl
+                font-medium
                 lg:text-6xl
                 leading-tight
                 lg:leading-tight
@@ -19,13 +21,15 @@ import Button from '../components/Button.astro';
             <Button label="Get Started for Free" link="https://tlon.network/landing/tlon-public/1665b07c-eb63-4d65-bafa-5aa47d622a15" />
 
         </section>
+    </header>
 
-        <img 
-            src="over.jpg"
-            class="w-screen mt-16 mb-10 lg:my-16 rounded-lg lg:rounded-3xl mix-blend-screen"
-        />
+    <img 
+        src="over.jpg"
+        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-lg lg:rounded-3xl mix-blend-screen"
+    />
 
-        <article class="tracking-tight max-w-xl">
+    <section class="flex flex-col justify-center">
+        <article class="tracking-tight max-w-xl self-center">
         <p class="py-4 text-lg">We’re packing up this site and going all in on Urbit.</p>
         <p class="py-4 text-lg">Why are we sold on it? We used it to build Landscape, an Urbit-native suite of apps for staying connected to our friends, family and colleagues. We use it on a daily basis. It’s clean and simple, intimate and inspiring.</p>
         <p class="py-4 text-lg">Sure, there are hundreds of ways to communicate and collaborate online. This is the only one that’s entirely yours to own, customize and hold onto forever. </p>
@@ -35,5 +39,6 @@ import Button from '../components/Button.astro';
 
         <Button label="Get Started for Free" link="https://tlon.network/landing/tlon-public/1665b07c-eb63-4d65-bafa-5aa47d622a15" />
 
-    </article>
+        </article>
+    </section>
 </Base>
