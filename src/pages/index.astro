@@ -25,7 +25,7 @@ import Button from '../components/Button.astro';
 
     <img 
         src="/over.jpg"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-lg lg:rounded-3xl"
+        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-lg lg:rounded-3xl opacity-0 transition-opacity duration-1000 ease-in-out"
     />
 
     <section class="flex flex-col justify-center">
@@ -42,3 +42,11 @@ import Button from '../components/Button.astro';
         </article>
     </section>
 </Base>
+
+<script>
+    window.addEventListener('load', () => {
+      const img = document.querySelector('img');
+      img.classList.remove('opacity-0');
+      img.classList.add('opacity-100');
+    });
+  </script>
