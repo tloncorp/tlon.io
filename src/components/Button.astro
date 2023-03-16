@@ -16,6 +16,8 @@ const { label, link } = Astro.props;
     lg:my-12
     rounded-lg
     "
-    href={link}>
+    href={link}
+    target="_blank">
+    onclick="trackCrossDomainClick();"
     {label}
 </a>
