@@ -17,7 +17,17 @@ const { label, link } = Astro.props;
     rounded-lg
     "
     href={link}
-    target="_blank"
-    onclick="trackCrossDomainClick();">
-    {label}
+    target="_blank">
+  {label}
 </a>
+
+<script>
+  import posthog from 'posthog-js';
+  // if posthog is loaded and not blocked by client (e.g. Brave), then add the id to the link
+  if(posthog.__loaded && posthog.get_distinct_id()) {
+    const button = document.querySelector('a');
+    if (button) {
+      button.href = `${button.href}#id=${posthog.get_distinct_id()}`;
+    }
+  }
+</script>
