@@ -2,22 +2,42 @@
 const { label, link } = Astro.props;
 ---
 
-<a class="
-    inline-block
-    bg-stone-800 
-    text-white 
-    dark:bg-stone-300 
-    dark:text-stone-800 
-    text-lg 
-    tracking-tight 
-    py-3 
-    px-6
-    my-6
-    lg:my-12
-    rounded-lg
-    "
-    href={link}
-    target="_blank"
-    onclick="trackCrossDomainClick();">
+<astro-button>
+  <a
+    class="
+      inline-block
+      bg-stone-800 
+      text-white 
+      dark:bg-stone-300 
+      dark:text-stone-800 
+      text-lg 
+      tracking-tight 
+      py-3 
+      px-6
+      my-6
+      lg:my-12
+      rounded-lg
+      "
+      href={link}
+      target="_blank">
     {label}
-</a>
+  </a>
+</astro-button>
+
+<script>
+  import posthog from 'posthog-js';
+
+  class AstroButton extends HTMLElement {
+    constructor() {
+      super();
+      if(posthog.__loaded && posthog.get_distinct_id()) {
+        const button = this.querySelector('a');
+        if(button) {
+          button.href = `${button.href}#id=${posthog.get_distinct_id()}`;
+        }
+      }
+    }
+  }
+
+  customElements.define('astro-button', AstroButton);
+</script>
