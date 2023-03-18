@@ -33,7 +33,7 @@ const { label, link } = Astro.props;
       if(posthog.__loaded && posthog.get_distinct_id()) {
         const button = this.querySelector('a');
         if(button) {
-          button.href = `${button.href}#id=${posthog.get_distinct_id()}`;
+          button.href = `${button.href}?id=${posthog.get_distinct_id()}`;
         }
       }
     }
