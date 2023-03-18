@@ -51,7 +51,15 @@
 
 <script>
   import posthog from 'posthog-js';
-  posthog.init('phc_pEVFBA3JBtxRERg7oR25R6LwaKB7yUakpMKLlOoVpuZ',{
-    api_host:'https://eu.posthog.com',
-  })
+  if(import.meta.env.PROD) {
+    console.log('init posthog prod');
+    posthog.init('phc_pEVFBA3JBtxRERg7oR25R6LwaKB7yUakpMKLlOoVpuZ',{
+      api_host:'https://eu.posthog.com',
+    })
+  } else {
+    console.log('init posthog dev');
+    posthog.init('phc_6BDPOnBfls3Axc5WAbmN8pQKk3YqhfWoc0tXj9d9kx0',{
+      api_host:'https://eu.posthog.com',
+    })
+  }
 </script>
