@@ -7,10 +7,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="generator" content={Astro.generator} />
-		
-		<link rel="preconnect" href="https://rsms.me/">
-		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-		
+				
 		<!-- Primary Meta Tags -->
 		<title>Tlon Corporation</title>
 		<meta name="title" 					content="Tlon Corporation">
@@ -44,9 +41,26 @@
 </html>
 
 <style>
+  @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Regular.woff2') format('woff2');
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter var';
+    src: url('/fonts/Inter-roman.var.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    font-named-instance: 'Regular';
+  }
+
 	:root { font-family: 'Inter', sans-serif; }
 	@supports (font-variation-settings: normal) {
-	:root { font-family: 'Inter var', sans-serif; }
+	  :root { font-family: 'Inter var', sans-serif; }
 	}
 </style>
 
