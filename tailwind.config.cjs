@@ -2,7 +2,11 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			listStyleType: {
+				roman: 'upper-roman',
+			},
+		},
 	},
 	plugins: [
 		require('@tailwindcss/typography'),
