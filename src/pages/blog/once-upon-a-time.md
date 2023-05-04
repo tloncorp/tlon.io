@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPost.astro
 title: 'Once Upon a Time...'
 pubDate: 2021-01-01
 description: 'This is the first post of my new Astro blog.'

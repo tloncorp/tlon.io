@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPost.astro
 title: 'What is Tlon?'
 pubDate: 2023-01-01
 description: 'This is the first post of my new Astro blog.'

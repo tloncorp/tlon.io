@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPost.astro
 title: 'Zow to invite your friends'
 pubDate: 2022-01-01
 description: 'This is the first post of my new Astro blog.'
