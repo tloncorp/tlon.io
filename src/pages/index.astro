@@ -3,54 +3,160 @@ import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <header class="flex flex-col justify-center lg:text-center">
-        <section class="self-center">
+    <nav class="flex justify-between w-100 mb-16 text-neutral-600">
+        <div class="flex flex-row gap-3">
+            <img class="h-5 self-center" src="../favicon.svg">
+            <a href="/">Tlon Corporation</p>
+        </div>
+        <ul class="flex justify-end gap-8">
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="">Sign In</a></li>
+            <li><a href="">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero CTA -->
+    <header class="text-left mb-20">
             <h1 class="
-                tracking-tighter
-                lg:max-w-4xl
+                tracking-tight
+                lg:max-w-md
                 text-2xl
-                font-medium
-                lg:text-6xl
+                text-neutral-800
+                font-normal
+                lg:text-3xl
                 leading-tight
-                lg:leading-tight
                 pt-2
                 lg:py-0
+                mb-10
             ">
-                You’ve reached Tlon’s website. <br> You can find us on Urbit. <br> Don’t worry, we made it easy.
+            There are hundreds of <br> ways to communicate and collaborate online. <br> <br> There's only one that’s entirely yours to own, customize, and hold onto forever.
             </h1>
             
-            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-            <Button label="Login" link="https://tlon.network/login" />
-        </section>
+            <!-- <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" /> -->
     </header>
 
-    <img 
-        src="/over.jpg"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-lg lg:rounded-3xl opacity-0 transition-opacity duration-1000 ease-in-out"
-    />
+    <!-- Groups + Talk 100% Tile -->
+    <div class="w-100 mt-6 mb-6 lg:mt-2 lg:mb-8 rounded-2xl lg:rounded-3xl p-5 lg:p-10 bg-green-50/30 border-2 border-stone-300/20 overflow-hidden">
+        <h2 class="
+                tracking-tight
+                lg:max-w-xl
+                text-2xl
+                text-green-600
+                font-normal
+                lg:text-3xl
+                leading-tight
+                pt-2
+                lg:py-0
+                mb-8
+            ">
+            Communities, your way.
+        </h2>
+        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+        <img 
+            src="/talk.png"
+            class="w-100 mt-10 rounded-lg lg:rounded-2xl shadow-2xl shadow-green-900/20 border border-stone-300/40"
+        />
+    </div>
+
+    <!-- Gallery and Notebook 50% Tiles -->
+    <div class="lg:flex gap-8">
+        <div class="lg:w-1/2 mt-6 mb-6 lg:mt-0 lg:mb-8 rounded-2xl lg:rounded-3xl pt-5 px-5 pb-0 lg:pt-10 lg:px-10 bg-green-50/30 border-2 border-stone-300/20 overflow-hidden">
+            <h2 class="
+                    tracking-tight
+                    lg:max-w-xl
+                    text-2xl
+                    text-green-600
+                    font-normal
+                    lg:text-2xl
+                    leading-tight
+                    pt-2
+                    lg:py-0
+                ">
+                In Groups, a channel can <br> be a book, a report, a diary ...
+            </h2>
+            <img 
+                src="/notebook.png"
+                class="w-100 mt-12 lg:mt-8 rounded-t-lg lg:rounded-t-lg shadow-2xl shadow-green-900/40"
+            />
+        </div>
+
+        <div class="lg:w-1/2 mt-6 mb-6 lg:mt-0 lg:mb-8 rounded-2xl lg:rounded-3xl pt-5 px-5 pb-0 lg:pt-10 lg:px-10 bg-green-50/30 border-2 border-stone-300/20 overflow-hidden">
+            <h2 class="
+                    tracking-tight
+                    lg:max-w-xl
+                    text-2xl
+                    text-green-600
+                    font-normal
+                    lg:text-2xl
+                    leading-tight
+                    pt-2
+                    lg:py-0
+                ">
+                ... a moodboard, a soundtrack, <br> or an archive.
+            </h2>
+            <img 
+                src="/gallery.png"
+                class="w-100 mt-12 lg:mt-8 rounded-t-lg lg:rounded-t-lg shadow-2xl shadow-green-900/40"
+            />
+        </div>
+    </div>
+
+    <!-- Small Talk 100% Tile -->
+    <div class="w-100 mt-6 mb-6 lg:mt-0 lg:mb-12 rounded-2xl lg:rounded-3xl pt-5 px-5 pb-0 lg:pt-10 lg:px-10 bg-orange-50/40 border-2 border-stone-300/20 overflow-hidden">
+        <h2 class="
+                tracking-tight
+                lg:max-w-xl
+                text-2xl
+                text-black
+                font-normal
+                lg:text-3xl
+                leading-tight
+                pt-2
+                lg:py-0
+                mb-8
+            ">
+            Talk it out.
+        </h2>
+        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+        <!-- <Button label="Download on Testflight" link="https://tlon.network/lure/~nibset-napwyn/tlon" /> -->
+        <img class="h-11 inline" src="../appstore.svg">
+        <div class="flex justify-center">
+            <img 
+                src="/smalltalk.png"
+                class="w-100 lg:w-8/12 drop-shadow-2xl"
+            />
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <section class="text-left">
+            <p class="
+                tracking-tight
+                lg:max-w-xl
+                text-2xl
+                font-normal
+                lg:text-3xl
+                leading-tight
+                pt-2
+                lg:py-0
+                mt-20
+            ">
+                Landscape is an Urbit-native toolkit for staying connected with your friends, family and colleagues. Unlike centralized apps and services, it’s entirely yours to own, customize and hold onto forever. <br> <br>
+                At Tlon, we use it every day to communicate and collaborate. It’s productive and reliable, intimate and inspiring, clean and simple. We love it, and we think you will too. 
+            </p>
+    </section>
 
     <section class="flex flex-col justify-center">
-        <article class="tracking-tight max-w-xl self-center">
-        <p class="py-4 text-lg">We’re packing up this site and going all in on Urbit.</p>
-        <p class="py-4 text-lg">Why are we sold on it? We used it to build Landscape, an Urbit-native suite of apps for staying connected to our friends, family and colleagues. We use it on a daily basis. It’s clean and simple, intimate and inspiring.</p>
-        <p class="py-4 text-lg">Sure, there are hundreds of ways to communicate and collaborate online. This is the only one that’s entirely yours to own, customize and hold onto forever. </p>
-        <p class="py-4 text-lg">If you want to try it out or get in touch, join us on the Urbit network. It’s easier to join and use than ever before.</p>
-        <p class="py-4 text-lg">See you on the network,</p>
-        <p class="py-4 text-lg">Galen <inline class="text-stone-400">~ravmel-ropdyl</inline></p>
-
-        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-        <Button label="Login" link="https://tlon.network/login" />
-
         <p class="pt-4 text-lg text-stone-400"><a href="/terms">Terms of Service</a></p>
         <p class="text-lg text-stone-400"><a href="/privacy">Privacy Policy</a></p>
         </article>
     </section>
 </Base>
 
-<script>
+<!-- <script>
     window.addEventListener('load', () => {
-      const img = document.querySelector('img');
-      img.classList.remove('opacity-0');
-      img.classList.add('opacity-100');
+        const img = document.querySelector('img');
+        img.classList.remove('opacity-0');
+        img.classList.add('opacity-100');
     });
-  </script>
+</script> -->

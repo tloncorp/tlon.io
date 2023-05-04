@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+const allPosts = await Astro.glob('../pages/blog/*.md');
+import Button from '../components/Button.astro';
+
+
+function groupPostsByYear(posts) {
+  const postsByYear = {};
+
+  posts.forEach((post) => {
+    const year = post.frontmatter.pubDate.slice(0, 4);
+
+    if (!postsByYear[year]) {
+      postsByYear[year] = [];
+    }
+
+    postsByYear[year].push(post);
+    postsByYear[year].sort((a, b) => b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate)); // Sort posts within each year in descending order
+  });
+
+  return postsByYear;
+}
+
+const groupedPosts = groupPostsByYear(allPosts);
+const sortedYears = Object.keys(groupedPosts).sort((a, b) => b - a); // Sort years in descending order
+---
+<Base>
+    <nav class="flex justify-between w-100 mb-16 text-neutral-600">
+        <div class="flex flex-row gap-3">
+            <img class="h-5 self-center" src="../favicon.svg">
+            <a href="/">Tlon Corporation</p>
+        </div>
+        <ul class="flex justify-end gap-8">
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="">Sign In</a></li>
+            <li><a href="">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero CTA -->
+    <header class="text-left mb-20">
+            <h1 class="
+                tracking-tight
+                lg:max-w-md
+                text-2xl
+                font-normal
+                lg:text-3xl
+                leading-tight
+                pt-2
+                lg:py-0
+                mb-10
+            ">
+            Updates from Tlon
+            </h1>
+            
+            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+            <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+    </header>
+    <ul class="lg:flex flex-wrap gap-8">
+        {allPosts.map((post) => 
+            <li class="grow mt-6 mb-6 lg:mt-0 lg:mb-8 rounded-2xl lg:rounded-3xl border-2 border-stone-300/20 overflow-hidden">
+                <a href={post.url}>
+                    <div class="flex flex-col gap-6 p-8">
+                        <p class="text-neutral-400">{post.frontmatter.tags}</p>
+                        <h2 class="
+                                tracking-tight
+                                lg:max-w-xl
+                                text-2xl
+                                text-black
+                                font-normal
+                                lg:text-3xl
+                                leading-tight
+                            ">
+                            {post.frontmatter.title}
+                        </h2>
+                        <div class="flex flex-row gap-4">
+                            <img class="h-6 self-center" src="../favicon.svg">
+                            <p class="text-neutral-500">{post.frontmatter.author}</p>
+                        </div>
+                        <p class="text-neutral-400">{post.frontmatter.pubDate.slice(0, 10)}</p>
+                    </div>
+                </a>
+            </li> 
+        )}
+    </ul>
+
+    <!-- Footer -->
+    <section class="text-left">
+            <p class="
+                tracking-tight
+                lg:max-w-xl
+                text-2xl
+                font-normal
+                lg:text-3xl
+                leading-tight
+                pt-2
+                lg:py-0
+                mt-12
+                mb-10
+            ">
+                Join the conversation on Tlon Local
+            </p>
+
+            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+            <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+    </section>
+
+    <section class="flex flex-col justify-center">
+        <p class="pt-4 text-lg text-stone-400"><a href="/terms">Terms of Service</a></p>
+        <p class="text-lg text-stone-400"><a href="/privacy">Privacy Policy</a></p>
+        </article>
+    </section>
+</Base>
+
+<!-- <script>
+    window.addEventListener('load', () => {
+        const img = document.querySelector('img');
+        img.classList.remove('opacity-0');
+        img.classList.add('opacity-100');
+    });
+</script> -->
