@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 const allPosts = await Astro.glob('../pages/blog/*.md');
 import Button from '../components/Button.astro';
+import ButtonPrimary from '../components/ButtonPrimary.astro';
 ---
 <Base>
     <!-- Hero CTA -->
@@ -17,12 +18,13 @@ import Button from '../components/Button.astro';
                 lg:py-0
                 mb-10
             ">
-            Updates from Tlon
+            This is the tip of the iceberg. You can find us way more active in Tlon Local, our little home on the Urbit network, open to anyone. <br> <br> Not on Urbit? Don’t worry, we made it easy. 
             </h1>
             
-            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+            <ButtonPrimary label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
             <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
     </header>
+
     <ul class="lg:flex flex-wrap gap-8">
         {allPosts.map((post) => 
             <li class="grow mt-6 mb-6 lg:mt-0 lg:mb-8 rounded-2xl lg:rounded-3xl border-2 border-stone-300/20 overflow-hidden">
@@ -65,10 +67,11 @@ import Button from '../components/Button.astro';
                 mt-12
                 mb-10
             ">
-                Join the conversation on Tlon Local
+            Interested? Confused? <br> <br> Simply bored of today’s internet? <br> <br> 
+            Not only will you find more fun stuff in our Tlon Local group, you’re encouraged to join in on the discussion. <br> <br> It’s a thriving, evolving group of people—both new and old to Urbit.
             </p>
 
-            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+            <ButtonPrimary label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
             <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
     </section>
 

@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: 'What is Tlon?'
 pubDate: 2023-01-01
 description: 'This is the first post of my new Astro blog.'
-author: 'Galen Wolfe-Pauly'
+author: 'Galen van der Woodsen Wolfe-Muji'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png' 
     alt: 'The full Astro logo.'

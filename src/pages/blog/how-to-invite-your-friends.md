@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPost.astro
 title: 'How to invite your friends'
 pubDate: 2022-01-01
 description: 'This is the first post of my new Astro blog.'
-author: 'Tlon Local'
+author: 'Satoshi Nakamoto'
 image:
     url: 'https://docs.astro.build/assets/full-logo-light.png' 
     alt: 'The full Astro logo.'
