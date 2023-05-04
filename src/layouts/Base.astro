@@ -1,3 +1,7 @@
+---
+import Footer from '../components/Footer.astro';
+---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -38,18 +42,19 @@
 	">
 		<nav class="flex justify-between w-100 mb-16 text-neutral-800">
 			<a href="/">
-				<div class="flex flex-row gap-2 text-sm">
-					<img class="h-4 self-center" src="../favicon.svg">
+				<div class="flex flex-row gap-3 text-base">
+					<img class="h-5 self-center" src="../favicon.svg">
 					<p>Tlon Corporation</p>
 				</div>
 			</a>
-			<ul class="flex text-sm justify-end gap-2">
-				<li><a class="py-2 px-4 rounded-lg bg-slate-100" href="/blog/">Blog</a></li>
-				<li><a class="py-2 px-4 rounded-lg bg-slate-100" href="">Sign In</a></li>
-				<li><a class="py-2 px-4 rounded-lg bg-slate-100" href="">Get Started</a></li>
+			<ul class="flex text-base justify-end gap-2">
+				<li><a class="py-2 px-4 rounded-lg bg-neutral-100" href="/blog/">Blog</a></li>
+				<li><a class="py-2 px-4 rounded-lg bg-neutral-100" href="">Sign In</a></li>
+				<li><a class="py-2 px-4 rounded-lg text-blue-500 bg-blue-100/40" href="">Get Started</a></li>
 			</ul>
 		</nav>
 		<slot/>
+		<Footer />
 	</body>
 </html>
 
