@@ -37,14 +37,16 @@
 		dark:text-stone-300
 	">
 		<nav class="flex justify-between w-100 mb-16 text-neutral-800">
-			<div class="flex flex-row gap-3 ">
-				<img class="h-5 self-center" src="../favicon.svg">
-				<a href="/">Tlon Corporation</p>
-			</div>
-			<ul class="flex justify-end gap-8">
-				<li><a href="/blog/">Blog</a></li>
-				<li><a href="">Sign In</a></li>
-				<li><a href="">Get Started</a></li>
+			<a href="/">
+				<div class="flex flex-row gap-2 text-sm">
+					<img class="h-4 self-center" src="../favicon.svg">
+					<p>Tlon Corporation</p>
+				</div>
+			</a>
+			<ul class="flex text-sm justify-end gap-2">
+				<li><a class="py-2 px-4 rounded-lg bg-slate-100" href="/blog/">Blog</a></li>
+				<li><a class="py-2 px-4 rounded-lg bg-slate-100" href="">Sign In</a></li>
+				<li><a class="py-2 px-4 rounded-lg bg-slate-100" href="">Get Started</a></li>
 			</ul>
 		</nav>
 		<slot/>
