@@ -1,0 +1,43 @@
+---
+const { herocopy, buttoncopy, link, imagelink } = Astro.props;
+import Button from '../components/Button.astro';
+---
+<section class="
+            w-100
+
+            my-4
+            p-5
+            pb-0
+            lg:pt-8
+            lg:px-8
+
+            bg-orange-50/40
+
+            border-2 
+            border-stone-300/20
+            rounded-2xl 
+            lg:rounded-3xl
+
+            overflow-hidden">
+    <h2 class="
+        mb-4
+
+        text-2xl
+        lg:text-3xl
+
+        font-normal
+        tracking-tight
+        leading-tight
+        ">
+        {herocopy}
+    </h2>
+
+    <div class="mb-5"><Button label={buttoncopy} link={link} /></div>
+
+    <div class="flex justify-center">
+        <img 
+            src={imagelink}
+            class="w-100 lg:w-6/12 drop-shadow-2xl"
+        />
+    </div>
+</section>

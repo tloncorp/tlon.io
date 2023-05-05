@@ -1,140 +1,51 @@
 ---
 import Base from '../layouts/Base.astro';
-import Button from '../components/Button.astro';
 import ButtonPrimary from '../components/ButtonPrimary.astro';
+import HeroText from '../components/HeroText.astro';
+import CardFull from '../components/CardFull.astro';
+import CardHalf from '../components/CardHalf.astro';
+import CardFullMobile from '../components/CardFullMobile.astro';
 ---
 <Base>
-    <!-- Hero CTA -->
-    <header class="text-left mb-20">
-            <h1 class="
-                tracking-tight
-                lg:max-w-md
-                text-2xl
-                text-neutral-800
-                font-normal
-                lg:text-3xl
-                leading-tight
-                pt-2
-                lg:py-0
-                mb-10
-            ">
-            There are hundreds of <br> ways to communicate and collaborate online. <br> <br> There's only one that’s entirely yours to own, customize, and hold onto forever.
-            </h1>
-            
-            <ButtonPrimary label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-    </header>
+    <HeroText>
+        There are hundreds <br> of ways to communicate <br> and collaborate online. <br> <br> 
+        There's only one that’s entirely <br> yours to own, customize, <br> and hold onto forever.
+    </HeroText>
+    
+    <div class="mb-8">
+    <ButtonPrimary label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+    </div>
+    
+    <CardFull 
+        herocopy="Communities, your way." 
+        buttoncopy="Get Started for Free"
+        link="https://tlon.network/lure/~nibset-napwyn/tlon"
+        imagelink="/talk-in-groups.png"
+    />
 
-    <!-- Groups + Talk 100% Tile -->
-    <div class="w-100 mt-6 mb-6 lg:mt-2 lg:mb-8 rounded-2xl lg:rounded-3xl p-5 lg:p-10 bg-green-50/30 border-2 border-stone-300/20 overflow-hidden">
-        <h2 class="
-                tracking-tight
-                lg:max-w-xl
-                text-2xl
-                text-green-600
-                font-normal
-                lg:text-3xl
-                leading-tight
-                pt-2
-                lg:py-0
-                mb-8
-            ">
-            Communities, your way.
-        </h2>
-        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-        <img 
-            src="/talk.png"
-            class="w-100 mt-10 rounded-lg lg:rounded-2xl shadow-2xl shadow-green-900/20 border border-stone-300/40"
+    <div class="lg:flex gap-8">
+        <CardHalf 
+            herocopy="In Groups, a channel can be a book, a report, a diary ..." 
+            imagelink="/notebook.png"
+        />
+        <CardHalf
+            herocopy="... a moodboard, a soundtrack, or an archive." 
+            imagelink="/gallery.png"
         />
     </div>
 
-    <!-- Gallery and Notebook 50% Tiles -->
-    <div class="lg:flex gap-8">
-        <div class="lg:w-1/2 mt-6 mb-6 lg:mt-0 lg:mb-8 rounded-2xl lg:rounded-3xl pt-5 px-5 pb-0 lg:pt-10 lg:px-10 bg-green-50/30 border-2 border-stone-300/20 overflow-hidden">
-            <h2 class="
-                    tracking-tight
-                    lg:max-w-xl
-                    text-2xl
-                    text-green-600
-                    font-normal
-                    lg:text-2xl
-                    leading-tight
-                    pt-2
-                    lg:py-0
-                ">
-                In Groups, a channel can <br> be a book, a report, a diary ...
-            </h2>
-            <img 
-                src="/notebook.png"
-                class="w-100 mt-12 lg:mt-8 rounded-t-lg lg:rounded-t-lg shadow-2xl shadow-green-900/40"
-            />
-        </div>
+    <CardFullMobile
+        herocopy="Talk it out." 
+        buttoncopy="Get on Testflight"
+        link="https://tlon.network/lure/~nibset-napwyn/tlon"
+        imagelink="/smalltalk.png"
+    />
 
-        <div class="lg:w-1/2 mt-6 mb-6 lg:mt-0 lg:mb-8 rounded-2xl lg:rounded-3xl pt-5 px-5 pb-0 lg:pt-10 lg:px-10 bg-green-50/30 border-2 border-stone-300/20 overflow-hidden">
-            <h2 class="
-                    tracking-tight
-                    lg:max-w-xl
-                    text-2xl
-                    text-green-600
-                    font-normal
-                    lg:text-2xl
-                    leading-tight
-                    pt-2
-                    lg:py-0
-                ">
-                ... a moodboard, a soundtrack, <br> or an archive.
-            </h2>
-            <img 
-                src="/gallery.png"
-                class="w-100 mt-12 lg:mt-8 rounded-t-lg lg:rounded-t-lg shadow-2xl shadow-green-900/40"
-            />
-        </div>
-    </div>
+    <HeroText>
+        Landscape is an Urbit-native suite of apps for staying connected with your friends, family and colleagues. <br> <br>
+        At Tlon, we use it every day to keep in touch and build out the internet of our dreams. It’s intimate and inspiring, clean and simple. <br> <br>
+        We love it, and we think you will too. 
+    </HeroText>
 
-    <!-- Small Talk 100% Tile -->
-    <div class="w-100 mt-6 mb-6 lg:mt-0 lg:mb-12 rounded-2xl lg:rounded-3xl pt-5 px-5 pb-0 lg:pt-10 lg:px-10 bg-orange-50/40 border-2 border-stone-300/20 overflow-hidden">
-        <h2 class="
-                tracking-tight
-                lg:max-w-xl
-                text-2xl
-                text-black
-                font-normal
-                lg:text-3xl
-                leading-tight
-                pt-2
-                lg:py-0
-                mb-8
-            ">
-            Talk it out.
-        </h2>
-        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-        <!-- <Button label="Download on Testflight" link="https://tlon.network/lure/~nibset-napwyn/tlon" /> -->
-        <img class="h-11 inline" src="../appstore.svg">
-        <div class="flex justify-center">
-            <img 
-                src="/smalltalk.png"
-                class="w-100 lg:w-8/12 drop-shadow-2xl"
-            />
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <section class="text-left">
-            <p class="
-                tracking-tight
-                lg:max-w-xl
-                text-2xl
-                font-normal
-                lg:text-3xl
-                leading-tight
-                pt-2
-                lg:py-0
-                mt-20
-                mb-10
-            ">
-            Landscape is an Urbit-native suite of apps for staying connected with your friends, family and colleagues. <br> <br>
-            At Tlon, we use it every day to keep in touch and build out the internet of our dreams. It’s intimate and inspiring, clean and simple. <br> <br>
-            We love it, and we think you will too. 
-            </p>
-            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-    </section>
+    <ButtonPrimary label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
 </Base>

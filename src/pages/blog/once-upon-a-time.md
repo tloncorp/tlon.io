@@ -18,7 +18,8 @@ The pillars of the internet—social networks, e-commerce, search engines—migh
 
 Rather than a dead end, we see a fork in the road, at which we encounter another path forward. This path is bumpy at first, but soon the relief settles in. Calm is restored. A new world unfolds beyond the thick of yesterday's internet.
 
-A Diary image
+![Silly Boy](https://d2w9rnfcy7mm78.cloudfront.net/21689140/original_ab5394ca6ecb88b79dbcce33644147e8.png)
+
 You receive a message. There's a purity to it that you can't quite place. You can almost pluck it right off your screen. It's as alive as a whisper spoken from one friend to another, as they part ways at a train station. It's as authentic as a love letter. As personal as an apology. As material as a family recipe passed down through generations.
 
 Because there's no one—besides yourself and the sender—storing the message on your behalf. There's no one acting as a middle man between the transaction. It belongs only to the two of you. It always will.

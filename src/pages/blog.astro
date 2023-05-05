@@ -3,27 +3,17 @@ import Base from '../layouts/Base.astro';
 const allPosts = await Astro.glob('../pages/blog/*.md');
 import Button from '../components/Button.astro';
 import ButtonPrimary from '../components/ButtonPrimary.astro';
+import HeroText from '../components/HeroText.astro';
 ---
 <Base>
-    <!-- Hero CTA -->
-    <header class="text-left mb-20">
-            <h1 class="
-                tracking-tight
-                lg:max-w-md
-                text-2xl
-                font-normal
-                lg:text-3xl
-                leading-tight
-                pt-2
-                lg:py-0
-                mb-10
-            ">
-            This is the tip of the iceberg. You can find us way more active in Tlon Local, our little home on the Urbit network, open to anyone. <br> <br> Not on Urbit? Don’t worry, we made it easy. 
-            </h1>
-            
-            <ButtonPrimary label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-            <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-    </header>
+    <HeroText>
+        This is the tip of the iceberg. <br><br> You can find us way more active in <br> <a class="text-blue-500" href="https://tlon.network/lure/~nibset-napwyn/tlon">Tlon Local</a>, our little home on the Urbit network, open to anyone. <br> <br> Not on Urbit? <br> Don’t worry, we made it easy.
+    </HeroText>
+
+    <div class="lg:mb-8 lg:flex gap-2">
+        <ButtonPrimary label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+        <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+    </div>
 
     <ul class="lg:flex flex-wrap gap-8">
         {allPosts.map((post) => 
@@ -53,33 +43,13 @@ import ButtonPrimary from '../components/ButtonPrimary.astro';
         )}
     </ul>
 
-    <!-- Footer -->
-    <section class="text-left">
-            <p class="
-                tracking-tight
-                lg:max-w-xl
-                text-2xl
-                font-normal
-                lg:text-3xl
-                leading-tight
-                pt-2
-                lg:py-0
-                mt-12
-                mb-10
-            ">
-            Interested? Confused? <br> <br> Simply bored of today’s internet? <br> <br> 
-            Not only will you find more fun stuff in our Tlon Local group, you’re encouraged to join in on the discussion. <br> <br> It’s a thriving, evolving group of people—both new and old to Urbit.
-            </p>
-
-            <ButtonPrimary label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-            <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-    </section>
+    <HeroText>
+        Interested? Confused? <br> <br> Simply bored of today’s internet? <br> <br> 
+        Not only will you find more fun stuff in our Tlon Local group, you’re encouraged to join in on the discussion. <br> <br> It’s a thriving, evolving group of people—both new and old to Urbit.
+    </HeroText>
+    
+    <div class="lg:mb-8 lg:flex gap-2">
+        <ButtonPrimary label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+        <Button label="Subscribe to our Newsletter" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+    </div>
 </Base>
-
-<!-- <script>
-    window.addEventListener('load', () => {
-        const img = document.querySelector('img');
-        img.classList.remove('opacity-0');
-        img.classList.add('opacity-100');
-    });
-</script> -->

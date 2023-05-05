@@ -14,7 +14,6 @@ For most of Tlon's history, we have worked in quiet, without talking much about 
 
 I’ll be publishing posts like this on a variety of topics every week or two for the next few months here in Tlon Local. If you’ve got questions, don't hesitate to dm me (~ravmel-ropdyl)
 
-
 Tlon is not an ordinary software company. 
 
 Most of the cloud software we use—apps, social networks, and so on—are built with existing technology running on a server controlled and maintained by a company.

@@ -22,13 +22,15 @@ You can invite ANYONE. They do NOT need to be on the network or have an Urbit ID
 
 This 'How to' is in two parts:
 
-For hosts, Enable inviting
-For members, Invite your friends
+1. For hosts, Enable inviting
+2. For members, Invite your friends
+
 For all, Create a new group
+
 Ok. Let’s get into it.
 
 
-For Group Hosts, Enable Inviting - 
+#### For Group Hosts, Enable Inviting
 
 Invite links must be enabled by a group Host to surface an invite link that can be shared to those outside of the network. 
 
@@ -36,25 +38,27 @@ Inviting via Urbit ID (aka @p) is still enabled separately upon group creation a
 
 Note: Once the invite link is enabled, anyone in your group, whether it is public, private, or secret, can invite anyone to your group using the generated group invite link. It is a binary ON / OFF feature. We plan to create more granular controls in the future.
 
- Go to your group settings. 
+####  Go to your group settings. 
 
 A Diary image
+
 Select the ‘v’ in the left side bar by hovering over the group cover image. Then click on Members & Group Info to navigate to the group settings page.
 
- Select ‘Invite Link Enabled’ box
+####  Select ‘Invite Link Enabled’ box
 
 A Diary image
+
 Under ‘Set Privacy’ you’ll see a new section entitled ‘Invite someone from outside the Urbit network.’ Select the checkbox ‘Invite Link Enabled’
 
 A note on privacy: Once enabled, depending upon your group privacy settings, members or admins will be able to view and share the invite link. For a public group, members and admins alike will be able to view and share the invite link. For secret and private groups, only the admin will be able to view and issue invite links.
 
- Copy + Share. That’s it! You and your entire community can now invite people to your community.
+####  Copy + Share. That’s it! You and your entire community can now invite people to your community.
 
 A Diary image
 
 For members, Invite your friends -
 
- Click on the blue Invite People button in the left sidebar of the group you would like to invite your friend.
+####  Click on the blue Invite People button in the left sidebar of the group you would like to invite your friend.
 
 A Diary image
  Copy LinkFor any group that has inviting enabled, you will be able to share a custom group link to those not on the network OR invite using Urbit ID. Select copy.
@@ -73,5 +77,3 @@ A Diary image
 For all, Create a New Group - 
 
 Remember you don’t have to invite your knitting circle to Urmetica (although it's possible!) You can also create your own group. 
-
-Read more here:
