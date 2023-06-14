@@ -3,29 +3,28 @@ import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <header class="flex flex-col justify-center lg:text-center">
-        <section class="self-center">
-            <h1 class="
-                tracking-tighter
-                lg:max-w-4xl
-                text-2xl
-                font-medium
-                lg:text-6xl
-                leading-tight
-                lg:leading-tight
-                pt-2
-                lg:py-0
-            ">
-                You’ve reached Tlon’s website. <br> You can find us on Urbit. <br> Don’t worry, we made it easy.
-            </h1>
-            
-            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-            <Button label="Login" link="https://tlon.network/login" />
+    <header class="flex flex-col justify-center lg:text-left">
+        <section class="flex flex-col justify-center">
+            <article class="tracking-tight max-w-xl self-center">
+                <!-- <li>
+                    <ol class="py-1 text-lg">What is Landscape?</ol>
+                    <ol class="py-4 text-lg">Hosting Explained</ol>
+                    <ol class="py-4 text-lg">Who is Tlon?</ol>
+                </li> -->
+                <p class="py-4 text-lg">1. What is Landscape?</p>
+                <p class="py-4 text-lg">2. Hosting Explained</p>
+                <p class="py-4 text-lg">3. Who is Tlon?</p>
+                <br>
+                <p class="py-4 text-lg">Wish you were here <br> Wish you were on Urbit <br> Basking with us in the sun </p>
+                
+                <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+                <Button label="Login" link="https://tlon.network/login" />
+            </article>
         </section>
     </header>
 
     <img 
-        src="/over.jpg"
+        src="/collage.png"
         class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-lg lg:rounded-3xl opacity-0 transition-opacity duration-1000 ease-in-out"
     />
 
