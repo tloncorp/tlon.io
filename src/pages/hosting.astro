@@ -1,150 +1,79 @@
 ---
 import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <nav class="py-2 mx-auto mb-24 sticky top-0 bg-stone-800/90 backdrop-blur-lg">
-        <section class="flex justify-between max-w-xl mx-auto">
-            <svg 
-                viewBox="0 0 27 27" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                class="
-                    w-6 
-                    h-6 
-                    fill-stone-800
-                    dark:fill-stone-300 
-                " 
-            >
-                <path d="M23.1226 0.0785023L0.745891 2.43039C0.333947 2.47369 0.0350992 2.84274 0.0783963 3.25468L0.587973 8.10297C0.63127 8.51492 1.00032 8.81377 1.41226 8.77047L8.12528 8.0649C8.94917 7.97831 9.68726 8.576 9.77386 9.39989L10.1854 13.3158C10.2612 14.0367 9.73823 14.6826 9.01732 14.7583C8.29642 14.8341 7.65059 14.3111 7.57482 13.5902L7.28083 10.7931C7.23754 10.3812 6.86849 10.0823 6.45655 10.1256L1.60825 10.6352C1.19631 10.6785 0.897459 11.0475 0.940756 11.4595L2.35189 24.8855C2.43848 25.7094 3.17658 26.3071 4.00047 26.2205L24.8854 24.0254C25.7093 23.9388 26.307 23.2007 26.2204 22.3768L24.8093 8.9508C24.766 8.53886 24.3969 8.24001 23.985 8.28331L19.1367 8.79288C18.7248 8.83618 18.4259 9.20523 18.4692 9.61717L18.7632 12.4143C18.839 13.1352 18.316 13.781 17.5951 13.8568C16.8742 13.9325 16.2283 13.4096 16.1526 12.6887L15.741 8.77272C15.6544 7.94883 16.2521 7.21074 17.076 7.12415L23.789 6.41858C24.2009 6.37528 24.4998 6.00624 24.4565 5.59429L23.9469 0.745997C23.9036 0.334053 23.5346 0.0352051 23.1226 0.0785023Z"/>
-            </svg>
-
-            <div class="flex gap-2">
-                <a
-                    class="
-                    font-sans
-                    inline-block
-                    bg-stone-300
-                    text-stone-800  
-                    dark:bg-stone-800
-                    dark:text-stone-300 
-                    text-sm
-                    tracking-tight 
-                    py-1
-                    px-3
-                    rounded-[4px]
-                    "
-                    href="/"
-                    target="_blank">
-                        Sign In
-                </a>
-
-                <a
-                    class="
-                    font-sans
-                    inline-block
-                    bg-stone-800 
-                    text-white 
-                    dark:bg-stone-300 
-                    dark:text-stone-800 
-                    text-sm
-                    tracking-tight 
-                    py-1
-                    px-3
-                    rounded-[4px]
-                    "
-                    href="/"
-                    target="_blank">
-                        Get Started
-                </a>
-            </div>
-        </section>
-    </nav>
-    
-    <section class="flex justify-center">
-        <article class="tracking-tight max-w-xl self-center">
-        <p class="py-4 text-lg">Tlon Co. <br> Summer 2023</p>
-        <p class="py-4 text-lg">You’ve reached Tlon’s website. We’re off building the internet of tomorrow, and we’re not doing it alone.</p>
-        <p class="py-4 text-lg">Join us in Tlon Local, our little home on <a class="text-stone-400" href="/landscape">Landscape</a>, where people can connect using tools over which they have total ownership and control.</p>
-        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-        <!-- <Button label="Login" link="https://tlon.network/login" /> -->
-        </article>
-    </section>
+    <Nav />
 
     <!-- Hero Image -->
     <img 
-        src="/field.jpeg"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md opacity-0 transition-opacity duration-1000 ease-in-out"
+        src="https://d2w9rnfcy7mm78.cloudfront.net/21953423/original_4e0ceae4d26ddb17c91f04d9f1051418.jpg"
+        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md"
     />
-
-    <!-- Page Links --> 
-    <section class="tracking-tight flex flex-col justify-center max-w-xl mx-auto">
-        <p class="py-4 text-lg">Read more:</p>
-        <ol class="text-lg list-decimal mb-16">
-            <li>What is Landscape?</li>
-            <li>What is Tlon?</li>
-            <li>What is hosting?</li> 
-        </ol>
-
-        <svg 
-            viewBox="0 0 27 27" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-            class="
-                w-6 
-                h-6 
-                fill-stone-800
-                dark:fill-stone-300
-                mb-12
-            "
-        >
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8499 6C19.5068 6 20.8499 4.65685 20.8499 3C20.8499 1.34315 19.5068 0 17.8499 0C16.1931 0 14.8499 1.34315 14.8499 3C14.8499 4.65685 16.1931 6 17.8499 6ZM17.8499 24C19.5068 24 20.8499 22.6569 20.8499 21C20.8499 19.3431 19.5068 18 17.8499 18C16.1931 18 14.8499 19.3431 14.8499 21C14.8499 22.6569 16.1931 24 17.8499 24ZM25.7999 12C25.7999 13.6569 24.4568 15 22.7999 15C21.143 15 19.7999 13.6569 19.7999 12C19.7999 10.3431 21.143 9 22.7999 9C24.4568 9 25.7999 10.3431 25.7999 12ZM2.99977 15C4.65663 15 5.99978 13.6569 5.99978 12C5.99978 10.3431 4.65663 9 2.99977 9C1.34291 9 -0.000244141 10.3431 -0.000244141 12C-0.000244141 13.6569 1.34291 15 2.99977 15ZM10.9498 3C10.9498 4.65685 9.6066 6 7.94974 6C6.29288 6 4.94973 4.65685 4.94973 3C4.94973 1.34315 6.29288 0 7.94974 0C9.6066 0 10.9498 1.34315 10.9498 3ZM7.94974 24C9.6066 24 10.9498 22.6569 10.9498 21C10.9498 19.3431 9.6066 18 7.94974 18C6.29288 18 4.94973 19.3431 4.94973 21C4.94973 22.6569 6.29288 24 7.94974 24Z"/>
-        </svg>
-    </section>
 
     <!-- Editorial -->
     <section class="flex flex-col justify-center">
         <article class="tracking-tight max-w-xl self-center">
-            <p class="py-4 text-lg">Once upon a time, the internet inspired an exciting picture of things to come. Young and uncharted, it stirred our imaginations. The things we'd discover. The people we’d meet. The things we'd do.</p>
-            <p class="py-4 text-lg">Today, instead, we're burdened by notifications and reminders. We're wary of where our data's going and who's holding onto it. Instead of elevating our lives, the possibilities have exhausted us.</p>
-            <p class="py-4 text-lg">The pillars of the internet—social networks, e-commerce, search engines—might feel like permanent fixtures. Maybe they are. But that can’t be it.</p>
-            <p class="py-4 text-lg">Rather than a dead end, we see a fork in the road, at which we encounter another path forward. This path is bumpy at first, but soon the relief settles in. Calm is restored. A new world unfolds beyond the thick of yesterday's internet.</p>
+
+            <p class="pt-12 pb-4 text-2xl">What is Hosting? </p>
+            <p class="py-4 text-lg">You might have heard about “Tlon Hosting” or “hosting with Tlon” or a “Tlon-hosted ship”. </p>
+            <p class="py-4 text-lg">It’s a big part of what we offer, and a pretty major unlock for the Urbit network in the sense that it makes Urbit a lot easier for everyday use. </p>
+            <p class="py-4 text-lg">We can explain, in depth.</p>
+            <p class="py-4 text-lg">We're currently offering hosting for free.</p>
             
-            <!-- Editorial Image -->
-            <img 
-                src="/over.jpg"
-                class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md transition-opacity duration-1000 ease-in-out"
-            />
+            <Button label="Join Now for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+
+            <p class="py-4 text-lg">To connect one Urbit node with other Urbit nodes, they each have to be online, just like any computer. For example, if you send a text to your friend and their phone is off, that message waits in limbo on a server until their phone is turned back on. Similarly, if the recipient node of a message you send on Urbit is offline, your Urbit will retry sending until it is. There’s no middle server involved on Urbit, but like text, both nodes have to be online. </p>
+            <p class="py-4 text-lg">Hosting is our system for running Urbit nodes in the cloud. It allows us to run many thousands (and someday many millions) of Urbit nodes in an efficient, reliable and cost-effective way—enabling people to connect to the Urbit network with nodes we keep online for them 24/7/365.</p>
+            <p class="py-4 text-lg">Most apps and services don’t run individual nodes for people. Everyone is just a part of the same database, even if that database is split up in some fashion. Urbit Hosting, however, is more like running AWS, GCP or Digital Ocean. We’re running one node per person. It’s more like infrastructure than an app.</p>
+            <p class="py-4 text-lg">Think of hosting as a coat check of sorts. We’ll hold onto your coat (or Urbit node) while you mix and mingle on the dance floor (connect with other nodes on the network). You still own the coat, of course, and you’ll get it back when you’re done. You can always hang on to your own coat, too, but who wants to do that at the club?</p>
+           
+            <p class="pt-12 pb-4 text-2xl">Why Hosting?</p>
+            <p class="py-4 text-lg">Again, it doesn’t have to be Tlon that hosts your Urbit node. Anyone can build an independent Urbit Hosting service. </p>
+            <p class="py-4 text-lg">But, essentially, the self-hosted alternative means running your Urbit on your own device, whether that’s your laptop, your phone and so on. If you want your Urbit always online, your device has to be always online (and reachable over the network). What happens when you lose that device? Or it goes offline?</p>
+            <p class="py-4 text-lg">Is Urbit worth all that trouble? Our biased answer is yes. In fact, compared to other ‘personal server’ projects, Urbit is actually very easy to self-host. It’s a one line install and runs comfortably on any Digital Ocean, AWS or GCP (or similar) instance. You’ll just need to manually update your runtime every once and a while.</p>
+            <p class="py-4 text-lg">But could it be even easier? With a hosting service like ours, absolutely. It can be as easy as any conventional app or service, requiring no maintenance at all.</p>
+            <p class="py-4 text-lg">Our hosting system takes advantage of today’s cloud infrastructure, which delivers great uptime, reliability, speed, and redundancy. That makes it great for running an Urbit because you can connect to it from anywhere and can trust that it’s not going to disappear unexpectedly.</p>
+            <p class="py-4 text-lg">What’s more, Hosting can give your Urbit access to other cloud-based conveniences. For example, with Hosting your Urbit node is always on even if your laptop or mobile phone is off. That means it listens for incoming messages and can notify you when you are back online. </p>
+            <p class="py-4 text-lg">Lastly, Hosting by no means makes it inconvenient to self-host. First, we make it really easy to exit Tlon Hosting and start hosting for yourself. You’re never locked in. What is also unique about Urbit, is that hosted nodes can seamlessly interact with self-hosted nodes (and they regularly do). And when you move to self-hosting, you are connected to all your peers, just like when you were hosted–nothing changes.</p>
+           
+            <p class="pt-12 pb-4 text-2xl">Why is Tlon Corporation suited for the job?</p>
+            <p class="py-4 text-lg">Hosting is hard; for whoever’s working on it, that is. </p>
+            <p class="py-4 text-lg">Getting hundreds to thousands (to someday millions) of nodes to run reliably is no easy task. Nor is monitoring them and taking care of them. Nor is making them performant and easy to boot and onboard to. </p>
+            <p class="py-4 text-lg">Fortunately, Tlon lives for a technically complex undertaking. Our track record includes a decade plus getting Urbit off the ground, after all. </p>
+            <p class="py-4 text-lg">We know the network inside and out. We know how it lives and breathes. We bring that knowledge and experience into our approach to our Hosting services. Additionally, since anyone who hosts your Urbit will inevitably have access to it, you’re going to want to trust the hosting provider. We’d like to think that our commitment to ownership-focused technology signals we’re trustworthy when it comes to data. </p>
+            <p class="py-4 text-lg">We’ve also got the incentive. Hosting is an essential unlock for growing the Urbit network—that thing we worked so hard on. As significant owners of Urbit address space, our primary incentive is to make Urbit useful and to grow the network. In that sense, Hosting is a core part of our business. </p>
+            <p class="py-4 text-lg">Even more broadly, we think easy, affordable Urbit hosting isn’t just good for the Urbit network. It’s good for the world at large, since it would more easily grant everyday users ownership over their computing.</p>
+
+            <p class="pt-12 pb-4 text-2xl">What about my data? Does everything still belong to me?</p>
+            <p class="py-4 text-lg">Indeed!</p>
+            <p class="py-4 text-lg">We do our absolute best to ensure that everything still belongs to you, and that you can exit our hosting arrangement at any time, without even asking us. We’ll even give you the key (aka “master ticket”) to your Urbit ID, so you can keep that forever no matter what. </p>
+            <p class="py-4 text-lg">If you do decide to take your Urbit elsewhere or host it yourself, It’s quite easy to exit our hosting service, download your Urbit, and run it yourself. That’s one of the best things about Urbit. Other services give you a useless .zip file that you can’t run. We just give you the equivalent of a computer itself.</p>
+            <p class="py-4 text-lg">We should mention that when you’re hosted by Tlon, your node is running in our infrastructure. So, technically, if Tlon is somehow instantly vaporized then there’s some outside chance your data would be vapor too. In this regard, you could think of hosting like a storage unit. We promise to give you access to the stuff you put in the unit, and we can promise not to touch it, but if the building burns down then we’re all fucked.</p>
+            <p class="py-4 text-lg">One thing we’d like to do in the future is allow you to download backups of your Urbit so you can potentially use the convenience of Hosting with the assurance that you won’t lose your data even if Tlon Hosting is melted off the face of the Earth.</p>
+
+            <p class="pt-12 pb-4 text-2xl">Where’s the data stored, exactly? </p>
+            <p class="py-4 text-lg">Tlon Hosting is built on top of a Google Cloud Platform. Right now, it’s somewhere in the United States. </p> 
+            <p class="py-4 text-lg">Eventually, we expect to be able to let people specify which region they’d like their data to be in.</p> 
+
+            <p class="pt-12 pb-4 text-2xl">What if I already have an Urbit planet that I host on my own or with someone else? Can Tlon start to host that planet instead? How?</p>
+            <p class="py-4 text-lg">Not yet, but in the future, we’ll allow you to BYOU (Bring Your Own Urbit). You’ll be able to bring us a ship you’ve already booted or simply an Urbit’s network key. </p> 
             
-            <p class="py-4 text-lg">You receive a message. There's a purity to it that you can't quite place. You can almost pluck it right off your screen. It's as alive as a whisper spoken from one friend to another, as they part ways at a train station. It's as authentic as a love letter. As personal as an apology. As material as a family recipe passed down through generations.</p>
-            <p class="py-4 text-lg">Because there's no one—besides yourself and the sender—storing the message on your behalf. There's no one acting as a middle man between the transaction. It belongs only to the two of you. It always will.</p>
-            <p class="py-4 text-lg">A meetup invitation lives solely amongst a group, binding them closer. A journal entry stays entirely with you. A developer named Andrey's latest bookkeeping app ships directly to someone named Savannah, whose bookkeeping stays safely with her.</p>
-            <p class="py-4 text-lg">The difference appears small on paper. But it's everything. The internet had gotten between our most important moments. Our most private and precious interactions. Now, it recedes beneath us, enabling a truly person-to-person network, where we build with our own tools, on our own platforms, for people we call our community.</p>
-            <p class="py-4 text-lg">This is the internet we've dreamed of—both before we knew what was possible and after we knew what was at stake.</p>
-            <p class="py-4 text-lg">It's possible on Urbit. And we have Landscape to prove it.</p>
-            <p class="py-4 text-lg italic">Originally published in Tlon Local, our growing community on the Urbit network.</p>
-            <p class="py-4 text-lg italic">Join the Conversation.</p>
+            <p class="pt-12 pb-4 text-2xl">What happens if I want to stop hosting my Urbit ship with Tlon? What happens to the data my Urbit ship has accrued while hosting with Tlon? </p>
+            <p class="py-4 text-lg">When you’re done hosting with us you just click a button, we send you your Urbit packaged with all your data, and you can start hosting yourself immediately. It’s very simple. Ease of exit is an essential feature of any Urbit hosting service.</p> 
+
+            <p class="pt-12 pb-4 text-2xl">Why wasn’t the internet built this way to begin with? </p>
+            <p class="py-4 text-lg">The internet as it exists was basically an accident. It’s kind of a piecemeal ‘ball of mud’ made from gluing lots of complicated parts together over 30 years or so. It was never designed and engineered around what people want from networked computers. </p> 
+            <p class="py-4 text-lg">But to be fair, 30 years ago we didn’t know what people wanted from networked computers. We didn’t know what the technology should look like, because we didn’t know what we’d do with them. We weren’t even sure if they’d make it past the turn of the century.</p> 
+            <p class="py-4 text-lg">Now that networked computers are everywhere in every part of our lives, we have a much better idea of what people want and how to design things. Why’s it taking so long to correct? Well, first you have to build an entirely new infrastructure (like Urbit) and then you have to build a toolkit on top of that infrastructure (like Landscape) and then a system for staying connected to all of that (like Hosting). </p> 
+            <p class="py-4 text-lg">Presently, giant companies are the gatekeepers on how we compute and store our data. From our perspective, it’s clear that how you marshal your personal compute and manage your personal data is an essential question moving forward. </p> 
+            <p class="py-4 text-lg">In an Urbit future, you’re in charge. Urbit makes it possible. Hosting will get us there a little faster. </p> 
 
             <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-
-            <!-- Photo Vibe Grid -->
-            <section class="grid grid-cols-2 gap-4 mb-8">
-                <img src="/over.jpg" class="w-screen rounded-md "/>
-                <img src="/over.jpg" class="w-screen rounded-md "/>
-                <img src="/over.jpg" class="w-screen rounded-md"/>
-                <img src="/over.jpg" class="w-screen rounded-md"/>
-            </section>
 
             <p class="pt-4 text-lg text-stone-400"><a href="/terms">Terms of Service</a></p>
             <p class="text-lg text-stone-400"><a href="/privacy">Privacy Policy</a></p>
         </article>
     </section>
 </Base>
-
-<script>
-    window.addEventListener('load', () => {
-      const img = document.querySelector('img');
-      img.classList.remove('opacity-0');
-      img.classList.add('opacity-100');
-    });
-</script>
