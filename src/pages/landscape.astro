@@ -1,16 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <Nav />
-
     <!-- Hero Image -->
-    <img 
-        src="/landscape.png"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md drop-shadow-2xl"
-    />
+    <section class="flex justify-center px-6 lg:px-32">
+        <img 
+            src="/landscape.png"
+            class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md drop-shadow-2xl"
+        />
+    </section>
 
     <!-- Editorial -->
     <section class="flex flex-col justify-center">
@@ -49,9 +48,6 @@ import Button from '../components/Button.astro';
             <p class="py-4">We encourage you to play around.</p>
 
             <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-
-            <p class="pt-4 text-stone-400"><a href="/terms">Terms of Service</a></p>
-            <p class="text-stone-400"><a href="/privacy">Privacy Policy</a></p>
         </article>
     </section>
 </Base>

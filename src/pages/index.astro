@@ -1,10 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <Nav />
     
     <section class="flex justify-center">
         <article class="tracking-tight max-w-xl self-center">
@@ -16,10 +14,12 @@ import Button from '../components/Button.astro';
     </section>
 
     <!-- Hero Image -->
-    <img 
-        src="/silly.png"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md opacity-0 transition-opacity duration-1000 ease-in-out"
-    />
+    <section class="flex justify-center px-6 lg:px-32">
+        <img 
+            src="/silly.png"
+            class="mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md opacity-0 transition-opacity duration-1000 ease-in-out"
+        />
+    </section>
 
     <!-- Page Links --> 
     <section class="tracking-tight flex flex-col justify-center max-w-xl mx-auto">
@@ -79,9 +79,6 @@ import Button from '../components/Button.astro';
                 <img src="/straw.jpg" class="w-screen rounded-md"/>
                 <img src="/straw.jpg" class="w-screen rounded-md"/>
             </section>
-
-            <p class="pt-4 text-stone-400"><a href="/terms">Terms of Service</a></p>
-            <p class="text-stone-400"><a href="/privacy">Privacy Policy</a></p>
         </article>
     </section>
 </Base>

@@ -1,16 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <Nav />
-
     <!-- Hero Image -->
-    <img 
-        src="/collage.jpeg"
-        class="w-screen dark:mix-blend-screen dark:invert mt-6 mb-6 lg:mt-18 lg:mb-12"
-    />
+    <section class="flex justify-center px-6 lg:px-32">
+        <img 
+            src="/collage.jpeg"
+            class="w-screen dark:mix-blend-screen dark:invert mt-6 mb-6 lg:mt-18 lg:mb-12"
+        />
+    </section>
 
     <!-- Editorial -->
     <section class="flex flex-col justify-center">
@@ -42,9 +41,6 @@ import Button from '../components/Button.astro';
             <p class="py-4">Once again, it's now super easy and totally free to join Urbit via Tlon Local.</p>
 
             <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-
-            <p class="pt-4 text-stone-400"><a href="/terms">Terms of Service</a></p>
-            <p class="text-stone-400"><a href="/privacy">Privacy Policy</a></p>
         </article>
     </section>
 </Base>

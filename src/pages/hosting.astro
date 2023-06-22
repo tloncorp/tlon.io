@@ -1,16 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <Nav />
 
     <!-- Hero Image -->
-    <img 
-        src="https://d2w9rnfcy7mm78.cloudfront.net/21953423/original_4e0ceae4d26ddb17c91f04d9f1051418.jpg"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md"
-    />
+    <section class="flex justify-center px-6 lg:px-32">
+        <img 
+            src="https://d2w9rnfcy7mm78.cloudfront.net/21953423/original_4e0ceae4d26ddb17c91f04d9f1051418.jpg"
+            class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md dark:mix-blend-screen dark:invert"
+        />
+    </section>
 
     <!-- Editorial -->
     <section class="flex flex-col justify-center">
@@ -71,9 +71,6 @@ import Button from '../components/Button.astro';
             <p class="py-4">In an Urbit future, you’re in charge. Urbit makes it possible. Hosting will get us there a little faster. </p> 
 
             <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-
-            <p class="pt-4 text-stone-400"><a href="/terms">Terms of Service</a></p>
-            <p class="text-stone-400"><a href="/privacy">Privacy Policy</a></p>
         </article>
     </section>
 </Base>
