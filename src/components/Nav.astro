@@ -5,35 +5,59 @@ import TBlock from '../components/TBlock.astro';
     col-span-full 
     z-50
 
-    grid grid-cols-12 gap-4 grid-flow-col
+    grid 
+    grid-cols-12 
+    gap-4 
+    grid-flow-col
 
     sticky 
     top-0
-    mt-24
+    mt-36
+    mb-28
 
     py-4
 
-    dark:bg-stone-800/[.78] 
+    dark:bg-black/[.78] 
     bg-white/[.78] 
     backdrop-blur-2xl
 ">
-    <a href="/" class="col-start-3 col-span-1">
-        <TBlock />
-    </a>
+    <div class="col-start-4 col-span-1 h-6 w-6 hover:rotate-[-12deg] transform-gpu transition-all">
+        <a href="/" class="inline-block"><TBlock /></a>
+    </div>
 
-    <a class="
-        col-start-9 col-span-1
-        bg-blue-500 
-        h-6
+    <div class="flex flex-row justify-end gap-2 col-start-7 col-span-3">
+        
+        <a href="https://tlon.network/login"
+        class="
+        bg-neutral-200
+        text-black
+        
+        text-sm
+        font-medium
+
+        rounded
+        py-1 px-4
     ">
         Sign In
-        </a>
+    </a>
 
-    <div class="
-        col-start-10 col-span-1
-        bg-green-500 
-        h-6
+    <a href="https://tlon.network/lure/~nibset-napwyn/tlon"
+        class="
+        bg-black
+        text-white
+        
+        text-sm
+        font-medium
+        
+        rounded
+        py-1 px-4
     ">
         Get Started
-    </div> 
+    </a> 
+
+    </div>
+
+    
+
+
 </nav>
