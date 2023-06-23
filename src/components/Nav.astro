@@ -1,61 +1,39 @@
 ---
-
+import TBlock from '../components/TBlock.astro';
 ---
-<nav class="py-3 mx-auto max-w-full mb-24 lg:mt-28 z-50 sticky top-0 dark:bg-stone-800/[.78] bg-white/[.78] backdrop-blur-2xl px-6">
-    <section class="flex justify-between max-w-xl mx-auto">
-        <a href="/">
-            <svg 
-                viewBox="0 0 25 25"
-                class="
-                    fill-stone-800
-                    dark:fill-stone-300 
-                    rotate-[-6deg]
-                    w-6 h-6
-                "
-            >
-                <path d="M23.8032 0.553284H1.30322C0.889009 0.553284 0.553223 0.88907 0.553223 1.30328V6.17828C0.553223 6.5925 0.889009 6.92828 1.30322 6.92828H8.05322C8.88165 6.92828 9.55322 7.59986 9.55322 8.42828V12.3658C9.55322 13.0907 8.9656 13.6783 8.24072 13.6783C7.51585 13.6783 6.92822 13.0907 6.92822 12.3658V9.55328C6.92822 9.13907 6.59244 8.80328 6.17822 8.80328H1.30322C0.889009 8.80328 0.553223 9.13907 0.553223 9.55328V23.0533C0.553223 23.8817 1.2248 24.5533 2.05322 24.5533H23.0532C23.8816 24.5533 24.5532 23.8817 24.5532 23.0533V9.55328C24.5532 9.13907 24.2174 8.80328 23.8032 8.80328H18.9282C18.514 8.80328 18.1782 9.13907 18.1782 9.55328V12.3658C18.1782 13.0907 17.5906 13.6783 16.8657 13.6783C16.1408 13.6783 15.5532 13.0907 15.5532 12.3658V8.42828C15.5532 7.59986 16.2248 6.92828 17.0532 6.92828H23.8032C24.2174 6.92828 24.5532 6.5925 24.5532 6.17828V1.30328C24.5532 0.88907 24.2174 0.553284 23.8032 0.553284Z"/>
-            </svg>
-                
+<nav class="
+    col-span-full 
+    z-50
+
+    grid grid-cols-12 gap-4 grid-flow-col
+
+    sticky 
+    top-0
+    mt-24
+
+    py-4
+
+    dark:bg-stone-800/[.78] 
+    bg-white/[.78] 
+    backdrop-blur-2xl
+">
+    <a href="/" class="col-start-3 col-span-1">
+        <TBlock />
+    </a>
+
+    <a class="
+        col-start-9 col-span-1
+        bg-blue-500 
+        h-6
+    ">
+        Sign In
         </a>
 
-        <div class="flex gap-2">
-            <a
-                class="
-                font-sans
-                inline-block
-                bg-stone-300
-                text-stone-800  
-                dark:bg-stone-700
-                dark:text-stone-300 
-                text-sm
-                tracking-tight 
-                rounded-[4px]
-                py-1
-                px-3
-                "
-                href="/"
-                target="_blank">
-                    Sign In
-            </a>
-
-            <a
-                class="
-                font-sans
-                inline-block
-                bg-stone-800 
-                text-white  
-                dark:bg-stone-300 
-                dark:text-stone-800 
-                text-sm
-                tracking-tight 
-                rounded-[4px]  
-                py-1
-                px-3
-                "
-                href="/"
-                target="_blank">
-                    Get Started
-            </a>
-        </div>
-    </section>
+    <div class="
+        col-start-10 col-span-1
+        bg-green-500 
+        h-6
+    ">
+        Get Started
+    </div> 
 </nav>

@@ -4,58 +4,36 @@ import Button from '../components/Button.astro';
 import PageNav from '../components/PageNav.astro';
 ---
 <Base>
-    
-    <section class="flex justify-center px-6 lg:px-32">
-        <article class="tracking-tight max-w-xl">
-        <p class="py-4">Tlon Co. <br> Summer 2023</p>
-        <p class="py-4">You’ve reached Tlon’s website. We’re off building the internet of tomorrow, and we’re not doing it alone.</p>
-        <p class="py-4">Join us in Tlon Local, our little home on <a class="text-stone-400" href="/landscape">Landscape</a>, where people can connect using tools over which they have total ownership and control.</p>
-        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-        </article>
-    </section>
+    <main class="col-start-0 col-span-12 grid grid-flow-row">
 
-    <!-- Hero Image -->
-    <section class="flex justify-center px-6 lg:px-32">
+        <section class="col-start-4 col-end-6">
+            <p class="py-4">Tlon Co. <br> Summer 2023</p>
+            <p class="py-4">You’ve reached Tlon’s website. </p> 
+            <p>We’re off building the internet of tomorrow, <br> and we’re not doing it alone.</p>
+            <p class="py-4">Join us in Tlon Local, our little home on <a class="text-stone-400" href="/landscape">Landscape</a>, where people can connect using tools over which they have total ownership and control.</p>
+            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+        </section>
+
         <img 
-            src="/silly.png"
-            class="mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md opacity-0 transition-opacity duration-1000 ease-in-out"
+            src="/field.jpg"
+            class="col-start-3 col-span-6 rounded-md"
         />
-    </section>
-    
-    <section class="flex flex-col justify-center px-6">
-        <article class="tracking-tight">
-            <PageNav />
-        </article>
-    </section>
 
-    <!-- Editorial -->
-    <section class="flex flex-col justify-center px-6 lg:px-32">
-        <article class="tracking-tight max-w-xl self-center">
-            <svg 
-                viewBox="0 0 27 27" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                class="
-                    w-6 
-                    h-6 
-                    fill-stone-800
-                    dark:fill-stone-300
-                    mb-12
-                "
-            >
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8499 6C19.5068 6 20.8499 4.65685 20.8499 3C20.8499 1.34315 19.5068 0 17.8499 0C16.1931 0 14.8499 1.34315 14.8499 3C14.8499 4.65685 16.1931 6 17.8499 6ZM17.8499 24C19.5068 24 20.8499 22.6569 20.8499 21C20.8499 19.3431 19.5068 18 17.8499 18C16.1931 18 14.8499 19.3431 14.8499 21C14.8499 22.6569 16.1931 24 17.8499 24ZM25.7999 12C25.7999 13.6569 24.4568 15 22.7999 15C21.143 15 19.7999 13.6569 19.7999 12C19.7999 10.3431 21.143 9 22.7999 9C24.4568 9 25.7999 10.3431 25.7999 12ZM2.99977 15C4.65663 15 5.99978 13.6569 5.99978 12C5.99978 10.3431 4.65663 9 2.99977 9C1.34291 9 -0.000244141 10.3431 -0.000244141 12C-0.000244141 13.6569 1.34291 15 2.99977 15ZM10.9498 3C10.9498 4.65685 9.6066 6 7.94974 6C6.29288 6 4.94973 4.65685 4.94973 3C4.94973 1.34315 6.29288 0 7.94974 0C9.6066 0 10.9498 1.34315 10.9498 3ZM7.94974 24C9.6066 24 10.9498 22.6569 10.9498 21C10.9498 19.3431 9.6066 18 7.94974 18C6.29288 18 4.94973 19.3431 4.94973 21C4.94973 22.6569 6.29288 24 7.94974 24Z"/>
-            </svg>
-            <p class="py-4">Once upon a time, the internet inspired an exciting picture of things to come. Young and uncharted, it stirred our imaginations. The things we'd discover. The people we’d meet. The things we'd do.</p>
-            <p class="py-4">Today, instead, we're burdened by notifications and reminders. We're wary of where our data's going and who's holding onto it. Instead of elevating our lives, the possibilities have exhausted us.</p>
-            <p class="py-4">The pillars of the internet—social networks, e-commerce, search engines—might feel like permanent fixtures. Maybe they are. But that can’t be it.</p>
-            <p class="py-4">Rather than a dead end, we see a fork in the road, at which we encounter another path forward. This path is bumpy at first, but soon the relief settles in. Calm is restored. A new world unfolds beyond the thick of yesterday's internet.</p>
-            
-            <!-- Editorial Image -->
-            <img 
-                src="/straw.jpg"
-                class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-md transition-opacity duration-1000 ease-in-out"
-            />
-            
+        <!-- <PageNav /> -->
+
+        <section class="col-start-3 col-span-4">
+            <p>Once upon a time, the internet inspired an exciting picture of things to come. Young and uncharted, it stirred our imaginations. The things we'd discover. The people we’d meet. The things we'd do.</p>
+            <p>Today, instead, we're burdened by notifications and reminders. We're wary of where our data's going and who's holding onto it. Instead of elevating our lives, the possibilities have exhausted us.</p>
+            <p>The pillars of the internet—social networks, e-commerce, search engines—might feel like permanent fixtures. Maybe they are. But that can’t be it.</p>
+            <p>Rather than a dead end, we see a fork in the road, at which we encounter another path forward. This path is bumpy at first, but soon the relief settles in. Calm is restored. A new world unfolds beyond the thick of yesterday's internet.</p>
+        </section>
+
+        <img 
+            src="/strawberries.jpg"
+            class="col-start-3 col-span-4 rounded-md"
+        />
+        
+        <section class="col-start-3 col-span-4">
             <p class="py-4">You receive a message. There's a purity to it that you can't quite place. You can almost pluck it right off your screen. It's as alive as a whisper spoken from one friend to another, as they part ways at a train station. It's as authentic as a love letter. As personal as an apology. As material as a family recipe passed down through generations.</p>
             <p class="py-4">Because there's no one—besides yourself and the sender—storing the message on your behalf. There's no one acting as a middle man between the transaction. It belongs only to the two of you. It always will.</p>
             <p class="py-4">A meetup invitation lives solely amongst a group, binding them closer. A journal entry stays entirely with you. A developer named Andrey's latest bookkeeping app ships directly to someone named Savannah, whose bookkeeping stays safely with her.</p>
@@ -64,14 +42,12 @@ import PageNav from '../components/PageNav.astro';
             <p class="py-4">It's possible on Urbit. And we have Landscape to prove it.</p>
             <p class="py-4 italic">Originally published in Tlon Local, our growing community on the Urbit network.</p>
             <p class="py-4 italic">Join the Conversation.</p>
-
             <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+        </section>
 
-            <PageNav />
-        </article>
-    </section>
+        <!-- <PageNav /> -->
 
-    
+    </main>
 </Base>
 
 <script>
