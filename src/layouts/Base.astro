@@ -79,3 +79,26 @@ import Footer from '../components/Footer.astro';
     })
   }
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // get the navbar and the first element on the page
+        let navbar = document.querySelector('#navbar');
+        let firstElement = document.querySelector('section');
+    
+        // create an Intersection Observer instance
+        let observer = new IntersectionObserver(function(entries) {
+        // if the first element is not intersecting (i.e., it's covered by the navbar)
+        if(!entries[0].isIntersecting) {
+            // add the border-b class to the navbar
+            navbar.classList.add('border-b');
+        } else {
+            // remove the border-b class from the navbar
+            navbar.classList.remove('border-b');
+        }
+        }, { threshold: 1 });  // 10% of the first element is visible
+    
+        // start observing the first element
+        observer.observe(firstElement);
+    });
+</script>

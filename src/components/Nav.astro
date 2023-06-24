@@ -1,9 +1,9 @@
 ---
 import TBlock from '../components/TBlock.astro';
 ---
-<nav class="
+<header id="navbar" class="
     will-change-scroll
-    col-span-full 
+    col-span-full
     z-50
 
     grid 
@@ -18,12 +18,13 @@ import TBlock from '../components/TBlock.astro';
 
     py-4
 
-    dark:bg-black/[.78] 
-    bg-white/[.78] 
-    backdrop-blur-2xl
+    dark:bg-black
+    bg-white
+
+    border-b-neutral-200
 ">
     <!-- T-BLOCK LOGO -->
-    <div class="
+    <nav class="
         col-start-2
         col-span-1
         lg:col-start-4 
@@ -35,7 +36,7 @@ import TBlock from '../components/TBlock.astro';
         transition-all
     ">
         <a href="/" class="inline-block"><TBlock /></a>
-    </div>
+    </nav>
 
     <!-- CONTROLS -->
     <div class="
@@ -76,4 +77,15 @@ import TBlock from '../components/TBlock.astro';
             Get Started
         </a> 
     </div>
-</nav>
+    <!-- Had an idea for a narrower bottom border application — doesn't work with larger images -->
+    <!-- <div id="whatever" 
+        class="
+            border-b 
+            border-b-neutral-200
+            col-start-2
+            col-end-12
+            lg:col-start-4
+            lg:col-end-10
+            h-0
+    "></div> -->
+</header>
