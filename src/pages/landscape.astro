@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import Button from '../components/Button.astro';
+import PostNav from '../components/PostNav.astro';
 ---
 <Base>
     <section class="
@@ -20,7 +20,7 @@ import Button from '../components/Button.astro';
             col-start-2 
             col-end-12 
             rounded
-            lg:rounded-2xl
+            lg:rounded-xl
             lg:border
             border-[.5px]
             border-zinc-300 
@@ -69,7 +69,7 @@ import Button from '../components/Button.astro';
         <p class="py-4">We approached Landscape’s functionality and design with the utmost simplicity. We believe people should be able to shape the environment they use to stay connected. Not Tlon or any other company. We simply set the scene with a few core primitives to get you started.</p>
         <p class="py-4">Built on Urbit, it provides the freedom to mold these utilities on an individual basis, ensuring the platform will complement our personal needs and withstand change well into the future.</p>
         <p class="py-4">Groups is our flagship app for communities of all shapes and sizes, needs and interests. You can build a space composed of channels with varying functionalities and permissions. Right now those functionalities include Talk for discussion, Notebook for writing, and Gallery for multimedia archiving. It’s like wrapping Discord, Medium and Tumblr into one clean and simple interface with a single login.</p>
-        <p class="py-4">There are a lot of ways to use this. It could serve as a team communication tool connecting members of various roles. It could be a publishing platform for an individual looking to reach an audience in a more social way. Or it could be a place for updates between a group of friends.</p>
+        <p class="py-4">There are a lot of ways to use this. It could serve as a team communication tool connecting members of <a href="https://twitter.com/tloncorporation/status/1668684969483411456?s=20">various roles</a>. It could be a publishing platform for an individual looking to reach an audience in a more social way. Or it could be a place for updates between a group of friends.</p>
         <p class="py-4">Talk is our standalone communication app. In Talk—as well as its mobile counterpart Small Talk—you’ll find direct messages alongside all your Group discussions. It’s simple in its functionality, but shows off app interoperability really nicely. Only care about the chat functionality of Landscape? Just use Talk to cut through the rest and view all your conversations from across the network in one place.</p>
         <p class="py-4">Notebooks and Galleries are our next standalone apps, and we’ve got a few more up our sleeve after that.</p>
         
@@ -101,7 +101,7 @@ import Button from '../components/Button.astro';
         <p class="py-4">Not only are apps easy to extend on Landscape. They’re easy to ship and scale. That’s because Landscape isn’t just a collection of apps. It’s a distribution system for apps.</p>
         <p class="py-4">The coolest, most freeing thing about this app distribution system? Because each user on Landscape runs their own software and custodies their own data, developers get to skip the hurdle of how to keep their apps running, where to store that data and what to do with it. Instead, they get to jump right into the meat of the app.</p>
         <p class="py-4">Typically when building an app, a developer has a ton of upfront costs. They’ve got to decide what stack to use and set it up. They’ve got to build a system for authentication. They’ve got to decide how they’re going to handle user details, store data and process data. They’ve got to decide how they’re going to keep it online.</p>
-        <p class="py-4">And that’s just to get it started. If the app blows up, their server bills are going to get really expensive. Developers are used to this, and it’s why you might see so many people raising money before they even start to build. It’s also why you see some developers sell off their apps as soon as they gain momentum (see Wordle). Packy unpacks this nicely here.</p>
+        <p class="py-4">And that’s just to get it started. If the app blows up, their server bills are going to get really expensive. Developers are used to this, and it’s why you might see so many people raising money before they even start to build. It’s also why you see some developers sell off their apps as soon as they gain momentum (see Wordle). Packy unpacks this nicely <a href="https://www.notboring.co/p/small-applications-growing-protocols">here</a>.</p>
         <p class="py-4">On Landscape, you don’t deal with authentication because everyone has a single login for everything. They’re logged in before they even install your app. Neither do you have to store user data because each user stores their own data. You just write the core of the app, save it to Urbit’s file system, and wait for your friends to download it from that location. No upfront costs but your time—and we aim to consume as little of that as possible.</p>
         <p class="py-4">This means that Landscape is a place where a whole universe of small apps can take off without the pressure to monetize, grow and force some hockey stick-shaped graph. Landscape apps can just be useful, fun and productive.</p>
         <p class="py-4">Eventually, they should also make money, and just as easily as they take to build. We haven’t gotten to payments quite yet—but we look forward to developers being directly compensated for building things. No app store, no problem. When everyone has an Urbit ID it’s easy to build a reputation system for app devs.</p>
@@ -132,17 +132,5 @@ import Button from '../components/Button.astro';
         <p class="py-4">Tlon Local is a living, breathing example of that. We encourage you to join and play around.</p>
     </section>
 
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-    ">
-        <p class="pt-4 pb-8">Learn more:</p>
-        <ol class="">
-            <a href="/landscape"><li class="bg-neutral-100 mb-2 py-4 px-6 rounded-md">What is Landscape?</li></a>
-            <a href="/tlon"><li class="bg-neutral-100 mb-2 py-4 px-6 rounded-md">Who is Tlon?</li></a>
-            <a href="/hosting"><li class="bg-neutral-100 mb-2 py-4 px-6 rounded-md">What is hosting?</li></a>
-        </ol>
-    </section>
+    <PostNav/>
 </Base>
