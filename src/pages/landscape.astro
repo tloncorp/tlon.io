@@ -3,7 +3,12 @@ import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <section class="col-start-4 col-end-10">
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+    ">
         <p class="py-4">Meet Landscape, a suite of digital basics made for tomorrow's internet—where you own what you build and can build from the heart.</p>
         <p class="py-4">Open-source and interoperable, applications play together seamlessly, making it easy to customize and build on… today, tomorrow and whatever comes after that.</p> 
         <p class="py-4">No frills. No noise. No distractions. Built to trust. Built to last. Because it’s built on Urbit.</p>
@@ -11,10 +16,27 @@ import Button from '../components/Button.astro';
 
     <img 
         src="/landscape.png"
-        class="col-start-2 col-end-12 rounded-2xl border border-zinc-300 shadow-2xl shadow-zinc-200 dark:opacity-80 dark:shadow-none my-4"
-    />
+        class="
+            col-start-2 
+            col-end-12 
+            rounded
+            lg:rounded-2xl
+            lg:border
+            border-[.5px]
+            border-zinc-300 
+            shadow-2xl 
+            shadow-zinc-200 
+            dark:opacity-80 
+            dark:shadow-none 
+            my-4
+        "/>
 
-    <section class="col-start-4 col-end-10">
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+    ">
         <h2 class="pt-4 italic font-semibold">Landscape Today</h2>
         <p class="pb-4 text-sm">Originally published in <a class="text-neutral-400" href="https://tlon.network/lure/~nibset-napwyn/tlon">Tlon Local</a>.<p/>
 
@@ -58,7 +80,12 @@ import Button from '../components/Button.astro';
         <p class="py-4">Tlon Local is a living, breathing example of that. We encourage you to join and play around.</p>
     </section>
 
-    <section class="col-start-4 col-end-10">
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+    ">
         <p class="pt-4 pb-8">Learn more:</p>
         <ol class="">
             <a href="/landscape"><li class="bg-neutral-100 mb-2 py-4 px-6 rounded-md">What is Landscape?</li></a>
@@ -67,8 +94,16 @@ import Button from '../components/Button.astro';
         </ol>
     </section>
 
-    <section class="col-start-4 col-end-10 mt-28 mb-36">
-        <a href=/privacy""><p class="text-neutral-400 py-4">Privacy Policy</p></a>
-        <a href="/terms"><p class="text-neutral-400 py-4">Terms & Conditions</p></a> 
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+        mb-10
+        lg:mt-28 
+        lg:mb-36
+    ">
+        <a href="/privacy"><p class="text-neutral-400 pb-2 lg:py-4">Privacy Policy</p></a>
+        <a href="/terms"><p class="text-neutral-400 lg:py-4">Terms & Conditions</p></a> 
     </section>
 </Base>

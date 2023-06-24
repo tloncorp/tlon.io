@@ -3,7 +3,12 @@ import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
 ---
 <Base>
-    <section class="col-start-4 col-end-10">
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+    ">
         <p class="py-4">Tlon is not an ordinary software company.</p>
     </section>
 
@@ -12,7 +17,12 @@ import Button from '../components/Button.astro';
         class="col-start-2 col-end-12 my-4"
     />
 
-    <section class="col-start-4 col-end-10">
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+    ">
         <p class="py-4">Most of the cloud software we use—apps, social networks, and so on—are built with existing technology running on a server controlled and maintained by a company.</p>
         <p class="py-4">Tlon builds cloud software, but we do it completely differently.</p>
         <p class="py-4">During the 2007 iPhone launch, Steve Jobs quoted Alan Kay: “People who are really serious about software should make their own hardware.”</p>
@@ -35,7 +45,12 @@ import Button from '../components/Button.astro';
         <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
     </section>
 
-    <section class="col-start-4 col-end-10">
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+    ">
         <p class="pt-4 pb-8">Learn more:</p>
         <ol class="">
             <a href="/landscape"><li class="bg-neutral-100 mb-2 py-4 px-6 rounded-md">What is Landscape?</li></a>
@@ -44,8 +59,16 @@ import Button from '../components/Button.astro';
         </ol>
     </section>
 
-    <section class="col-start-4 col-end-10 mt-28 mb-36">
-        <a href=/privacy""><p class="text-neutral-400 py-4">Privacy Policy</p></a>
-        <a href="/terms"><p class="text-neutral-400 py-4">Terms & Conditions</p></a> 
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+        mb-10
+        lg:mt-28 
+        lg:mb-36
+    ">
+        <a href="/privacy"><p class="text-neutral-400 pb-2 lg:py-4">Privacy Policy</p></a>
+        <a href="/terms"><p class="text-neutral-400 lg:py-4">Terms & Conditions</p></a> 
     </section>
 </Base>
