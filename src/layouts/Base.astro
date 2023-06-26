@@ -85,23 +85,25 @@ import Footer from '../components/Footer.astro';
 	const firstElement = document.querySelector("section");
 	const nav = document.querySelector("#navbar");
 
-	// add a scroll event listener
-	document.addEventListener("scroll", () => {
+	// callback function for scroll and touchmove event listeners
+	const handleScrollAndTouchMove = () => {
 		// measure the scroll-sensitive bottom of the nav (includes margin)
 		const navHeight = nav?.getBoundingClientRect().bottom;
 		// get the top of the first element
 		const position = firstElement?.getBoundingClientRect().top;
 
 		// if the top of the first element is above the nav, add a border
-		position &&
-			navHeight &&
-			position < navHeight &&
+		if (position && navHeight && position < navHeight) {
 			nav.classList.add("border-b");
+		}
 
 		// if the top of the first element is below the nav, remove the border
-		position &&
-			navHeight &&
-			position > navHeight &&
+		if (position && navHeight && position > navHeight) {
 			nav.classList.remove("border-b");
-	});
+		}
+	};
+
+	// add scroll and touchmove event listeners
+	document.addEventListener("scroll", handleScrollAndTouchMove);
+	document.addEventListener("touchmove", handleScrollAndTouchMove);
 </script>
