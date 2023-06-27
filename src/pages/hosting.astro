@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Button from '../components/Button.astro';
 import PostNav from '../components/PostNav.astro';
 ---
 <Base>
@@ -11,9 +12,9 @@ import PostNav from '../components/PostNav.astro';
         2xl:col-start-5
         2xl:col-end-9
     ">
-        <p class="py-4">You might have heard about “Tlon Hosting” or “hosting with Tlon” or a “Tlon-hosted ship”.</p>
-        <p class="py-4">It’s a big part of what we offer, and a pretty major unlock for the Urbit network in the sense that it makes Urbit a lot easier for everyday use.</p> 
-        <p class="py-4">We can explain, in depth.</p>
+        <p class="py-4">You might have heard about “Tlon hosting” or a “Tlon-hosted ship”.</p>
+        <p class="py-4">Hosting is a big part of what we offer, and a pretty major unlock for the Urbit network in the sense that it makes Urbit a lot easier for everyday use.</p> 
+        <p class="py-4">We can explain, in depth, below.</p>
     </section>
 
     <img 
@@ -34,11 +35,9 @@ import PostNav from '../components/PostNav.astro';
             <a href="#1"><li class="py-2">What is Hosting?</li></a>
             <a href="#2"><li class="py-2">Why Hosting?</li>  </a>
             <a href="#3"><li class="py-2">Why is Tlon suited for the job?</li></a>
-            <a href="#4"><li class="py-2">What about my data?</li></a>
+            <a href="#4"><li class="py-2">What about my data? Does it still belong to me when I host with Tlon? What about when I leave?</li></a>
             <a href="#5"><li class="py-2">Where’s the data stored, exactly?</li></a>
-            <a href="#6"><li class="py-2">What if I already have an Urbit planet that I host on my own or with someone else? Can Tlon start to host that planet instead? How?</li></a>
-            <a href="#7"><li class="py-2">What happens if I want to stop hosting my Urbit with Tlon?</li></a>
-            <a href="#8"><li class="py-2">Why wasn’t the internet built this way to begin with?</li></a>
+            <a href="#6"><li class="py-2">Why wasn’t the internet built this way to begin with?</li></a>
         </ol>
     </section>
 
@@ -53,27 +52,22 @@ import PostNav from '../components/PostNav.astro';
         <h2 id="1" class="py-4 italic font-semibold">What is Hosting?</h2>
         <p class="py-4">To connect one Urbit node with other Urbit nodes, they each have to be online, just like any computer. For example, if you send a text to your friend and their phone is off, that message waits in limbo on a server until their phone is turned back on. Similarly, if the recipient node of a message you send on Urbit is offline, your Urbit will retry sending until it is. There’s no middle server involved on Urbit, but like text, both nodes have to be online.</p>
         <p class="py-4">Hosting is our system for running Urbit nodes in the cloud. It allows us to run many thousands (and someday many millions) of Urbit nodes in an efficient, reliable and cost-effective way—enabling people to connect to the Urbit network with nodes we keep online for them 24/7/365.</p>
-        <p class="py-4">Most apps and services don’t run individual nodes for people. Everyone is just a part of the same database, even if that database is split up in some fashion. Urbit Hosting, however, is more like running AWS, GCP or Digital Ocean. We’re running one node per person. It’s more like infrastructure than an app.</p>
         <p class="py-4">Think of hosting as a coat check of sorts. We’ll hold onto your coat (or Urbit node) while you mix and mingle on the dance floor (connect with other nodes on the network). You still own the coat, of course, and you’ll get it back when you’re done. You can always hang on to your own coat, too, but who wants to do that at the club?</p>
 
         <h2 id="2" class="py-4 italic font-semibold">Why Hosting?</h2>
-        <p class="py-4">Again, it doesn’t have to be Tlon that hosts your Urbit node. Anyone can build an independent Urbit Hosting service.</p>
-        <p class="py-4">But, essentially, the self-hosted alternative means running your Urbit on your own device, whether that’s your laptop, your phone and so on. If you want your Urbit always online, your device has to be always online (and reachable over the network). What happens when you lose that device? Or it goes offline?</p>
-        <p class="py-4">Is Urbit worth all that trouble? Our biased answer is yes. In fact, compared to other ‘personal server’ projects, Urbit is actually very easy to self-host. It’s a one line install and runs comfortably on any Digital Ocean, AWS or GCP (or similar) instance. You’ll just need to manually update your runtime every once and a while.</p>
-        <p class="py-4">But could it be even easier? With a hosting service like ours, absolutely. It can be as easy as any conventional app or service, requiring no maintenance at all.</p>
+        <p class="py-4">First let’s look at the self-hosted alternative. It would mean running your Urbit on your own device, whether that’s your laptop, your phone and so on. If you want your Urbit always online, your device has to be always online (and reachable over the network). What happens when you lose that device? Or it goes offline?</p>
+        <p class="py-4">Hosting with Tlon means we handle all of that for you. It makes Urbit as easy as any conventional app or service, requiring no maintenance at all.</p>
         <p class="py-4">Our hosting system takes advantage of today’s cloud infrastructure, which delivers great uptime, reliability, speed, and redundancy. That makes it great for running an Urbit because you can connect to it from anywhere and can trust that it’s not going to disappear unexpectedly.</p>
         <p class="py-4">What’s more, Hosting can give your Urbit access to other cloud-based conveniences. For example, with Hosting your Urbit node is always on even if your laptop or mobile phone is off. That means it listens for incoming messages and can notify you when you are back online.</p>
-        <p class="py-4">Lastly, Hosting by no means makes it inconvenient to self-host. First, we make it really easy to exit Tlon Hosting and start hosting for yourself. You’re never locked in. What is also unique about Urbit, is that hosted nodes can seamlessly interact with self-hosted nodes (and they regularly do). And when you move to self-hosting, you are connected to all your peers, just like when you were hosted–nothing changes.</p>
 
-        <h2 id="3" class="py-4 italic font-semibold">Why is Tlon suited for the job?</h2>
-        <p class="py-4">Hosting is hard; for whoever’s working on it, that is.</p>
+        <h2 id="3" class="py-4 italic font-semibold">Why is Tlon Corporation suited for the job?</h2>
         <p class="py-4">Getting hundreds to thousands (to someday millions) of nodes to run reliably is no easy task. Nor is monitoring them and taking care of them. Nor is making them performant and easy to boot and onboard to.</p>
         <p class="py-4">Fortunately, Tlon lives for a technically complex undertaking. Our track record includes a decade plus getting Urbit off the ground, after all.</p>
         <p class="py-4">We know the network inside and out. We know how it lives and breathes. We bring that knowledge and experience into our approach to our Hosting services. Additionally, since anyone who hosts your Urbit will inevitably have access to it, you’re going to want to trust the hosting provider. We’d like to think that our commitment to ownership-focused technology signals we’re trustworthy when it comes to data.</p>
         <p class="py-4">We’ve also got the incentive. Hosting is an essential unlock for growing the Urbit network—that thing we worked so hard on. As significant owners of Urbit address space, our primary incentive is to make Urbit useful and to grow the network. In that sense, Hosting is a core part of our business.</p>
         <p class="py-4">Even more broadly, we think easy, affordable Urbit hosting isn’t just good for the Urbit network. It’s good for the world at large, since it would more easily grant everyday users ownership over their computing.</p>
 
-        <h2 id="4" class="py-4 italic font-semibold">What about my data? Does everything still belong to me?</h2>
+        <h2 id="4" class="py-4 italic font-semibold">What about my data? Does everything still belong to me? Even if I stop hosting my Urbit ship with Tlon?</h2>
         <p class="py-4">Indeed!</p>
         <p class="py-4">We do our absolute best to ensure that everything still belongs to you, and that you can exit our hosting arrangement at any time, without even asking us. We’ll even give you the key (aka “master ticket”) to your Urbit ID, so you can keep that forever no matter what.</p>
         <p class="py-4">If you do decide to take your Urbit elsewhere or host it yourself, It’s quite easy to exit our hosting service, download your Urbit, and run it yourself. That’s one of the best things about Urbit. Other services give you a useless .zip file that you can’t run. We just give you the equivalent of a computer itself.</p>
@@ -81,21 +75,17 @@ import PostNav from '../components/PostNav.astro';
         <p class="py-4">One thing we’d like to do in the future is allow you to download backups of your Urbit so you can potentially use the convenience of Hosting with the assurance that you won’t lose your data even if Tlon Hosting is melted off the face of the Earth.</p>
 
         <h2 id="5" class="py-4 italic font-semibold">Where’s the data stored, exactly?</h2>
-        <p class="py-4">Tlon Hosting is built on top of a Google Cloud Platform. Right now, it’s somewhere in the United States. </p>
+        <p class="py-4">Tlon Hosting is built on top of a Google Cloud Platform, somewhere in the United States.</p>
         <p class="py-4">Eventually, we expect to be able to let people specify which region they’d like their data to be in.</p>
 
-        <h2 id="6" class="py-4 italic font-semibold">What if I already have an Urbit planet that I host on my own or with someone else? Can Tlon start to host that planet instead? How?</h2>
-        <p class="py-4">Not yet, but in the future, we’ll allow you to BYOU (Bring Your Own Urbit). You’ll be able to bring us a ship you’ve already booted or simply an Urbit’s network key.</p>
-
-        <h2 id="7" class="py-4 italic font-semibold">What happens if I want to stop hosting my Urbit ship with Tlon? What happens to the data my Urbit ship has accrued while hosting with Tlon?</h2>
-        <p class="py-4">When you’re done hosting with us you just click a button, we send you your Urbit packaged with all your data, and you can start hosting yourself immediately. It’s very simple. Ease of exit is an essential feature of any Urbit hosting service.</p>
-
-        <h2 id="8" class="py-4 italic font-semibold">Why wasn’t the internet built this way to begin with?</h2>
+        <h2 id="6" class="py-4 italic font-semibold">Why wasn’t the internet built this way to begin with?</h2>
         <p class="py-4">The internet as it exists was basically an accident. It’s kind of a piecemeal ‘ball of mud’ made from gluing lots of complicated parts together over 30 years or so. It was never designed and engineered around what people want from networked computers.</p>
         <p class="py-4">But to be fair, 30 years ago we didn’t know what people wanted from networked computers. We didn’t know what the technology should look like, because we didn’t know what we’d do with them. We weren’t even sure if they’d make it past the turn of the century.</p>
         <p class="py-4">Now that networked computers are everywhere in every part of our lives, we have a much better idea of what people want and how to design things. Why’s it taking so long to correct? Well, first you have to build an entirely new infrastructure (like Urbit) and then you have to build a toolkit on top of that infrastructure (like Landscape) and then a system for staying connected to all of that (like Hosting).</p>
         <p class="py-4">Presently, giant companies are the gatekeepers on how we compute and store our data. From our perspective, it’s clear that how you marshal your personal compute and manage your personal data is an essential question moving forward.</p>
         <p class="py-4">In an Urbit future, you’re in charge. Urbit makes it possible. Hosting will get us there a little faster.</p>
+        <p class="py-4 font-semibold">We’re now offering hosting for free.</p>
+        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon"/>
     </section>
     <PostNav/>
 </Base>
