@@ -1,5 +1,6 @@
 ---
 import TBlock from '../components/TBlock.astro';
+import NavButton from './NavButton.astro';
 ---
 <header id="navbar" class="
     will-change-scroll
@@ -74,21 +75,7 @@ import TBlock from '../components/TBlock.astro';
             Sign in
         </a>
 
-        <a href="https://tlon.network/lure/~nibset-napwyn/tlon"
-            class="
-            bg-black
-            dark:bg-white
-            text-white
-            dark:text-black
-            
-            text-sm
-            font-medium
-            
-            rounded
-            py-1 px-4
-        ">
-            Get started
-        </a> 
+        <NavButton label="Get started" href="https://tlon.network/lure/~nibset-napwyn/tlon" />
     </nav>
     <!-- Had an idea for a narrower bottom border application — doesn't work with larger images -->
     <!-- <div id="whatever" 

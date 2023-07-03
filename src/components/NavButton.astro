@@ -1,0 +1,41 @@
+---
+const { label, link } = Astro.props;
+---
+
+<astro-nav-button>
+  <a
+    class="
+      bg-black
+      dark:bg-white
+      text-white
+      dark:text-black
+
+      text-sm
+      font-medium
+
+      rounded
+      py-1 px-4
+      "
+      href={link}
+      target="_blank">
+    {label}
+  </a>
+</astro-nav-button>
+
+<script>
+  import posthog from 'posthog-js';
+
+  class AstroNavButton extends HTMLElement {
+    constructor() {
+      super();
+      if(posthog.__loaded && posthog.get_distinct_id()) {
+        const button = this.querySelector('a');
+        if(button) {
+          button.href = `${button.href}?id=${posthog.get_distinct_id()}`;
+        }
+      }
+    }
+  }
+
+  customElements.define('astro-nav-button', AstroNavButton);
+</script>
