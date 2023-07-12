@@ -1,56 +1,67 @@
 ---
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
+import PostNav from '../components/PostNav.astro';
 ---
 <Base>
-    <header class="flex flex-col justify-center lg:text-center">
-        <section class="self-center">
-            <h1 class="
-                tracking-tighter
-                lg:max-w-4xl
-                text-2xl
-                font-medium
-                lg:text-6xl
-                leading-tight
-                lg:leading-tight
-                pt-2
-                lg:py-0
-            ">
-                You’ve reached Tlon’s website. <br> You can find us on Urbit. <br> Don’t worry, we made it easy.
-            </h1>
-            
-            <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-            <Button label="Login" link="https://tlon.network/login" />
-        </section>
-    </header>
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+        2xl:col-start-5
+        2xl:col-end-9
+    ">
+        <p class="py-4">Tlon <br> Summer 2023</p>
+        <p class="py-4">You’ve reached Tlon’s website. </p> 
+        <p>We’re off building the internet <br> of tomorrow, on <a class="underline decoration-[1.5px] underline-offset-[3px] decoration-neutral-400" href="https://urbit.org">Urbit</a>,<br> and we’re not doing it alone.</p>
+        <p class="py-4">Join us in Tlon Local, our little home on <a class="underline decoration-[1.5px] underline-offset-[3px] decoration-neutral-400" href="/landscape">Landscape</a>, where people can connect using tools over which they have total ownership and control.</p>
+        <Button label="Get started for free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
+    </section>
 
     <img 
-        src="/over.jpg"
-        class="w-screen mt-6 mb-6 lg:mt-18 lg:mb-12 rounded-lg lg:rounded-3xl opacity-0 transition-opacity duration-1000 ease-in-out"
-    />
+        src="/field.jpeg"
+        class="
+            col-start-2
+            col-end-12
+            lg:col-start-3 
+            lg:col-end-11 
+            2xl:col-start-3
+            2xl:col-end-11
+            rounded
+    "/>
 
-    <section class="flex flex-col justify-center">
-        <article class="tracking-tight max-w-xl self-center">
-        <p class="py-4 text-lg">We’re packing up this site and going all in on Urbit.</p>
-        <p class="py-4 text-lg">Why are we sold on it? We used it to build Landscape, an Urbit-native suite of apps for staying connected to our friends, family and colleagues. We use it on a daily basis. It’s clean and simple, intimate and inspiring.</p>
-        <p class="py-4 text-lg">Sure, there are hundreds of ways to communicate and collaborate online. This is the only one that’s entirely yours to own, customize and hold onto forever. </p>
-        <p class="py-4 text-lg">If you want to try it out or get in touch, join us on the Urbit network. It’s easier to join and use than ever before.</p>
-        <p class="py-4 text-lg">See you on the network,</p>
-        <p class="py-4 text-lg">Galen <inline class="text-stone-400">~ravmel-ropdyl</inline></p>
+    <PostNav/>
 
-        <Button label="Get Started for Free" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
-        <Button label="Login" link="https://tlon.network/login" />
+    <section class="
+        col-start-2
+        col-end-12
+        lg:col-start-4
+        lg:col-end-10
+        2xl:col-start-5
+        2xl:col-end-9
+    ">
+        <h2 class="pt-4 font-semibold">A note from the other side:</h2>
+        <p class="py-4">Once upon a time, the internet inspired an exciting picture of things to come. Young and uncharted, it stirred our imaginations. The things we'd discover. The people we’d meet. The things we'd do.</p>
+        <p class="py-4">Today, instead, we're burdened by notifications and reminders. We're wary of where our data's going and who's holding onto it. Instead of elevating our lives, the possibilities have exhausted us.</p>
+        <p class="py-4">The pillars of the internet—social networks, e-commerce, search engines—might feel like permanent fixtures. Maybe they are. But that can’t be it.</p>
+        <p class="py-4">Rather than a dead end, we see a fork in the road, at which we encounter another path forward. This path is bumpy at first (and still being paved) but soon the relief settles in. Calm is restored. A new world unfolds beyond the thick of yesterday's internet.</p>
+    
+        <img 
+            src="/redgirl2.jpeg"
+            class="
+            rounded
+            my-6
+        "/>
 
-        <p class="pt-4 text-lg text-stone-400"><a href="/terms">Terms of Service</a></p>
-        <p class="text-lg text-stone-400"><a href="/privacy">Privacy Policy</a></p>
-        </article>
+        <p class="py-4">You receive a message. There's a purity to it that you can't quite place. You can almost pluck it right off your screen. It's as alive as a whisper spoken from one friend to another, as they part ways at a train station. It's as authentic as a love letter. As personal as an apology. As material as a family recipe passed down through generations.</p>
+        <p class="py-4">Because there's no one—besides yourself and the sender—storing the message on your behalf. There's no one acting as a middle man between the transaction. It belongs only to the two of you. It always will.</p>
+        <p class="py-4">A meetup invitation lives solely amongst a group, binding them closer. A journal entry stays entirely with you. A developer named Andrey's latest bookkeeping app ships directly to someone named Savannah, whose bookkeeping stays safely with her.</p>
+        <p class="py-4">The difference appears small on paper. But it's everything. The internet got between our most important moments. Our most private and precious interactions. Now, it recedes beneath us, enabling a truly person-to-person network, where we build with our own tools, on our own platforms, for people we call our community.</p>
+        <p class="py-4">This is the internet we've dreamed of—both before we knew what was possible and after we knew what was at stake.</p>
+        <p class="py-4">It's possible on Urbit. And we have Landscape to prove it.</p>
+        <p class="py-4 italic">Originally published in <a class="underline decoration-[1.5px] underline-offset-[3px] decoration-neutral-400" href="https://tlon.network/lure/~nibset-napwyn/tlon">Tlon Local</a>, our growing community on the <a class="underline decoration-[1.5px] underline-offset-[3px] decoration-neutral-400" target="_blank" href="https://urbit.org/">Urbit</a> network.</p>
+        <p class="py-4">Getting started is now free and easy. You can also <a class="underline decoration-[1.5px] underline-offset-[3px] decoration-neutral-400" href="https://tlon.us14.list-manage.com/subscribe?u=f9f52f752b920bad5e8b46282&id=6d15c14b9a">subscribe to our newsletter</a>.</p>
+        <Button label="Join the community" link="https://tlon.network/lure/~nibset-napwyn/tlon" />
     </section>
 </Base>
-
-<script>
-    window.addEventListener('load', () => {
-      const img = document.querySelector('img');
-      img.classList.remove('opacity-0');
-      img.classList.add('opacity-100');
-    });
-  </script>

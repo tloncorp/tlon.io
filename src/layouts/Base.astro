@@ -1,3 +1,7 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -29,40 +33,37 @@
 		<meta name="twitter:image" 			content="https://d2w9rnfcy7mm78.cloudfront.net/20991844/original_05337a7edcadf2b018a2c4d14d4a3139.png">
 	</head>
 	<body class="
-		p-8 
-		lg:p-32
-		text-xl
-		antialiased 
-		text-stone-800 
-		dark:bg-stone-800 
-		dark:text-stone-300
+		grid
+		grid-cols-12
+		gap-4
+		
+		text-md
+		lg:text-xl
+		antialiased
+
+		dark:bg-neutral-900
+		dark:text-white
 	">
-		<slot/>
+		<Nav/>
+			<slot/>
+		<Footer/>
 	</body>
 </html>
 
 <style>
-  @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter-Regular.woff2') format('woff2');
-    font-style:  normal;
-    font-weight: 400;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Inter var';
-    src: url('/fonts/Inter-roman.var.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    font-named-instance: 'Regular';
-  }
-
-	:root { font-family: 'Inter', sans-serif; }
-	@supports (font-variation-settings: normal) {
-	  :root { font-family: 'Inter var', sans-serif; }
+	@font-face {
+	  font-family: 'Diatype Mono Variable';
+	  src: url('/fonts/ABCDiatypeMonoVariable.woff2') format('woff2');
+	  font-style: normal;
+	  font-weight: 333;
+	  font-display: swap;
+	  font-named-instance: 'Regular';
 	}
+  
+	  :root { font-family: 'Diatype Mono Variable', monospace; }
+	  @supports (font-variation-settings: normal) {
+		:root { font-family: 'Diatype Mono Variable', monospace; }
+	  }
 </style>
 
 <script>
@@ -78,4 +79,32 @@
       api_host:'https://eu.posthog.com',
     })
   }
+</script>
+
+<script>
+	// identify our elements
+	const firstElement = document.querySelector("section");
+	const nav = document.querySelector("#navbar");
+
+	// callback function for scroll and touchmove event listeners
+	const handleScrollAndTouchMove = () => {
+		// measure the scroll-sensitive bottom of the nav (includes margin)
+		const navHeight = nav?.getBoundingClientRect().bottom;
+		// get the top of the first element
+		const position = firstElement?.getBoundingClientRect().top;
+
+		// if the top of the first element is above the nav, add a border
+		if (position && navHeight && position < navHeight) {
+			nav.classList.add("border-b");
+		}
+
+		// if the top of the first element is below the nav, remove the border
+		if (position && navHeight && position > navHeight) {
+			nav.classList.remove("border-b");
+		}
+	};
+
+	// add scroll and touchmove event listeners
+	document.addEventListener("scroll", handleScrollAndTouchMove);
+	document.addEventListener("touchmove", handleScrollAndTouchMove);
 </script>
