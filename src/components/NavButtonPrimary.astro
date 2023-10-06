@@ -3,8 +3,8 @@ const { label, link } = Astro.props;
 ---
 
 <astro-nav-button
-class="bg-black dark:bg-white dark:bg-opacity-10 text-white text-sm font-medium rounded px-4 flex items-center">
-  <a href={link}>
+class="bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded px-4 flex items-center">
+  <a href={link} target="_blank">
     {label}
   </a>
 </astro-nav-button>
