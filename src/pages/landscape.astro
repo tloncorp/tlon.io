@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Button from '../components/Button.astro';
-import PostNav from '../components/PostNav.astro';
 import Author from '../components/Author.astro';
+import DownloadApps from '../components/DownloadApps.astro'
 ---
 <Base>
     <section class="
@@ -16,7 +16,7 @@ import Author from '../components/Author.astro';
         <p class="py-4">Meet Landscape, a suite of digital basics made for tomorrow's internet—where you own what you build and can build from the heart.</p>
         <p class="py-4">No frills. No noise. No distractions.</p>
         <p class="py-4">Built to trust. Built to last. Because it’s built on <a class="underline decoration-[1.5px] underline-offset-[3px] decoration-neutral-400" target="_blank" href="https://urbit.org/">Urbit</a>.</p>
-        <Button label="Get started for free" link="https://tlon.network/lure/~loshut-lonreg/tlon" />
+        <DownloadApps />
     </section>
 
     <!-- <img 
@@ -115,6 +115,7 @@ import Author from '../components/Author.astro';
         class="
             my-6
         "/>
+        <section class="flex justify-center"><DownloadApps /></section>
     </section>
     
     <section class="
@@ -171,7 +172,6 @@ import Author from '../components/Author.astro';
         <p class="py-4">All with the peace of mind that none of it will ever be taken from you. Even in the scenario that Tlon ceases to exist, you’ll still have Landscape and the things you created with it. It’s designed to outlive the company that built it, as durable as a thousand year old hammer and chisel.</p>
         <p class="py-4">In a world where cloud software is so unconstrained and truly peer to peer, you and your community are the center of the experience—not the software itself.</p>
         <p class="py-4">Tlon Local is a living, breathing example of just that—where we collectively explore the question: what does digital homesteading mean to you? We encourage you to join and play around.</p>
-        <Button label="Get started for free" link="https://tlon.network/lure/~loshut-lonreg/tlon"/>
+        <DownloadApps />
     </section>
-    <PostNav/>
 </Base>
