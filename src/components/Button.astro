@@ -5,18 +5,19 @@ const { label, link } = Astro.props;
 <astro-button>
   <a
     class="
+      invisible
+      lg:visible
       inline-block
       bg-stone-800 
       text-white 
       dark:bg-stone-300 
       dark:text-stone-800 
-      text-lg 
+      text-base
       tracking-tight 
-      py-3 
+      py-2
       px-6
-      my-6
-      lg:my-12
-      rounded-lg
+      my-0
+      rounded
       "
       href={link}
       target="_blank">
