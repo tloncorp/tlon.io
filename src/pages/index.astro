@@ -35,14 +35,20 @@ import DownloadApps from '../components/DownloadApps.astro';
     <!-- App Features -->
     <section class="
         grid
-        grid-cols-3
+        grid-cols-1
+        grid-rows-1
+        lg:grid-cols-3
+        lg:grid-rows-2
         gap-8
         col-start-2
         col-end-12
         lg:col-start-3
         lg:col-end-11
+        font-sans
+        text-base
+        font-medium
     ">
-        <section class="bg-neutral-50 rounded-xl px-8 py-5">
+        <section class="bg-neutral-50 rounded-xl px-8 py-5 row-span-2">
         <p class="py-4">Communities your way</p>
         <p class="py-4">Whether you’re a team, a publication, or a group of friends, Tlon provides a few simple basics that communities can shape into something unique to their needs.</p>
         <p class="py-4">The internet is intimate again. </p>
