@@ -3,6 +3,8 @@ import Base from '../layouts/Base.astro';
 import DownloadApps from '../components/DownloadApps.astro';
 import AppFeature1 from '../components/AppFeature1.astro';
 import AppFeature2 from '../components/AppFeature2.astro';
+import AppFeature3 from '../components/AppFeature3.astro';
+import Hero from '../components/Hero.astro';
 ---
 <Base>
     <!-- Hero Text -->
@@ -22,21 +24,22 @@ import AppFeature2 from '../components/AppFeature2.astro';
 
     <!-- Hero Image -->
     <img 
-        src="/hand.png"
+        src="/features/hand-dark.png"
         class="
-            dark:mix-blend-screen
-            dark:invert
+            py-12
+
             col-start-2
             col-end-12
-            lg:col-start-3 
-            lg:col-end-11 
+            lg:col-start-4 
+            lg:col-end-10
             2xl:col-start-1
             2xl:col-end-13
     "/>
     
     <!-- App Features -->
-    <AppFeature1/>
+    <!-- <AppFeature1/> -->
     <!-- <AppFeature2/> -->
+    <AppFeature3/>
 
         <!-- Editorial Outro -->
 
@@ -44,8 +47,8 @@ import AppFeature2 from '../components/AppFeature2.astro';
     <section class="
         col-start-2
         col-end-12
-        lg:col-start-4
-        lg:col-end-10
+        lg:col-start-3
+        lg:col-end-11
         2xl:col-start-3
         2xl:col-end-11
     ">
