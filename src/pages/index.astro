@@ -15,17 +15,33 @@ import Hero from '../components/Hero.astro';
         lg:col-end-10
         2xl:col-start-4
         2xl:col-end-10
+        font-sans
     ">
-        <p class="py-4">Peer-to-peer collaboration <br> for communities of all <br> shapes and sizes.</p>
-        <p class="py-4">Tlon is built to trust. <br> Built to last. <br> Because it's built on Urbit.</p>
-        <!-- <Button label="Get started for free" link="https://tlon.network/lure/~loshut-lonreg/tlon" /> -->
+        <h1 class="py-2 text-5xl font-light">Peer-to-peer collaboration <br> for communities of all <br> shapes and sizes.</h1>
+        <h2 class="py-4 text-lg tracking-normal dark:text-white dark:text-opacity-60">Tlon is built to trust. <br> Built to last. <br> Because it's built on Urbit.</h2>
         <DownloadApps/>
     </section>
 
     <!-- Hero Image -->
     <img 
-        src="/features2/HERO.png"
+        src="/features2/HERO-LIGHT.png"
         class="
+            dark:hidden
+            mt-2
+            mb-10
+            lg:my-32
+            
+            col-start-2
+            col-end-12
+            lg:col-start-4 
+            lg:col-end-10
+            2xl:col-start-3
+            2xl:col-end-11
+    "/>
+    <img 
+        src="/features2/HERO-DARK.png"
+        class="
+            light:hidden
             mt-2
             mb-10
             lg:my-32
@@ -43,30 +59,30 @@ import Hero from '../components/Hero.astro';
     <AppFeature2/>
     <!-- <AppFeature3/> -->
 
-        <!-- Editorial Outro -->
+    <!-- Editorial Outro -->
 
-        <!-- Editorial Video -->
+    <!-- Editorial Video -->
     <section class="
         col-start-2
         col-end-12
-        lg:col-start-3
-        lg:col-end-11
-        2xl:col-start-3
+        lg:col-start-4
+        lg:col-end-10
+        2xl:col-start-4
         2xl:col-end-11
     ">
-        <!-- <iframe 
+        <h2 class="pt-32 pb-8 font-regular text-4xl lg:text-4xl 2xl:text-5xl font-sans">A note from the other side:</h2> 
+        <iframe 
             class="
                 w-full 
                 aspect-video
                 rounded-md
-                my-6
             " 
             src="https://www.youtube.com/embed/OhJfmfhw0Go?si=iph69ptKRcJk5uOA"
             title="Tlon Promo Video" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen
         >
-        </iframe> -->
+        </iframe>
     </section>
 
     <section class="
@@ -76,9 +92,13 @@ import Hero from '../components/Hero.astro';
         lg:col-end-10
         2xl:col-start-4
         2xl:col-end-10
+        prose:text-lg
+        font-sans
+        tracking-wide
+        font-light
+        max-w-prose
     ">
         <!-- Editorial Text -->
-        <h2 class="pt-4 font-semibold">A note from the other side:</h2>
         <p class="py-4">You receive a message. There's a purity to it that you can't quite place. You can almost pluck it right off your screen. It's as alive as a whisper spoken from one friend to another, as they part ways at a train station. It's as authentic as a love letter. As personal as an apology. As material as a family recipe passed down through generations.</p>
         <p class="py-4">Because there's no one—besides yourself and the sender—storing the message on your behalf. There's no one acting as a middle man between the transaction. It belongs only to the two of you. It always will.</p>
         <p class="py-4">A meetup invitation lives solely amongst a group, binding them closer. A journal entry stays entirely with you. A developer named Andrey's latest bookkeeping app ships directly to someone named Savannah, whose bookkeeping stays safely with her.</p>
