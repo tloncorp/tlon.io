@@ -17,8 +17,8 @@ import Hero from '../components/Hero.astro';
         2xl:col-end-10
         font-sans
     ">
-        <h1 class="py-2 text-5xl font-light">Peer-to-peer collaboration <br> for communities of all <br> shapes and sizes.</h1>
-        <h2 class="py-4 text-lg tracking-normal dark:text-white dark:text-opacity-60">Tlon is built to trust. <br> Built to last. <br> Because it's built on Urbit.</h2>
+        <h1 class="py-2 text-2xl lg:text-5xl font-light">Peer-to-peer collaboration <br> for communities of all <br> shapes and sizes.</h1>
+        <h2 class="py-4 text-md lg:text-lg tracking-normal text-black text-opacity-60 dark:text-white dark:text-opacity-60">Tlon is built to trust. <br> Built to last. <br> Because it's built on Urbit.</h2>
         <DownloadApps/>
     </section>
 
@@ -41,7 +41,8 @@ import Hero from '../components/Hero.astro';
     <img 
         src="/features2/HERO-DARK.png"
         class="
-            light:hidden
+            hidden
+            dark:block
             mt-2
             mb-10
             lg:my-24
@@ -67,9 +68,10 @@ import Hero from '../components/Hero.astro';
         lg:col-start-4
         lg:col-end-10
         2xl:col-start-4
-        2xl:col-end-11
+        2xl:col-end-10
+        mt-20
     ">
-        <h2 class="pt-32 pb-8 font-regular text-4xl lg:text-4xl 2xl:text-5xl font-sans">A note from the other side:</h2> 
+        <!-- <h2 class="pt-32 pb-8 font-regular text-4xl lg:text-4xl 2xl:text-5xl font-sans">A note from the other side:</h2>  -->
         <iframe 
             class="
                 w-full 
@@ -82,28 +84,6 @@ import Hero from '../components/Hero.astro';
             allowfullscreen
         >
         </iframe>
-    </section>
-
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-4
-        2xl:col-end-10
-        prose:text-lg
-        font-sans
-        tracking-wide
-        font-light
-        max-w-prose
-    ">
-        <!-- Editorial Text -->
-        <p class="py-4">You receive a message. There's a purity to it that you can't quite place. You can almost pluck it right off your screen. It's as alive as a whisper spoken from one friend to another, as they part ways at a train station. It's as authentic as a love letter. As personal as an apology. As material as a family recipe passed down through generations.</p>
-        <p class="py-4">Because there's no one—besides yourself and the sender—storing the message on your behalf. There's no one acting as a middle man between the transaction. It belongs only to the two of you. It always will.</p>
-        <p class="py-4">A meetup invitation lives solely amongst a group, binding them closer. A journal entry stays entirely with you. A developer named Andrey's latest bookkeeping app ships directly to someone named Savannah, whose bookkeeping stays safely with her.</p>
-        <p class="py-4">The difference appears small on paper. But it's everything. The internet had gotten between our most important moments. Our most private and precious interactions. Now, it recedes beneath us, enabling a truly person-to-person network, where we build with our own tools, on our own platforms, for people we call our community.</p>
-        <p class="py-4">This is the internet we've dreamed of—both before we knew what was possible and after we knew what was at stake.</p>
-        <p class="py-4">It's possible on Urbit. And Tlon is your point of entry.</p>
-        <DownloadApps/>
+        <p class="py-4 text-sans">Caption text. Watch the video.</p>
     </section>
 </Base>
