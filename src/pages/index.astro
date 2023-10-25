@@ -1,88 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import Column from '../components/Column.astro';
 import DownloadApps from '../components/DownloadApps.astro';
-import AppFeature1 from '../components/AppFeature1.astro';
-import AppFeature2 from '../components/AppFeature2.astro';
-import AppFeature3 from '../components/AppFeature3.astro';
+import HeroImage from '../components/HeroImage.astro';
+import AppFeatures from '../components/AppFeatures.astro';
 ---
 <Base>
-    <!-- Hero Text -->
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-4
-        2xl:col-end-10
-        font-sans
-    ">
+    <Column>
         <h1 class="py-2 text-2xl lg:text-5xl 2xl:text-7xl font-light">Peer-to-peer collaboration <br> for communities of all <br> shapes and sizes.</h1>
         <h2 class="py-4 text-md lg:text-lg 2xl:text-2xl tracking-normal text-black text-opacity-60 dark:text-white dark:text-opacity-60">Tlon is built to trust. <br> Built to last. <br> Because it's built on Urbit.</h2>
         <DownloadApps/>
-    </section>
-
-    <!-- Hero Image -->
-    <img 
-        src="/features2/HERO-LIGHT.png"
-        class="
-            dark:hidden
-            mt-2
-            mb-10
-            lg:my-24
-            
-            col-start-2
-            col-end-12
-            lg:col-start-4 
-            lg:col-end-10
-            2xl:col-start-3
-            2xl:col-end-11
-    "/>
-    <img 
-        src="/features2/HERO-DARK.png"
-        class="
-            hidden
-            dark:block
-            mt-2
-            mb-10
-            lg:my-24
-            
-            col-start-2
-            col-end-12
-            lg:col-start-4 
-            lg:col-end-10
-            2xl:col-start-3
-            2xl:col-end-11
-    "/>
-    
-    <!-- App Features -->
-
-    <!-- <AppFeature1/> -->
-    <AppFeature2/>
-    <!-- <AppFeature3/> -->
-
-    <!-- Editorial Video -->
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-4
-        2xl:col-end-10
-        mt-20
-    ">
-        <!-- <h2 class="pt-32 pb-8 font-regular text-4xl lg:text-4xl 2xl:text-5xl font-sans">A note from the other side:</h2>  -->
-        <iframe 
-            class="
-                w-full 
-                aspect-video
-                rounded-md
-            " 
-            src="https://www.youtube.com/embed/OhJfmfhw0Go?si=iph69ptKRcJk5uOA"
-            title="Tlon Promo Video" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen
-        >
-        </iframe>
-        <p class="py-4 text-sans">Caption text. Watch the video.</p>
-    </section>
+    </Column>    
+    <HeroImage />
+    <AppFeatures/>
 </Base>

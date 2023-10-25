@@ -1,22 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import Column from '../components/Column.astro';
 import DownloadApps from '../components/DownloadApps.astro'
 import Author from '../components/Author.astro'
 ---
 <Base>
     <img 
-        src="/memories.png"
+        src="/collage.jpeg"
         class="col-start-2 col-end-12 my-6 dark:mix-blend-screen"
     />
 
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-5
-        2xl:col-end-9
-    ">
+    <Column>
         <h2 class="pt-4 italic font-semibold">A Place to (Really) Call Our Own</h2>
         <p class="pb-4">The mission behind Tlon Corporation</p>
         <p class="pb-4 text-sm">Originally published in <a class="underline decoration-[1px] underline-offset-[3px] decoration-neutral-400" href="https://tlon.network/lure/~loshut-lonreg/tlon">Tlon Local</a>.<p/>
@@ -39,5 +33,5 @@ import Author from '../components/Author.astro'
         <p class="py-4">It’s the internet that we’ve only ever dreamed of. It’s the path not taken. And we’re not doing it alone.</p>
         <p class="py-4">For starters, we invite you to join Tlon Local, our little home on the Urbit network. Feel free to chime in at the Internet Cafe, our general discussion, or Builders, our more developer-forward chat.</p>
         <DownloadApps />
-    </section>
+    </Column>
 </Base>
