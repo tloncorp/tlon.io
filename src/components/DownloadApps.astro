@@ -1,0 +1,32 @@
+---
+import DownloadApple from '../components/DownloadApple.astro';
+import DownloadGoogle from '../components/DownloadGoogle.astro'
+import Button from '../components/Button.astro';
+import ButtonMain from '../components/ButtonMain.astro';
+---
+<section class="flex w-100 gap-3 py-8">
+    <a href="https://apps.apple.com/us/app/tlon-the-urbit-app/id6451392109" target="_blank"><DownloadApple/></a>
+    <a href="https://play.google.com/store/apps/details?id=io.tlon.groups" target="_blank"><DownloadGoogle/></a>
+    <!-- <ButtonMain id="store-link" label="Download the App" link="#"></ButtonMain> -->
+    <Button label="Get started on Desktop" link="https://join.tlon.io/nibset-napwyn-tlon"></Button>
+</section>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const storeLink = document.getElementById("store-link");
+
+        // Detect device type
+        const userAgent = navigator.userAgent || navigator.vendor;
+
+        if (/android/i.test(userAgent)) {
+            // Android Device
+            storeLink.href = "https://play.google.com/store/apps/details?id=io.tlon.groups&pli=1";
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // iOS Device
+            storeLink.href = "https://apps.apple.com/us/app/tlon-the-urbit-app/id6451392109";
+        } else {
+            // Desktop or other devices
+            storeLink.href = "https://join.tlon.io/nibset-napwyn-tlon";
+        }
+    });
+</script> -->

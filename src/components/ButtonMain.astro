@@ -1,0 +1,18 @@
+---
+const { label, link } = Astro.props;
+---
+<a
+  class="
+    lg:inline-block
+    bg-black dark:bg-white text-white dark:text-black
+    text-base
+    py-2
+    px-6
+    my-0
+    rounded
+    font-sans
+    "
+    href={link}
+    target="_blank">
+  {label}
+</a>

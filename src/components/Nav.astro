@@ -15,8 +15,8 @@ import NavButton from './NavButton.astro';
     sticky 
     top-0
     mt-8
-    lg:mt-36
-    lg:mb-28
+    lg:mt-24
+    lg:mb-16
 
     py-4
 
@@ -32,22 +32,26 @@ import NavButton from './NavButton.astro';
 ">
     <!-- T-BLOCK LOGO -->
     <nav class="
+        flex
+
         col-start-2
         col-span-1
         lg:col-start-4 
         lg:col-span-1
-        2xl:col-start-5 
+        2xl:col-start-4
         2xl:col-span-1
-        h-7 
-        w-7 
-        hover:rotate-[-12deg] 
-        transform-gpu 
-        transition-all
+        
+        font-sans
+        font-medium
     ">
-        <a href="/" class="inline-block"><TBlock /></a>
+        <a href="/" class="flex gap-2.5 group hover:group-hover py-1">
+            <TBlock />
+            <h1 class="text-base">Tlon</h1>
+        </a>
     </nav>
+    
 
-    <!-- CONTROLS -->
+    <!-- NAVIGATION -->
     <nav class="
         flex 
         flex-row 
@@ -57,25 +61,76 @@ import NavButton from './NavButton.astro';
         col-span-8
         lg:col-start-7
         lg:col-span-3
-        2xl:col-start-6
+        2xl:col-start-7
         2xl:col-span-3
     "> 
-        <a href="https://tlon.network/login"
-            class="
-            bg-neutral-200
-            dark:bg-neutral-800
-            text-black
-            dark:text-white
-            
-            text-sm
-            font-medium
+        <div id="nav-wrapper" class="hidden lg:flex lg:flex-row lg:justify-end lg:gap-2 ">
+            <!-- <NavButtonPrimary label="Get Tlon" link="https://tlon.network/lure/~loshut-lonreg/tlon" /> -->
+            <NavButton label="About" link="/about" />
+            <NavButton label="Sign in" link="https://tlon.network/login" />
+        </div>
 
-            rounded
-            py-1 px-4
-        ">
-            Sign in
-        </a>
-
-        <NavButton label="Get started" link="https://tlon.network/lure/~loshut-lonreg/tlon" />
+        <!-- MOBILE-ONLY HAMBURGER MENU -->
+        <div id="hamburger-icon" class="lg:hidden">
+            <p class="text-black dark:text-white text-base px-3 py-1 font-sans">Menu</p>
+        </div>
     </nav>
+
+    <!-- MOBILE NAV -->
+    <nav 
+        id="mobile-nav" 
+        class="
+            absolute inset-x-0 top-16
+            hidden 
+            dark:bg-neutral-900
+            bg-white
+            border-b-neutral-200
+            dark:border-b-neutral-800
+            w-100
+            p-8
+            border-b
+            z-50
+        ">
+        <ul>
+            <li class="py-1"><a href="https://join.tlon.io/nibset-napwyn-tlon">Get Tlon</a></li>
+            <li class="py-1"><a href="/about">About</a></li>
+            <li class="py-1"><a href="https://tlon.network/login">Sign In</a></li>
+        </ul>       
+    </nav>
+
 </header>
+
+<!-- NAV LOCAL STYLE -->
+
+<style>
+    #nav-wrapper {}
+
+    /* Show on larger screens */
+    @media (min-width: 768px) {
+        #nav-wrapper {
+            display: flex;
+        }
+        #hamburger-icon {
+            display: none;
+        }
+    }
+</style>
+
+<!-- NAV LOCAL LOGIC -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const mobileNav = document.getElementById("mobile-nav");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const menuText = hamburgerIcon.querySelector("p");
+
+        // Show menu
+        hamburgerIcon.addEventListener("click", () => {
+            mobileNav.classList.toggle("hidden");
+            if (menuText.textContent === "Menu") {
+                menuText.textContent = "Close";
+            } else {
+                menuText.textContent = "Menu";
+            }
+        });
+    });
+</script>

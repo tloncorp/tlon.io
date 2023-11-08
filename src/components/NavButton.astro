@@ -1,26 +1,12 @@
 ---
 const { label, link } = Astro.props;
 ---
-
-<astro-nav-button>
-  <a
-    class="
-      bg-black
-      dark:bg-white
-      text-white
-      dark:text-black
-
-      text-sm
-      font-medium
-
-      rounded
-      py-1 px-4
-      "
-      href={link}
-      target="_blank">
+<a href={link}>
+  <astro-nav-button
+  class="transform-gpu transition-all hover:bg-black hover:bg-opacity-5 dark:bg-white dark:bg-opacity-10 text-black dark:text-white text-base rounded px-3 py-1 flex items-center font-sans">
     {label}
-  </a>
-</astro-nav-button>
+  </astro-nav-button>
+</a>
 
 <script>
   import posthog from 'posthog-js';

@@ -1,20 +1,52 @@
 ---
-
+import Column from "./Column.astro";
 ---
-<footer class="
-    col-start-2
-    col-end-12
-    lg:col-start-4
-    lg:col-end-10
-    2xl:col-start-5
-    2xl:col-end-9
-    mb-10
-    lg:mt-28 
-    lg:mb-36
-">
-    <a href="https://twitter.com/tloncorporation" target="_blank"><p class="text-neutral-400 pb-2 lg:py-4">Twitter</p></a>
-    <a href="https://tlon.us14.list-manage.com/subscribe?u=f9f52f752b920bad5e8b46282&id=6d15c14b9a" target="_blank"><p class="text-neutral-400 pb-2 lg:py-4">Newsletter</p></a>
-    <a href="https://status.tlon.io" target="_blank"><p class="text-neutral-400 pb-2 lg:py-4">Status</p></a> 
-    <a href="/privacy"><p class="text-neutral-400 pb-2 lg:py-4">Privacy Policy</p></a>
-    <a href="/terms"><p class="text-neutral-400 lg:py-4">Terms & Conditions</p></a> 
-</footer>
+<Column>
+    <footer class="
+        mb-10
+        lg:mt-28 
+        lg:mb-36
+        text-base
+    ">
+        <ul class="list-none">
+            <li class="my-4">
+                <a href="https://twitter.com/tloncorporation"
+                target="_blank" 
+                class="text-neutral-400"
+                >
+                    Follow @TlonCorporation
+                </a>
+            </li>
+            <li class="my-4">
+                <a href="https://tlon.us14.list-manage.com/subscribe?u=f9f52f752b920bad5e8b46282&id=6d15c14b9a" 
+                target="_blank"
+                class="text-neutral-400"
+                >
+                    Newsletter
+                </a>
+            </li>
+            <li class="my-4">
+                <a href="https://status.tlon.io" 
+                target="_blank"
+                class="text-neutral-400"
+                >
+                Status
+                </a>
+            </li>
+            <li class="my-4">
+                <a href="/privacy" 
+                class="text-neutral-400"
+                >
+                    Privacy Policy
+                </a>
+            </li>
+            <li class="my-4">
+                <a href="/terms" 
+                class="text-neutral-400"
+                >
+                    Terms & Conditions
+                </a>
+            </li>
+        </ul>
+    </footer>
+</Column>

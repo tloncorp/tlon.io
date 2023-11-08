@@ -1,42 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
-import Button from '../components/Button.astro';
-import PostNav from '../components/PostNav.astro';
-import H1 from '../components/H1.astro';
-import H2 from '../components/H2.astro';
-import H3 from '../components/H3.astro';
-import H4 from '../components/H4.astro';
-import H5 from '../components/H5.astro';
-import H6 from '../components/H6.astro';
+import Column from '../components/Column.astro';
+import DownloadApps from '../components/DownloadApps.astro'
 ---
 <Base>
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-5
-        2xl:col-end-9
-    ">
-        <p class="py-4">Hosting is a big part of what we offer, and a pretty major unlock for the Urbit network.</p>
-        <p class="py-4">In order to give people an easy onramp into Landscape, a lot has to go on behind the scenes. With Hosting, users only see a tip of that iceberg.</p> 
-        <p class="py-4">Under the surface, we’re running a whole world of infrastructure that we explain in depth here.</p>
-        <Button label="Get started for free" link="https://tlon.network/lure/~loshut-lonreg/tlon" />
-    </section>
+    <Column>
+        <p class="py-4">Tlon is built on Urbit, a new software stack designed to enable true extendability and ownership.</p>
+        <p class="py-4">To use Tlon, you need an online Urbit ID. We take care of that when you sign up, making sure your Urbit runs smoothly with regular maintenance—for free.</p> 
+        <p class="py-4">If you're feeling ambitious, you can host your Urbit, a network node, yourself. Think of Tlon Hosting Services like a coat check where you can pack up and exit any time. </p>
+        <p class="py-4">For us, managing a fleet of personal servers presents unique infrastructural challenges. Curious? We explain what's going on under the hood in depth below.</p>
+        <DownloadApps/>
+    </Column>
 
     <img 
         src="/hosting.jpg"
         class="col-start-2 col-end-12 my-4 dark:invert dark:mix-blend-screen"
     />
 
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-5
-        2xl:col-end-9
-    ">
+    <Column>
         <p class="pt-4 pb-8">Skip to a question:</p>
         <ol class="pl-8 lg:pl-0 list-decimal">
             <a href="#1"><li class="py-2">What is Hosting?</li></a>
@@ -46,30 +27,92 @@ import H6 from '../components/H6.astro';
             <a href="#5"><li class="py-2">Where’s the data stored, exactly?</li></a>
             <a href="#6"><li class="py-2">Why wasn’t the internet built this way to begin with?</li></a>
         </ol>
-    </section>
+    </Column>
 
-    <section class="
-        col-start-2
-        col-end-12
-        lg:col-start-4
-        lg:col-end-10
-        2xl:col-start-5
-        2xl:col-end-9
-    ">
-        <H1/>
+    <Column>
+        <div class="my-6">
+            <svg 
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect 
+                    width="32" 
+                    height="32" 
+                    rx="6" 
+                    class="
+                        fill-black
+                        dark:fill-white
+                    "
+                />
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd"
+                    class="fill-white dark:fill-black"
+                    d="M8.8 8C8.35817 8 8 8.35817 8 8.8V23.2C8 23.6418 8.35817 24 8.8 24H23.2C23.6418 24 24 23.6418 24 23.2V8.8C24 8.35817 23.6418 8 23.2 8H8.8ZM11.5 12.3C11.5 12.1895 11.5895 12.1 11.7 12.1H12.8C12.9105 12.1 13 12.1895 13 12.3V13.4C13 13.5105 12.9105 13.6 12.8 13.6H11.7C11.5895 13.6 11.5 13.5105 11.5 13.4V12.3ZM11.5 18.6C11.5 18.4895 11.5895 18.4 11.7 18.4H12.8C12.9105 18.4 13 18.4895 13 18.6V19.7C13 19.8105 12.9105 19.9 12.8 19.9H11.7C11.5895 19.9 11.5 19.8105 11.5 19.7V18.6ZM19.2 12.1C19.0895 12.1 19 12.1895 19 12.3V13.4C19 13.5105 19.0895 13.6 19.2 13.6H20.3C20.4105 13.6 20.5 13.5105 20.5 13.4V12.3C20.5 12.1895 20.4105 12.1 20.3 12.1H19.2ZM19 18.6C19 18.4895 19.0895 18.4 19.2 18.4H20.3C20.4105 18.4 20.5 18.4895 20.5 18.6V19.7C20.5 19.8105 20.4105 19.9 20.3 19.9H19.2C19.0895 19.9 19 19.8105 19 19.7V18.6Z" fill="#111418"/>
+            </svg>
+        </div>
         <h2 id="1" class="py-4 italic font-semibold">What is Hosting?</h2>
         <p class="py-4">To connect one Urbit node with other Urbit nodes, they each have to be online, just like any computer. For example, if you send a text to your friend and their phone is off, that message waits in limbo on a server until their phone is turned back on. Similarly, if the recipient node of a message you send on Urbit is offline, your Urbit will retry sending until it is. There’s no middle server involved on Urbit, but like text, both nodes have to be online.</p>
         <p class="py-4">Hosting is our system for running Urbit nodes in the cloud. It allows us to run many thousands (and someday many millions) of Urbit nodes in an efficient, reliable and cost-effective way—enabling people to connect to the Urbit network with nodes we keep online for them 24/7/365.</p>
         <p class="py-4">Think of hosting as a coat check of sorts. We’ll hold onto your coat (or Urbit node) while you mix and mingle on the dance floor (connect with other nodes on the network). You still own the coat, of course, and you’ll get it back when you’re done. You can always hang on to your own coat, too, but who wants to do that at the club?</p>
 
-        <H2/>
+        <div class="my-6">
+            <svg 
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect 
+                    width="32" 
+                    height="32" 
+                    rx="6" 
+                    class="
+                        fill-black
+                        dark:fill-white
+                    "
+                />
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd"
+                    class="fill-white dark:fill-black"
+                    d="M12.6 9.29999C10.7774 9.29999 9.29999 10.7774 9.29999 12.6V19.4C9.29999 21.2225 10.7774 22.7 12.6 22.7H19.4C21.2225 22.7 22.7 21.2225 22.7 19.4V13.4181C22.7 13.4121 22.7 13.406 22.7 13.4V12.6C22.7 10.8433 21.3274 9.4072 19.5962 9.30572C19.5313 9.30192 19.4658 9.29999 19.4 9.29999H12.6ZM10.7 16.0984V19.4C10.7 20.4493 11.5506 21.3 12.6 21.3H19.4C20.4493 21.3 21.3 20.4493 21.3 19.4V16.0985C20.7628 16.4774 20.1074 16.7 19.4 16.7H12.6C11.8926 16.7 11.2372 16.4774 10.7 16.0984ZM19.5943 10.7098C20.5523 10.8071 21.3 11.6162 21.3 12.6V13.4137C21.2926 14.4567 20.4448 15.3 19.4 15.3H18.9852C18.995 15.2013 19 15.1012 19 15C19 13.3431 17.6569 12 16 12C14.3432 12 13 13.3431 13 15C13 15.1012 13.0051 15.2013 13.0148 15.3H12.6C11.5507 15.3 10.7 14.4493 10.7 13.4V12.6C10.7 11.5506 11.5507 10.7 12.6 10.7H19.4C19.4041 10.7 19.4082 10.7 19.4123 10.7C19.4737 10.7004 19.5344 10.7037 19.5943 10.7098Z"/>
+            </svg>
+        </div>
         <h2 id="2" class="py-4 italic font-semibold">Why Hosting?</h2>
         <p class="py-4">First let’s look at the self-hosted alternative. It would mean running your Urbit on your own device, whether that’s your laptop, your phone and so on. If you want your Urbit always online, your device has to be always online (and reachable over the network). What happens when you lose that device? Or it goes offline?</p>
         <p class="py-4">Hosting with Tlon means we handle all of that for you. It makes Urbit as easy as any conventional app or service, requiring no maintenance at all.</p>
         <p class="py-4">Our hosting system takes advantage of today’s cloud infrastructure, which delivers great uptime, reliability, speed, and redundancy. That makes it great for running an Urbit because you can connect to it from anywhere and can trust that it’s not going to disappear unexpectedly.</p>
         <p class="py-4">What’s more, Hosting can give your Urbit access to other cloud-based conveniences. For example, with Hosting your Urbit node is always on even if your laptop or mobile phone is off. That means it listens for incoming messages and can notify you when you are back online.</p>
 
-        <H3/>
+        <div class="my-6">
+            <svg 
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect 
+                    width="32" 
+                    height="32" 
+                    rx="6" 
+                    class="
+                        fill-black
+                        dark:fill-white
+                    "
+                />
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd"
+                    class="fill-white dark:fill-black"
+                    d="M23.5 8H8.5C8.22386 8 8 8.22386 8 8.5V11.75C8 12.0261 8.22386 12.25 8.5 12.25H13C13.5523 12.25 14 12.6977 14 13.25V15.875C14 16.3582 13.6082 16.75 13.125 16.75C12.6418 16.75 12.25 16.3582 12.25 15.875V14C12.25 13.7239 12.0261 13.5 11.75 13.5H8.5C8.22386 13.5 8 13.7239 8 14V23C8 23.5523 8.44772 24 9 24H23C23.5523 24 24 23.5523 24 23V14C24 13.7239 23.7761 13.5 23.5 13.5H20.25C19.9739 13.5 19.75 13.7239 19.75 14V15.875C19.75 16.3582 19.3582 16.75 18.875 16.75C18.3918 16.75 18 16.3582 18 15.875V13.25C18 12.6977 18.4477 12.25 19 12.25H23.5C23.7761 12.25 24 12.0261 24 11.75V8.5C24 8.22386 23.7761 8 23.5 8Z"/>
+            </svg>
+        </div>
         <h2 id="3" class="py-4 italic font-semibold">Why is Tlon suited for the job?</h2>
         <p class="py-4">Getting hundreds to thousands (to someday millions) of nodes to run reliably is no easy task. Nor is monitoring them and taking care of them. Nor is making them performant and easy to boot and onboard to.</p>
         <p class="py-4">Fortunately, Tlon lives for a technically complex undertaking. Our track record includes a decade plus getting Urbit off the ground, after all.</p>
@@ -77,7 +120,30 @@ import H6 from '../components/H6.astro';
         <p class="py-4">We’ve also got the incentive. Hosting is an essential unlock for growing the Urbit network—that thing we worked so hard on. As significant owners of Urbit address space, our primary incentive is to make Urbit useful and to grow the network. In that sense, Hosting is a core part of our business.</p>
         <p class="py-4">Even more broadly, we think easy, affordable Urbit hosting isn’t just good for the Urbit network. It’s good for the world at large, since it would more easily grant everyday users ownership over their computing.</p>
 
-        <H4/>
+        <div class="my-6">
+            <svg 
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect 
+                    width="32" 
+                    height="32" 
+                    rx="6" 
+                    class="
+                        fill-black
+                        dark:fill-white
+                    "
+                />
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd"
+                    class="fill-white dark:fill-black"
+                    d="M19.3 12C20.4046 12 21.3 11.1046 21.3 10C21.3 8.89543 20.4046 8 19.3 8C18.1955 8 17.3 8.89543 17.3 10C17.3 11.1046 18.1955 12 19.3 12ZM19.3 24C20.4046 24 21.3 23.1046 21.3 22C21.3 20.8954 20.4046 20 19.3 20C18.1955 20 17.3 20.8954 17.3 22C17.3 23.1046 18.1955 24 19.3 24ZM24.6 16C24.6 17.1046 23.7046 18 22.6 18C21.4955 18 20.6 17.1046 20.6 16C20.6 14.8954 21.4955 14 22.6 14C23.7046 14 24.6 14.8954 24.6 16ZM9.40002 18C10.5046 18 11.4 17.1046 11.4 16C11.4 14.8954 10.5046 14 9.40002 14C8.29545 14 7.40002 14.8954 7.40002 16C7.40002 17.1046 8.29545 18 9.40002 18ZM14.7 10C14.7 11.1046 13.8046 12 12.7 12C11.5955 12 10.7 11.1046 10.7 10C10.7 8.89543 11.5955 8 12.7 8C13.8046 8 14.7 8.89543 14.7 10ZM12.7 24C13.8046 24 14.7 23.1046 14.7 22C14.7 20.8954 13.8046 20 12.7 20C11.5955 20 10.7 20.8954 10.7 22C10.7 23.1046 11.5955 24 12.7 24Z"/>
+            </svg>
+        </div>
         <h2 id="4" class="py-4 italic font-semibold">What about my data? Does everything still belong to me? Even if I stop hosting my Urbit ship with Tlon?</h2>
         <p class="py-4">Indeed!</p>
         <p class="py-4">We do our absolute best to ensure that everything still belongs to you, and that you can exit our hosting arrangement at any time, without even asking us. We’ll even give you the key (aka “master ticket”) to your Urbit ID, so you can keep that forever no matter what.</p>
@@ -85,20 +151,65 @@ import H6 from '../components/H6.astro';
         <p class="py-4">We should mention that when you’re hosted by Tlon, your node is running in our infrastructure. So, technically, if Tlon is somehow instantly vaporized then there’s some outside chance your data would be vapor too. In this regard, you could think of hosting like a storage unit. We promise to give you access to the stuff you put in the unit, and we can promise not to touch it, but if the building burns down then we’re all fucked.</p>
         <p class="py-4">One thing we’d like to do in the future is allow you to download backups of your Urbit so you can potentially use the convenience of Hosting with the assurance that you won’t lose your data even if Tlon Hosting is melted off the face of the Earth.</p>
 
-        <H5/>
+        <div class="my-6">
+            <svg 
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect 
+                    width="32" 
+                    height="32" 
+                    rx="6" 
+                    class="
+                        fill-black
+                        dark:fill-white
+                    "
+                />
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd"
+                    class="fill-white dark:fill-black"
+                    d="M18.0243 9.35541C17.3758 9.77652 17.1915 10.6436 17.6126 11.292L19.3555 13.9758C19.7766 14.6242 20.6436 14.8085 21.2921 14.3874L23.9758 12.6446C24.6243 12.2235 24.8086 11.3564 24.3875 10.708L22.6446 8.02421C22.2235 7.37575 21.3565 7.19145 20.708 7.61256L18.0243 9.35541ZM10.4 8.3C9.24019 8.3 8.29999 9.2402 8.29999 10.4V13.6C8.29999 14.7598 9.24019 15.7 10.4 15.7H13.6C14.7598 15.7 15.7 14.7598 15.7 13.6V10.4C15.7 9.2402 14.7598 8.3 13.6 8.3H10.4ZM9.69999 10.4C9.69999 10.0134 10.0134 9.7 10.4 9.7H13.6C13.9866 9.7 14.3 10.0134 14.3 10.4V13.6C14.3 13.9866 13.9866 14.3 13.6 14.3H10.4C10.0134 14.3 9.69999 13.9866 9.69999 13.6V10.4ZM10.4 16.3C9.24019 16.3 8.29999 17.2402 8.29999 18.4V21.6C8.29999 22.7598 9.24019 23.7 10.4 23.7H13.6C14.7598 23.7 15.7 22.7598 15.7 21.6V18.4C15.7 17.2402 14.7598 16.3 13.6 16.3H10.4ZM9.69999 18.4C9.69999 18.0134 10.0134 17.7 10.4 17.7H13.6C13.9866 17.7 14.3 18.0134 14.3 18.4V21.6C14.3 21.9866 13.9866 22.3 13.6 22.3H10.4C10.0134 22.3 9.69999 21.9866 9.69999 21.6V18.4ZM16.3 18.4C16.3 17.2402 17.2402 16.3 18.4 16.3H21.6C22.7598 16.3 23.7 17.2402 23.7 18.4V21.6C23.7 22.7598 22.7598 23.7 21.6 23.7H18.4C17.2402 23.7 16.3 22.7598 16.3 21.6V18.4ZM18.4 17.7C18.0134 17.7 17.7 18.0134 17.7 18.4V21.6C17.7 21.9866 18.0134 22.3 18.4 22.3H21.6C21.9866 22.3 22.3 21.9866 22.3 21.6V18.4C22.3 18.0134 21.9866 17.7 21.6 17.7H18.4Z"/>
+            </svg>
+        </div>
         <h2 id="5" class="py-4 italic font-semibold">Where’s the data stored, exactly?</h2>
         <p class="py-4">Tlon Hosting is built on top of a Google Cloud Platform, somewhere in the United States.</p>
         <p class="py-4">Eventually, we expect to be able to let people specify which region they’d like their data to be in.</p>
 
-        <H6/>
+        <div class="my-6">
+            <svg 
+                width="32" 
+                height="32" 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <rect 
+                    width="32" 
+                    height="32" 
+                    rx="6" 
+                    class="
+                        fill-black
+                        dark:fill-white
+                    "
+                />
+                <path 
+                    fill-rule="evenodd" 
+                    clip-rule="evenodd"
+                    class="fill-white dark:fill-black"
+                    d="M18.7272 10.093C17.74 7.63567 14.26 7.63567 13.2728 10.093C12.8524 11.1394 11.8699 11.853 10.7444 11.9293C8.10141 12.1084 7.02602 15.4168 9.05892 17.1147C9.92462 17.8377 10.2999 18.9923 10.0247 20.0858C9.37838 22.6539 12.1938 24.6986 14.4374 23.2906C15.3928 22.691 16.6072 22.691 17.5626 23.2906C19.8062 24.6986 22.6216 22.6539 21.9753 20.0858C21.7001 18.9923 22.0754 17.8377 22.9411 17.1147C24.974 15.4168 23.8986 12.1084 21.2556 11.9293C20.1301 11.853 19.1476 11.1394 18.7272 10.093ZM16 16.9688C16.4017 16.9688 16.7273 16.6435 16.7273 16.2422C16.7273 15.8409 16.4017 15.5156 16 15.5156C15.5983 15.5156 15.2727 15.8409 15.2727 16.2422C15.2727 16.6435 15.5983 16.9688 16 16.9688Z"/>
+            </svg>
+        </div>
         <h2 id="6" class="py-4 italic font-semibold">Why wasn’t the internet built this way to begin with?</h2>
         <p class="py-4">The internet as it exists was basically an accident. It’s kind of a piecemeal ‘ball of mud’ made from gluing lots of complicated parts together over 30 years or so. It was never designed and engineered around what people want from networked computers.</p>
         <p class="py-4">But to be fair, 30 years ago we didn’t know what people wanted from networked computers. We didn’t know what the technology should look like, because we didn’t know what we’d do with them. We weren’t even sure if they’d make it past the turn of the century.</p>
         <p class="py-4">Now that networked computers are everywhere in every part of our lives, we have a much better idea of what people want and how to design things. Why’s it taking so long to correct? Well, first you have to build an entirely new infrastructure (like Urbit) and then you have to build a toolkit on top of that infrastructure (like Landscape) and then a system for staying connected to all of that (like Hosting).</p>
         <p class="py-4">Presently, giant companies are the gatekeepers on how we compute and store our data. From our perspective, it’s clear that how you marshal your personal compute and manage your personal data is an essential question moving forward.</p>
         <p class="py-4">In an Urbit future, you’re in charge. Urbit makes it possible. Hosting will get us there a little faster.</p>
-        <p class="py-4 font-semibold">We’re now offering hosting for free.</p>
-        <Button label="Get started for free" link="https://tlon.network/lure/~loshut-lonreg/tlon"/>
-    </section>
-    <PostNav/>
+        <p class="py-4">We’re now offering hosting for free:</p>
+        <DownloadApps/>
+    </Column>
 </Base>
