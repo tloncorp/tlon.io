@@ -1,16 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import Column from '../components/Column.astro';
-import DownloadApps from '../components/DownloadApps.astro';
-import HeroImage from '../components/HeroImage.astro';
-import AppFeatures from '../components/AppFeatures.astro';
 ---
 <Base>
-    <Column>
-        <h1 class="py-2 text-2xl lg:text-5xl 2xl:text-7xl font-light">Peer-to-peer collaboration <br> for communities of all <br> shapes and sizes.</h1>
-        <h2 class="py-4 text-md lg:text-lg 2xl:text-2xl tracking-normal text-black text-opacity-60 dark:text-white dark:text-opacity-60">Tlon is built to trust. <br> Built to last. <br> Because it's built on Urbit.</h2>
-        <DownloadApps/>
-    </Column>    
-    <HeroImage />
-    <AppFeatures/>
+    <article class="flex flex-col justify-center items-center h-screen">
+        <video class="h-4/6 rounded-lg" src="/video.mp4" autoplay loop muted playsinline></video>
+    </article>
 </Base>
