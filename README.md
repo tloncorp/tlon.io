@@ -15,6 +15,7 @@ Implementation notes:
 4. The frontmatter in `.astro` pages are key-values like you'd expect, but it also facilitates javascript to be executed for importing/templating reasons.
 5. Notably, Astro frontmatter isn't used heavily/extensively in this repository. It's mainly used for importing the `Base.astro` and `Writing.astro` [layouts](https://docs.astro.build/en/basics/layouts/), which inform the structure of pages that import them.
 6. This repository is ready to go in terms of working with [Astro content collections](https://docs.astro.build/en/guides/content-collections/). The blog located at `src/pages/writing` is populated with the collection of `.mdx` pages in `src/content/writing`.
+7. Images, media, and other content intended to be used in `.mdx` posts in `src/pages/writing` should be placed in a directory named the same as the associated post: For example, a post named `src/pages/writing/post_name.mdx` with several images should have its image assets placed in a `src/assets/post_name` directory. Images are imported and referenced in blog posts using Astro's Image component. Read [this guide](https://docs.astro.build/en/guides/images/#images-in-astro-files) to learn more about this approach.
 
 ```
 "Everybody deserves a new computer."
