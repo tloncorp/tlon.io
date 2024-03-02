@@ -4,11 +4,12 @@ Additional info about formatting image
 https://www.sanity.io/docs/image-url#sanity-image-url
 */
 
+import { type AssetReference } from "@utils/commonTypes";
 import { urlForImage } from "../utils/urlForImage";
 
 interface Props {
   alt: string;
-  asset: string;
+  asset: AssetReference;
   maxWidth?: number;
   rounded?: boolean;
 }

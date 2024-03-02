@@ -1,0 +1,12 @@
+---
+interface Props {
+  title: string;
+  left?: boolean;
+  center?: boolean;
+  right?: boolean;
+}
+
+const { title } = Astro.props;
+---
+
+<h1 class="text-xl">{title}</h1>
