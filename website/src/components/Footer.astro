@@ -1,0 +1,29 @@
+---
+import { getFooterNav } from "../utils/api";
+const links = await getFooterNav();
+
+const year = new Date().getFullYear();
+---
+
+<footer role="contentinfo" class="space-y-3 py-32 text-center">
+  {
+    links && (
+      <nav>
+        <ul class="flex justify-center space-x-4">
+          {links.map((link: any) => (
+            <li>
+              <a
+                class="inline-block hover:underline"
+                href={link.url}
+                target={link.blank ? "_blank" : "_self"}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+  <span class="inline-block">Tlon Corporation {year}</span>
+</footer>

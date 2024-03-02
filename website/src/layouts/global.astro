@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import globals from "../utils/globals";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const { metaTitle, metaDescription } = Astro.props;
 ---
@@ -66,8 +68,10 @@ const { metaTitle, metaDescription } = Astro.props;
     <meta name="cf-2fa-verify" content="hj147kyae651DBG6j8fsg" />
   </head>
   <body>
+    <Header />
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>

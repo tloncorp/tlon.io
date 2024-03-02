@@ -1,0 +1,39 @@
+---
+import { getHeaderNav } from "../utils/api";
+const links = await getHeaderNav();
+---
+
+<header
+  role="banner"
+  class="flex items-center justify-between p-8 leading-none"
+>
+  <a class="inline-block w-4" href="/">
+    <img src="/icon.svg" alt="Tlon logo" />
+  </a>
+  {
+    links && (
+      <nav>
+        <ul class="flex">
+          {links.map((link: any) => (
+            <li>
+              <a
+                class:list={[
+                  {
+                    "hover:bg-navHover hover:no-underline dark:hover:bg-white dark:hover:text-black":
+                      link.displayButton,
+                  },
+                  { "hover:underline": !link.displayButton },
+                  "inline-block rounded-lg px-4 py-2",
+                ]}
+                href={link.url}
+                target={link.blank ? "_blank" : "_self"}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+</header>
