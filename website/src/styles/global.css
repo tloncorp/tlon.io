@@ -2,7 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+}
+
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply antialiased;
+  }
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+    body {
+      @apply bg-blackish text-white;
+    }
+  }
 }
 
 @layer components {
