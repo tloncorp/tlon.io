@@ -3,12 +3,14 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
+import globals from '../website/src/utils/globals'
+
 export default defineConfig({
   name: 'default',
-  title: 'tlon',
+  title: globals.siteURL,
 
-  projectId: '4vy6phvk',
-  dataset: 'production',
+  projectId: globals.sanityProjectId,
+  dataset: globals.sanityDataset,
 
   plugins: [structureTool(), visionTool()],
 
