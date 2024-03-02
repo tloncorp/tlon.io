@@ -1,0 +1,32 @@
+---
+import Author from "./Author.astro";
+import Picture from "./Picture.astro";
+import PortableText from "./PortableText.astro";
+
+import { type ImageObj, type AuthorObj } from "../utils/commonTypes";
+
+interface Props {
+  author: AuthorObj;
+  excerpt: string;
+  featuredImage: ImageObj;
+  slug: string;
+  title: string;
+}
+
+const { author, excerpt, featuredImage, slug, title } = Astro.props;
+---
+
+<div class="mx-auto max-w-inner-md">
+  <a href={`post/${slug}`}>
+    <Picture asset={featuredImage.image} alt={featuredImage.alt} />
+  </a>
+  <div class="mx-auto max-w-inner-sm space-y-3 pt-3">
+    <h2 class="text-large">
+      <a href={`post/${slug}`}>
+        {title}
+      </a>
+    </h2>
+    <Author name={author.name} avatar={author.avatar} slug={author.slug} />
+    <PortableText portableText={excerpt} />
+  </div>
+</div>

@@ -35,7 +35,7 @@ export async function getTagPage() {
 
 // Get all posts and list of related posts based on tag
 export async function getPosts() {
-  const query = `*[_type == "post"] {
+  const query = `*[_type == "post"] | order(_createdAt desc) {
     slug,
     excerpt,
     "featuredImage": featuredImage.image {
