@@ -1,0 +1,32 @@
+---
+import Picture from "./Picture.astro";
+
+interface Props {
+  avatar: string;
+  name: string;
+  slug?: string;
+  large?: boolean;
+}
+
+const { avatar, name, slug, large = true } = Astro.props;
+
+const formattedSize = large ? "text-large" : "text-xl leading-none";
+---
+
+{
+  slug && slug.length > 0 ? (
+    <a class="flex items-center space-x-4" href={`/author/${slug}`}>
+      <div class="max-w-[32px]">
+        <Picture asset={avatar} alt={name} maxWidth={32} rounded />
+      </div>
+      <span class:list={["opacity-60", formattedSize]}>{name}</span>
+    </a>
+  ) : (
+    <div class="flex items-center space-x-4">
+      <div class="max-w-[32px]">
+        <Picture asset={avatar} alt={name} maxWidth={32} rounded />
+      </div>
+      <span class:list={["opacity-60", formattedSize]}>{name}</span>
+    </div>
+  )
+}

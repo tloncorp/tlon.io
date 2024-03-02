@@ -21,6 +21,13 @@ export default {
         "inner-lg": "75rem",
       },
       fontSize: {
+        md: [
+          "1.25rem",
+          {
+            lineHeight: "1.875rem",
+            letterSpacing: "0.00625rem",
+          },
+        ],
         large: [
           "2rem",
           {
