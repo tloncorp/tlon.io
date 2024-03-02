@@ -28,7 +28,7 @@ export default {
             letterSpacing: "0.00625rem",
           },
         ],
-        large: [
+        lg: [
           "2rem",
           {
             lineHeight: "2.5rem",
