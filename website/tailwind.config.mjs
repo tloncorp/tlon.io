@@ -7,8 +7,8 @@ export default {
     },
     extend: {
       colors: {
-        white: "#fff",
-        blackish: "#1a1818",
+        white: "#FFF",
+        blackish: "#1A1818",
         navHover: "#ECF1FB",
         mono: {
           100: "#F5F5F5",
@@ -22,17 +22,24 @@ export default {
       },
       fontSize: {
         md: [
-          "1.25rem",
+          "1.25rem", // 20px
           {
-            lineHeight: "1.875rem",
-            letterSpacing: "0.00625rem",
+            lineHeight: "1.875rem", // 30px
+            letterSpacing: "0.00625rem", // 0.1px
           },
         ],
         lg: [
-          "2rem",
+          "1.5rem", // 24px
           {
-            lineHeight: "2.5rem",
-            letterSpacing: "0.00625rem",
+            lineHeight: "2.1875rem", // 35px
+            letterSpacing: "0.00625rem", // 0.1px
+          },
+        ],
+        xl: [
+          "2rem", // 32px
+          {
+            lineHeight: "2.5rem", // 40px
+            letterSpacing: "0.00625rem", // 0.1px
           },
         ],
       },

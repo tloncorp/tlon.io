@@ -1,0 +1,75 @@
+---
+import { getPosts } from "../../utils/api";
+import { type ImageObj, type AuthorObj } from "../../utils/commonTypes";
+
+import Global from "../../layouts/global.astro";
+
+import Author from "../../components/Author.astro";
+import PageTitle from "../../components/PageTitle.astro";
+import Picture from "../../components/Picture.astro";
+import PortableText from "../../components/PortableText.astro";
+import RelatedPost from "../../components/RelatedPost.astro";
+
+interface Props {
+  author: AuthorObj;
+  body: any;
+  excerpt: any;
+  featuredImage: ImageObj;
+  title: string;
+  relatedPosts: relatedPost[];
+}
+
+interface relatedPost {
+  title: string;
+  slug: string;
+  created: string;
+  author: AuthorObj;
+  featuredImage: ImageObj;
+}
+
+export async function getStaticPaths() {
+  return await getPosts();
+}
+
+const { author, body, excerpt, featuredImage, title, relatedPosts } =
+  Astro.props;
+---
+
+<Global>
+  <article>
+    <header class="mx-auto max-w-inner-sm space-y-8">
+      <PageTitle title={title} />
+      <Author avatar={author.avatar} name={author.name} slug={author.slug} />
+      <PortableText portableText={excerpt} />
+    </header>
+
+    <div class="mx-auto max-w-inner-lg py-16">
+      <Picture asset={featuredImage.image} alt={featuredImage.alt} />
+    </div>
+
+    <div class="mx-auto max-w-inner-sm">
+      <PortableText portableText={body} />
+    </div>
+
+    {
+      relatedPosts && (
+        <aside role="complementary" class="mx-auto max-w-inner-lg pt-32">
+          <h5 class="pb-16 text-center text-xl">
+            You might be interested in these:
+          </h5>
+          <nav class="flex items-start space-x-8">
+            {relatedPosts.map((post: relatedPost) => (
+              <RelatedPost
+                slug={post.slug}
+                title={post.title}
+                created={post.created}
+                featuredImage={post.featuredImage}
+                author={post.author}
+              />
+            ))}
+          </nav>
+        </aside>
+      )
+    }
+  </article>
+</Global>

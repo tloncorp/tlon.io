@@ -1,8 +1,10 @@
 ---
 import Picture from "./Picture.astro";
 
+import { type AssetReference } from "@utils/commonTypes";
+
 interface Props {
-  avatar: string;
+  avatar: AssetReference;
   name: string;
   slug?: string;
   large?: boolean;
@@ -10,7 +12,7 @@ interface Props {
 
 const { avatar, name, slug, large = true } = Astro.props;
 
-const formattedSize = large ? "text-lg" : "text-xl leading-none";
+const formattedSize = large ? "text-xl" : "text-md leading-none";
 ---
 
 {
