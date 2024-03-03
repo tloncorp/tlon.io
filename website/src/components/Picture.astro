@@ -9,27 +9,41 @@ import { urlForImage } from "../utils/urlForImage";
 
 interface Props {
   asset: BlockImage;
-  maxWidth?: number;
   rounded?: boolean;
+  visualMaxWidth: number;
 }
 
-// Max width as 845px as thats the widest an image inside a blog post can be
-const { asset, maxWidth = 845, rounded } = Astro.props;
+const { asset, visualMaxWidth, rounded } = Astro.props;
 
-// 2x for high-density screens and provide default
-const retinaMaxWidth = maxWidth * 2;
+const uploadedImageWidth = asset.dimensions.width;
+const savedMaxWidth = visualMaxWidth;
+
+let formattedImageWidth = uploadedImageWidth;
+let formattedMaxWidth = savedMaxWidth;
+
+// If the uploaded image would display smaller than our wrapper max width
+if (uploadedImageWidth / 2 <= savedMaxWidth) {
+  // Set our wrapper max width to that 1x image size
+  formattedMaxWidth = uploadedImageWidth / 2;
+} else {
+  // Otherwise set the image width to the 2x of the of the saved wrapper max width
+  formattedImageWidth = savedMaxWidth * 2;
+}
 
 // Format URLs
-const url = urlForImage(asset.imageRef).width(retinaMaxWidth).url();
+const url = urlForImage(asset.imageRef).width(formattedImageWidth).url();
 const webpUrl = urlForImage(asset.imageRef)
   .format("webp")
-  .width(retinaMaxWidth)
+  .width(formattedImageWidth)
   .url();
 ---
 
-<div>
-  <picture>
-    <source srcset={webpUrl} type="image/webp" />
-    <img class:list={[{ rounded: rounded }]} src={url} alt={asset.alt} />
-  </picture>
-</div>
+<picture class="mx-auto inline-block">
+  <source srcset={webpUrl} type="image/webp" />
+  <img
+    class:list={["h-auto w-full", { rounded: rounded }]}
+    style={`max-width: ${formattedMaxWidth}px;`}
+    src={url}
+    alt={asset.alt}
+  />
+</picture>

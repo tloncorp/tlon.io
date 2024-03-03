@@ -11,6 +11,13 @@ export interface AuthorObj {
 export interface BlockImage {
   imageRef: AssetReference;
   alt: string;
+  dimensions: dimensionsObj;
+}
+
+interface dimensionsObj {
+  height: number;
+  width: number;
+  aspectRatio: number;
 }
 
 interface AssetReference {
