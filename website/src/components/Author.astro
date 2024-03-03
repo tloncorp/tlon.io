@@ -1,34 +1,33 @@
 ---
 import Picture from "./Picture.astro";
 
-import { type AssetReference } from "@utils/commonTypes";
+import { type AuthorObj } from "@utils/types";
 
 interface Props {
-  avatar: AssetReference;
-  name: string;
-  slug?: string;
+  author: AuthorObj;
+  link?: boolean;
   large?: boolean;
 }
 
-const { avatar, name, slug, large = true } = Astro.props;
+const { author, link = true, large = true } = Astro.props;
 
 const formattedSize = large ? "text-xl" : "text-md leading-none";
 ---
 
 {
-  slug && slug.length > 0 ? (
-    <a class="flex items-center space-x-4" href={`/author/${slug}`}>
+  link ? (
+    <a class="flex items-center space-x-4" href={`/author/${author.slug}`}>
       <div class="max-w-[32px]">
-        <Picture asset={avatar} alt={name} maxWidth={32} rounded />
+        <Picture asset={author.image} maxWidth={32} rounded />
       </div>
-      <span class:list={["opacity-60", formattedSize]}>{name}</span>
+      <span class:list={["opacity-60", formattedSize]}>{author.name}</span>
     </a>
   ) : (
     <div class="flex items-center space-x-4">
       <div class="max-w-[32px]">
-        <Picture asset={avatar} alt={name} maxWidth={32} rounded />
+        <Picture asset={author.image} maxWidth={32} rounded />
       </div>
-      <span class:list={["opacity-60", formattedSize]}>{name}</span>
+      <span class:list={["opacity-60", formattedSize]}>{author.name}</span>
     </div>
   )
 }

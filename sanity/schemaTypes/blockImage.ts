@@ -4,7 +4,7 @@ export default {
   title: 'Image Block',
   fields: [
     {
-      name: 'image',
+      name: 'imageRef',
       type: 'image',
       title: 'Image',
       fields: [

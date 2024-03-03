@@ -1,6 +1,6 @@
 ---
 import { getPosts } from "../../utils/api";
-import { type ImageObj, type AuthorObj } from "../../utils/commonTypes";
+import { type BlockImage, type AuthorObj } from "../../utils/types";
 
 import Global from "../../layouts/global.astro";
 
@@ -14,7 +14,7 @@ interface Props {
   author: AuthorObj;
   body: any;
   excerpt: any;
-  featuredImage: ImageObj;
+  featuredImage: BlockImage;
   title: string;
   relatedPosts: relatedPost[];
 }
@@ -24,7 +24,7 @@ interface relatedPost {
   slug: string;
   created: string;
   author: AuthorObj;
-  featuredImage: ImageObj;
+  featuredImage: BlockImage;
 }
 
 export async function getStaticPaths() {
@@ -39,12 +39,12 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
   <article>
     <header class="mx-auto max-w-inner-sm space-y-8">
       <PageTitle title={title} />
-      <Author avatar={author.avatar} name={author.name} slug={author.slug} />
+      <Author author={author} />
       <PortableText portableText={excerpt} />
     </header>
 
     <div class="mx-auto max-w-inner-lg py-16">
-      <Picture asset={featuredImage.image} alt={featuredImage.alt} />
+      <Picture asset={featuredImage} />
     </div>
 
     <div class="mx-auto max-w-inner-sm">
