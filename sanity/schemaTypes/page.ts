@@ -54,11 +54,19 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'blockImage',
+      group: 'content',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
       group: 'content',
-      validation: (rule) => rule.required(),
     }),
     {
       title: 'Title',
@@ -80,6 +88,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      media: 'featuredImage.imageRef',
     },
   },
 })
