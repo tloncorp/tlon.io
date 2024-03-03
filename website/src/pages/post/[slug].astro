@@ -2,7 +2,7 @@
 import { getPosts } from "../../utils/api";
 import { type BlockImage, type AuthorObj } from "../../utils/types";
 
-import Global from "../../layouts/global.astro";
+import GlobalLayout from "../../layouts/global.astro";
 
 import Author from "../../components/Author.astro";
 import PageTitle from "../../components/PageTitle.astro";
@@ -35,7 +35,7 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
   Astro.props;
 ---
 
-<Global>
+<GlobalLayout>
   <article>
     <header class="mx-auto max-w-inner-sm space-y-8">
       <PageTitle title={title} />
@@ -43,8 +43,8 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
       <PortableText portableText={excerpt} />
     </header>
 
-    <div class="mx-auto max-w-inner-lg py-16">
-      <Picture asset={featuredImage} />
+    <div class="mx-auto flex max-w-inner-lg items-center py-16">
+      <Picture asset={featuredImage} visualMaxWidth={1120} />
     </div>
 
     <div class="mx-auto max-w-inner-sm">
@@ -72,4 +72,4 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
       )
     }
   </article>
-</Global>
+</GlobalLayout>

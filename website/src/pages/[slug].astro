@@ -1,0 +1,33 @@
+---
+import { getPages } from "../utils/api";
+
+import { BlockImage } from "../utils/types";
+
+import Page from "../components/Page.astro";
+
+interface Props {
+  body?: any;
+  featuredImage?: BlockImage;
+  slug: SlugObj;
+  title: string;
+  titleAlignment: string;
+}
+
+interface SlugObj {
+  current: string;
+  _type: string;
+}
+
+export async function getStaticPaths() {
+  return await getPages();
+}
+
+const { body, featuredImage, title, titleAlignment } = Astro.props;
+---
+
+<Page
+  body={body}
+  featuredImage={featuredImage}
+  title={title}
+  titleAlignment={titleAlignment}
+/>

@@ -20,7 +20,7 @@ const { author, created, featuredImage, slug, title } = Astro.props;
   class="rounded-[24px] border border-blackish/10 hover:border-blackish/30"
 >
   <a class="inline-block p-8" href={`/post/${slug}`}>
-    <Picture asset={featuredImage} maxWidth={300} />
+    <Picture asset={featuredImage} visualMaxWidth={300} />
     <div class="space-y-4 pt-4">
       <h6 class="text-lg leading-9">{title}</h6>
       <Author author={author} large={false} link={false} />

@@ -16,11 +16,13 @@ interface Props {
 const { author, excerpt, featuredImage, slug, title } = Astro.props;
 ---
 
-<div class="mx-auto max-w-inner-md">
-  <a href={`post/${slug}`}>
-    <Picture asset={featuredImage} />
-  </a>
-  <div class="mx-auto max-w-inner-sm space-y-3 pt-3">
+<div>
+  <div class="mx-auto flex max-w-inner-lg items-center">
+    <a class="mx-auto inline-block" href={`post/${slug}`}>
+      <Picture asset={featuredImage} visualMaxWidth={1120} />
+    </a>
+  </div>
+  <div class="mx-auto max-w-inner-sm space-y-3 pt-20">
     <h2 class="text-xl">
       <a href={`post/${slug}`}>
         {title}

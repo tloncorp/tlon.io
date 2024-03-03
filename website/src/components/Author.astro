@@ -17,15 +17,15 @@ const formattedSize = large ? "text-xl" : "text-md leading-none";
 {
   link ? (
     <a class="flex items-center space-x-4" href={`/author/${author.slug}`}>
-      <div class="max-w-[32px]">
-        <Picture asset={author.image} maxWidth={32} rounded />
+      <div class="flex max-w-[32px]">
+        <Picture asset={author.image} visualMaxWidth={32} rounded />
       </div>
       <span class:list={["opacity-60", formattedSize]}>{author.name}</span>
     </a>
   ) : (
     <div class="flex items-center space-x-4">
-      <div class="max-w-[32px]">
-        <Picture asset={author.image} maxWidth={32} rounded />
+      <div class="flex max-w-[32px]">
+        <Picture asset={author.image} visualMaxWidth={32} rounded />
       </div>
       <span class:list={["opacity-60", formattedSize]}>{author.name}</span>
     </div>

@@ -1,20 +1,26 @@
 import { sanityClient } from "sanity:client";
 
+const imageRefObj = `
+{
+  "imageRef": asset,
+  alt,
+  "dimensions": asset-> metadata.dimensions {
+    height,
+    width,
+    aspectRatio
+  }
+}
+`;
+
 // Homepage post excerpts with author information
 export async function getHomePosts() {
   const query = `*[_type == "post"] {
     "slug": slug.current,
-    "featuredImage": featuredImage.image {
-      "imageRef": asset,
-      alt
-    },
+    "featuredImage": featuredImage.imageRef ${imageRefObj},
     "author": author-> {
       name,
       "slug": slug.current,
-      "image": image.imageRef {
-        "imageRef": asset,
-        alt,
-      },
+      "image": image.imageRef ${imageRefObj},
     },
     title,
     excerpt
@@ -41,17 +47,11 @@ export async function getPosts() {
   const query = `*[_type == "post"] | order(_createdAt desc) {
     slug,
     excerpt,
-    "featuredImage": featuredImage.image {
-      "imageRef": asset,
-      alt
-    },
+    "featuredImage": featuredImage.imageRef ${imageRefObj},
     "author": author-> {
       name,
       "slug": slug.current,
-      "image": image.imageRef {
-        "imageRef": asset,
-        alt,
-      },
+      "image": image.imageRef ${imageRefObj},
     },
     title,
     body,
@@ -60,17 +60,11 @@ export async function getPosts() {
       title,
       "slug": slug.current,
       "created": _createdAt,
-      "featuredImage": featuredImage.image {
-        "imageRef": asset,
-        alt
-      },
+      "featuredImage": featuredImage.imageRef ${imageRefObj},
       "author": author-> {
         name,
         "slug": slug.current,
-        "image": image.imageRef {
-          "imageRef": asset,
-          alt,
-        },
+        "image": image.imageRef ${imageRefObj},
       },
     },
     metaTitle,
@@ -81,12 +75,24 @@ export async function getPosts() {
 
 // Get all basic pages
 export async function getPages() {
-  const query = `*[_type == "page"] {
-  slug,
-  title,
-  body,
-}`;
+  const query = `*[_type == "page" && title != "404"] {
+    slug,
+    title,
+    body,
+    titleAlignment,
+    "featuredImage": featuredImage.imageRef ${imageRefObj},
+  }`;
   return paramMap(await sanityClient.fetch(query));
+}
+
+export async function get404Page() {
+  const query = `*[_type == "page" && title == "404"][0]  {
+    title,
+    body,
+    titleAlignment,
+    "featuredImage": featuredImage.imageRef ${imageRefObj},
+  }`;
+  return await sanityClient.fetch(query);
 }
 
 // Get header nav

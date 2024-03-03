@@ -1,0 +1,46 @@
+---
+import { BlockImage } from "../utils/types";
+
+import GlobalLayout from "../layouts/global.astro";
+import Picture from "./Picture.astro";
+import PageTitle from "./PageTitle.astro";
+import PortableText from "./PortableText.astro";
+
+interface Props {
+  body?: any;
+  featuredImage?: BlockImage;
+  title: string;
+  titleAlignment: string;
+}
+
+interface SlugObj {
+  current: string;
+  _type: string;
+}
+
+const { body, featuredImage, title, titleAlignment } = Astro.props;
+---
+
+<GlobalLayout>
+  <div class="space-y-16">
+    <header class="mx-auto max-w-inner-sm">
+      <PageTitle title={title} titleAlignment={titleAlignment} />
+    </header>
+
+    {
+      featuredImage && (
+        <div class="mx-auto flex max-w-inner-lg items-center py-16">
+          <Picture asset={featuredImage} visualMaxWidth={1120} />
+        </div>
+      )
+    }
+
+    {
+      body && (
+        <div class="mx-auto max-w-inner-sm">
+          <PortableText portableText={body} />
+        </div>
+      )
+    }
+  </div>
+</GlobalLayout>

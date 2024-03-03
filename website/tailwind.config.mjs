@@ -16,9 +16,9 @@ export default {
         },
       },
       maxWidth: {
-        "inner-sm": "34.375rem",
-        "inner-md": "52.8125rem",
-        "inner-lg": "75rem",
+        "inner-sm": "34.375rem", // 550px;
+        "inner-md": "52.8125rem", // 845px
+        "inner-lg": "70rem", // 1120px
       },
       fontSize: {
         md: [
