@@ -13,6 +13,7 @@ export default {
           type: 'string',
           title: 'Alt',
           description: 'Description of image for accessibility',
+          validation: (rule: any) => rule.required(),
         },
       ],
     },
