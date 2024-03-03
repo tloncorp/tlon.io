@@ -4,30 +4,32 @@ Additional info about formatting image
 https://www.sanity.io/docs/image-url#sanity-image-url
 */
 
-import { type AssetReference } from "@utils/commonTypes";
+import { type BlockImage } from "@utils/types";
 import { urlForImage } from "../utils/urlForImage";
 
 interface Props {
-  alt: string;
-  asset: AssetReference;
+  asset: BlockImage;
   maxWidth?: number;
   rounded?: boolean;
 }
 
 // Max width as 845px as thats the widest an image inside a blog post can be
-const { alt, asset, maxWidth = 845, rounded } = Astro.props;
+const { asset, maxWidth = 845, rounded } = Astro.props;
 
 // 2x for high-density screens and provide default
 const retinaMaxWidth = maxWidth * 2;
 
 // Format URLs
-const url = urlForImage(asset).width(retinaMaxWidth).url();
-const webpUrl = urlForImage(asset).format("webp").width(retinaMaxWidth).url();
+const url = urlForImage(asset.imageRef).width(retinaMaxWidth).url();
+const webpUrl = urlForImage(asset.imageRef)
+  .format("webp")
+  .width(retinaMaxWidth)
+  .url();
 ---
 
 <div>
   <picture>
     <source srcset={webpUrl} type="image/webp" />
-    <img class:list={[{ rounded: rounded }]} src={url} alt={alt} />
+    <img class:list={[{ rounded: rounded }]} src={url} alt={asset.alt} />
   </picture>
 </div>

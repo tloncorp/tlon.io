@@ -27,7 +27,7 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Avatar',
-      type: 'image',
+      type: 'blockImage',
       options: {
         hotspot: true,
       },

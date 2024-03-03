@@ -1,6 +1,6 @@
 ---
 import { format } from "date-fns";
-import { type AuthorObj, type ImageObj } from "../utils/commonTypes";
+import { type AuthorObj, type BlockImage } from "../utils/types";
 
 import Author from "./Author.astro";
 import Picture from "./Picture.astro";
@@ -8,7 +8,7 @@ import Picture from "./Picture.astro";
 interface Props {
   author: AuthorObj;
   created: string;
-  featuredImage: ImageObj;
+  featuredImage: BlockImage;
   slug: string;
   title: string;
 }
@@ -20,14 +20,10 @@ const { author, created, featuredImage, slug, title } = Astro.props;
   class="rounded-[24px] border border-blackish/10 hover:border-blackish/30"
 >
   <a class="inline-block p-8" href={`/post/${slug}`}>
-    <Picture
-      asset={featuredImage.image}
-      alt={featuredImage.alt}
-      maxWidth={300}
-    />
+    <Picture asset={featuredImage} maxWidth={300} />
     <div class="space-y-4 pt-4">
       <h6 class="text-lg leading-9">{title}</h6>
-      <Author name={author.name} avatar={author.avatar} large={false} />
+      <Author author={author} large={false} link={false} />
       <time class="text-md inline-block text-mono-500" datetime={created}>
         {format(new Date(created), "MMMM d, yyyy")}
       </time>

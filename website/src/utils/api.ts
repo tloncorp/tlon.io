@@ -5,13 +5,16 @@ export async function getHomePosts() {
   const query = `*[_type == "post"] {
     "slug": slug.current,
     "featuredImage": featuredImage.image {
-      "image": asset,
+      "imageRef": asset,
       alt
     },
     "author": author-> {
       name,
       "slug": slug.current,
-      "avatar": image,
+      "image": image.imageRef {
+        "imageRef": asset,
+        alt,
+      },
     },
     title,
     excerpt
@@ -39,30 +42,37 @@ export async function getPosts() {
     slug,
     excerpt,
     "featuredImage": featuredImage.image {
-      "image": asset,
+      "imageRef": asset,
       alt
     },
     "author": author-> {
       name,
-      "avatar": image,
       "slug": slug.current,
+      "image": image.imageRef {
+        "imageRef": asset,
+        alt,
+      },
     },
     title,
     body,
     "video": video.asset->url,
     "relatedPosts": *[_type == "post" && slug.current != ^.slug.current && count(tags[@._ref in ^.^.tags[]._ref]) > 0] | order(publishedAt desc, _createdAt desc) [0..3] {
-    title,
-    "slug": slug.current,
-    "created": _createdAt,
-    "featuredImage": featuredImage.image {
-      "image": asset,
-      alt
+      title,
+      "slug": slug.current,
+      "created": _createdAt,
+      "featuredImage": featuredImage.image {
+        "imageRef": asset,
+        alt
+      },
+      "author": author-> {
+        name,
+        "slug": slug.current,
+        "image": image.imageRef {
+          "imageRef": asset,
+          alt,
+        },
+      },
     },
-    "author": author-> {
-      name,
-      "avatar": image,
-    },
-    }, 
     metaTitle,
     metaDescription
   }`;
