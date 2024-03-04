@@ -2,45 +2,22 @@
 import globals from "../utils/globals";
 import { getHomePosts } from "../utils/api";
 
+import { type paginatedPageObj } from "../utils/types";
+
 import GlobalLayout from "../layouts/global.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
-import PostExcerpt from "../components/PostExcerpt.astro";
+import ExcerptList from "../components/ExcerptList.astro";
 
 interface Props {
-  page: pageObj;
+  page: paginatedPageObj;
 }
 
-interface pageObj {
-  data: dataObj[];
-  start: number;
-  end: number;
-  size: number;
-  total: number;
-  currentPage: number;
-  lastPage: number;
-  url: urlObj;
-}
-
-interface dataObj {
-  excerpt: any;
-  slug: string;
-  featuredImage: any;
-  author: any;
-  title: string;
-}
-
-interface urlObj {
-  current: string;
-  next: string | undefined;
-  prev: string | undefined;
-}
-
-// https://docs.astro.build/en/guides/routing/#pagination
 export async function getStaticPaths({ paginate }: any) {
   const posts = await getHomePosts();
   return paginate(posts, { pageSize: globals.postsPerPage });
 }
-const { page } = Astro.props as any;
+
+const { page } = Astro.props;
 ---
 
 <GlobalLayout>
@@ -51,42 +28,5 @@ const { page } = Astro.props as any;
     <NewsletterSignup />
   </div>
 
-  {
-    page.data && (
-      <div class="space-y-24">
-        {page.data.map((post: any) => (
-          <PostExcerpt
-            author={post.author}
-            excerpt={post.excerpt}
-            featuredImage={post.featuredImage}
-            slug={post.slug}
-            title={post.title}
-          />
-        ))}
-      </div>
-    )
-  }
-
-  {
-    page.total >= globals.postsPerPage && (
-      <nav class="mx-auto max-w-inner-sm pt-32">
-        <ul class="flex">
-          {page.url.prev && (
-            <li class="grow">
-              <a class="hover:underline" href={page.url.prev}>
-                Previous
-              </a>
-            </li>
-          )}
-          {page.url.next && (
-            <li class="grow text-right">
-              <a class="hover:underline" href={page.url.next}>
-                Next
-              </a>
-            </li>
-          )}
-        </ul>
-      </nav>
-    )
-  }
+  <ExcerptList page={page} />
 </GlobalLayout>

@@ -1,0 +1,40 @@
+---
+import globals from "../../../utils/globals";
+import { getTagPage } from "../../../utils/api";
+
+import GlobalLayout from "../../../layouts/global.astro";
+import ExcerptList from "../../../components/ExcerptList.astro";
+
+interface Props {
+  page: any;
+  categorySlug: string;
+}
+
+export async function getStaticPaths({ paginate }) {
+  const tagObjects = await getTagPage();
+  const allCategories: any[] = [];
+  tagObjects.forEach(tabObject => allCategories.push(tabObject.slug));
+  return allCategories.flatMap(tag => {
+    const filteredPosts = tagObjects.find(tagObject => tagObject.slug === tag);
+    return paginate(filteredPosts.posts, {
+      params: { slug: tag },
+      props: { categorySlug: filteredPosts.slug },
+      pageSize: globals.postsPerPage,
+    });
+  });
+}
+
+const { page, categorySlug } = Astro.props;
+---
+
+<GlobalLayout>
+  <header class="mx-auto max-w-inner-sm pb-16">
+    <h1 class="text-xl">
+      Posts tagged as:
+      <a class="text-primary hover:underline" href={`/tag/${categorySlug}`}>
+        #{categorySlug}
+      </a>
+    </h1>
+  </header>
+  <ExcerptList page={page} />
+</GlobalLayout>
