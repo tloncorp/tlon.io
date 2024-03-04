@@ -32,14 +32,39 @@ export async function getHomePosts() {
 // Tag page with all posts related to that tag
 export async function getTagPage() {
   const query = `*[_type == "tag"] {
-  title,
-  "slug": slug.current,
-  "posts": *[_type == "post" && references(^._id)] {
-    title,
-    "slug": slug.current
-  }
-}`;
-  return paramMap(await sanityClient.fetch(query));
+    "slug": slug.current,
+    "posts": *[_type == "post" && references(^._id)] {
+      "slug": slug.current,
+      title,
+      excerpt,
+      "featuredImage": featuredImage.imageRef ${imageRefObj},
+      "author": author-> {
+        name,
+        "slug": slug.current,
+        "image": image.imageRef ${imageRefObj},
+      },
+    }
+  }`;
+  return sanityClient.fetch(query);
+}
+
+// Author page with all posts related to that author
+export async function getAuthorPage() {
+  const query = `*[_type == "author"] {
+    "slug": slug.current,
+    "posts": *[_type == "post" && references(^._id)] {
+      "slug": slug.current,
+      title,
+      excerpt,
+      "featuredImage": featuredImage.imageRef ${imageRefObj},
+      "author": author-> {
+        name,
+        "slug": slug.current,
+        "image": image.imageRef ${imageRefObj},
+      },
+    }
+  }`;
+  return sanityClient.fetch(query);
 }
 
 // Get all posts and list of related posts based on tag
@@ -85,6 +110,7 @@ export async function getPages() {
   return paramMap(await sanityClient.fetch(query));
 }
 
+// Get the 404 page specifically
 export async function get404Page() {
   const query = `*[_type == "page" && title == "404"][0]  {
     title,

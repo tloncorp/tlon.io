@@ -10,6 +10,7 @@ export default {
         white: "#FFF",
         blackish: "#1A1818",
         navHover: "#ECF1FB",
+        primary: "#3B80E8",
         mono: {
           100: "#F5F5F5",
           500: "#999999",
