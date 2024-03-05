@@ -13,6 +13,17 @@ const components = {
 };
 ---
 
-<div class="portableTextWrapper">
+<div
+  class="prose
+    prose-tlon
+    prose-xl
+    dark:prose-invert
+    prose-headings:text-md
+    prose-headings:font-normal
+    prose-headings:pt-20
+    prose-headings:pb-4
+    prose-blockquote:font-normal
+    hover:prose-a:no-underline"
+>
   <PortableTextInternal value={portableText} components={components} />
 </div>

@@ -25,13 +25,3 @@
     }
   }
 }
-
-@layer components {
-  /* How we handle all WYSIWYG markup from Sanity */
-  .portableTextWrapper {
-    @apply space-y-8;
-    p {
-      @apply text-md;
-    }
-  }
-}
