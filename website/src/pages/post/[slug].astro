@@ -57,15 +57,17 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
           <h5 class="pb-16 text-center text-xl">
             You might be interested in these:
           </h5>
-          <nav class="flex items-start space-x-8">
+          <nav class="flex items-start justify-center space-x-8">
             {relatedPosts.map((post: relatedPost) => (
-              <RelatedPost
-                slug={post.slug}
-                title={post.title}
-                created={post.created}
-                featuredImage={post.featuredImage}
-                author={post.author}
-              />
+              <div class="w-1/3">
+                <RelatedPost
+                  slug={post.slug}
+                  title={post.title}
+                  created={post.created}
+                  featuredImage={post.featuredImage}
+                  author={post.author}
+                />
+              </div>
             ))}
           </nav>
         </aside>
