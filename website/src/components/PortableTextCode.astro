@@ -1,0 +1,44 @@
+---
+const { node } = Astro.props;
+---
+
+<div class="code-block-wrapper space-y-10 rounded-lg bg-mono-100 p-6">
+  <pre
+    class="clear-both max-w-full overflow-scroll leading-[1.625]">{ node.code }</pre>
+</div>
+
+<script>
+  // https://www.roboleary.net/2022/01/13/copy-code-to-clipboard-blog.html
+  const copyButtonLabel = "Copy code";
+  const copiedLabel = "Copied";
+  const codeBlocks = document.querySelectorAll(".code-block-wrapper");
+
+  codeBlocks.forEach(block => {
+    // only add button if browser supports Clipboard API
+    if (navigator.clipboard) {
+      const button = document.createElement("button");
+
+      button.innerText = copyButtonLabel;
+      button.classList.add("float-right");
+      block.prepend(button);
+
+      button.addEventListener("click", async () => {
+        await copyCode(block, button);
+      });
+    }
+  });
+
+  function updateButtonLabel(button: any) {
+    button.innerText = copiedLabel;
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 750);
+  }
+
+  async function copyCode(block: any, button: any) {
+    const code = block.querySelector("pre");
+    const text = code.innerText;
+    await navigator.clipboard.writeText(text);
+    updateButtonLabel(button);
+  }
+</script>
