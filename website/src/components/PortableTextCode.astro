@@ -2,9 +2,11 @@
 const { node } = Astro.props;
 ---
 
-<div class="code-block-wrapper space-y-10 rounded-lg bg-mono-100 p-6">
+<div
+  class="code-block-wrapper not-prose space-y-10 rounded-lg bg-mono-100 p-6 text-base"
+>
   <pre
-    class="clear-both max-w-full overflow-scroll leading-[1.625]">{ node.code }</pre>
+    class="not-prose clear-both max-w-full overflow-scroll leading-[1.625]">{ node.code }</pre>
 </div>
 
 <script>
