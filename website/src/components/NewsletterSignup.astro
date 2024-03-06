@@ -1,5 +1,33 @@
 ---
-
+import globals from "../utils/globals";
 ---
 
-<img src="https://placehold.co/550x55?text=Newsletter+Signup" />
+<div>
+  <form
+    action={globals.mailchimpSignup}
+    method="post"
+    target="_self"
+    class="relative font-medium leading-none"
+  >
+    <input
+      type="email"
+      name="EMAIL"
+      autocomplete="off"
+      class="block w-full rounded-2xl border border-blackish/10 px-6 py-4 pr-36 shadow-lg transition-colors hover:border-blackish/30 focus:border-blackish/30 focus:outline-none"
+      placeholder="Sign up for updates, news, and other surprises"
+    />
+    <div class="absolute left-[-5000px]" aria-hidden="true">
+      <input
+        type="text"
+        name="b_f9f52f752b920bad5e8b46282_5f71947001"
+        tabindex="-1"
+        value=""
+      />
+    </div>
+    <button
+      type="submit"
+      class="absolute right-0 top-1/2 inline-block -translate-y-1/2 rounded-2xl p-4"
+      >Subscribe</button
+    >
+  </form>
+</div>

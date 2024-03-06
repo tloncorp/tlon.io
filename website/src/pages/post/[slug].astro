@@ -5,6 +5,7 @@ import { type BlockImage, type AuthorObj } from "../../utils/types";
 import GlobalLayout from "../../layouts/global.astro";
 
 import Author from "../../components/Author.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import PageTitle from "../../components/PageTitle.astro";
 import Picture from "../../components/Picture.astro";
 import PortableText from "../../components/PortableText.astro";
@@ -73,5 +74,9 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
         </aside>
       )
     }
+
+    <div class="mx-auto max-w-inner-sm pb-32 pt-16">
+      <NewsletterSignup />
+    </div>
   </article>
 </GlobalLayout>
