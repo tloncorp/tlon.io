@@ -9,6 +9,7 @@ import globals from "./src/utils/globals";
 // https://astro.build/config
 export default defineConfig({
   site: globals.siteURL,
+  prefetch: true,
   integrations: [
     sanityIntegration({
       projectId: globals.sanityProjectId,

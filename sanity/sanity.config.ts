@@ -8,10 +8,10 @@ import globals from '../website/src/utils/globals'
 
 export default defineConfig({
   name: 'default',
-  title: globals.siteURL,
+  title: 'Tlon.io',
 
-  projectId: globals.sanityProjectId,
-  dataset: globals.sanityDataset,
+  projectId: '4vy6phvk',
+  dataset: 'production',
 
   plugins: [structureTool(), visionTool(), codeInput()],
 
