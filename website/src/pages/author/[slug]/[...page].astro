@@ -10,13 +10,15 @@ interface Props {
   authorSlug: string;
 }
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
   const authorObjects = await getAuthorPage();
   const allCategories: any[] = [];
-  authorObjects.forEach(tabObject => allCategories.push(tabObject.slug));
+  authorObjects.forEach((tabObject: { slug: any }) =>
+    allCategories.push(tabObject.slug)
+  );
   return allCategories.flatMap(author => {
     const filteredPosts = authorObjects.find(
-      tagObject => tagObject.slug === author
+      (tagObject: { slug: any }) => tagObject.slug === author
     );
     return paginate(filteredPosts.posts, {
       params: { slug: author },

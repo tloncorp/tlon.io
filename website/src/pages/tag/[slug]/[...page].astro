@@ -10,12 +10,16 @@ interface Props {
   categorySlug: string;
 }
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
   const tagObjects = await getTagPage();
   const allCategories: any[] = [];
-  tagObjects.forEach(tabObject => allCategories.push(tabObject.slug));
+  tagObjects.forEach((tabObject: { slug: any }) =>
+    allCategories.push(tabObject.slug)
+  );
   return allCategories.flatMap(tag => {
-    const filteredPosts = tagObjects.find(tagObject => tagObject.slug === tag);
+    const filteredPosts = tagObjects.find(
+      (tagObject: { slug: any }) => tagObject.slug === tag
+    );
     return paginate(filteredPosts.posts, {
       params: { slug: tag },
       props: { categorySlug: filteredPosts.slug },
