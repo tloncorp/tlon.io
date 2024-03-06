@@ -55,12 +55,12 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
     {
       relatedPosts && (
         <aside role="complementary" class="mx-auto max-w-inner-lg pt-32">
-          <h5 class="pb-16 text-center text-xl">
+          <h5 class="pb-16 text-center text-xl sm:text-2xl">
             You might be interested in these:
           </h5>
-          <nav class="flex items-start justify-center space-x-8">
+          <nav class="max-md:flex-col max-md:space-y-4 md:flex md:items-start md:justify-center md:space-x-4 lg:space-x-8">
             {relatedPosts.map((post: relatedPost) => (
-              <div class="w-1/3">
+              <div class="max-md:flex max-md:justify-center md:w-1/3">
                 <RelatedPost
                   slug={post.slug}
                   title={post.title}
@@ -75,7 +75,7 @@ const { author, body, excerpt, featuredImage, title, relatedPosts } =
       )
     }
 
-    <div class="mx-auto max-w-inner-sm pb-32 pt-16">
+    <div class="mx-auto max-w-inner-sm pt-32">
       <NewsletterSignup />
     </div>
   </article>

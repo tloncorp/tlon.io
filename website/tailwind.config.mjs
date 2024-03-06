@@ -41,6 +41,13 @@ export default {
           },
         ],
         xl: [
+          "1.75rem", // 28px
+          {
+            lineHeight: "2.5rem", // 40px
+            letterSpacing: "0.00625rem", // 0.1px
+          },
+        ],
+        "2xl": [
           "2rem", // 32px
           {
             lineHeight: "2.5rem", // 40px

@@ -17,16 +17,19 @@ const { author, created, featuredImage, slug, title } = Astro.props;
 ---
 
 <article
-  class="dark:border-mono-800 dark:hover:border-mono-700 rounded-[24px] border border-blackish/10 transition-colors hover:border-blackish/30"
+  class="dark:border-mono-800 dark:hover:border-mono-700 inline-block max-w-[350px] rounded-lg border border-blackish/10 transition-colors hover:border-blackish/30 lg:rounded-[24px]"
 >
-  <a class="inline-block p-8" href={`/post/${slug}`}>
-    <div class="flex justify-center">
-      <Picture asset={featuredImage} visualMaxWidth={300} />
+  <a class="block p-4 lg:p-8" href={`/post/${slug}`}>
+    <div class="flex w-full justify-center">
+      <Picture asset={featuredImage} visualMaxWidth={350} />
     </div>
     <div class="space-y-4 pt-4">
-      <h6 class="text-lg leading-9">{title}</h6>
+      <h6 class="text-md lg:text-lg">{title}</h6>
       <Author author={author} large={false} link={false} />
-      <time class="inline-block text-md text-mono-500" datetime={created}>
+      <time
+        class="inline-block text-base text-mono-500 lg:text-md"
+        datetime={created}
+      >
         {format(new Date(created), "MMMM d, yyyy")}
       </time>
     </div>

@@ -17,18 +17,18 @@ const { author, excerpt, featuredImage, slug, title } = Astro.props;
 ---
 
 <div>
-  <div class="mx-auto flex max-w-inner-lg items-center">
-    <a class="mx-auto inline-block" href={`post/${slug}`}>
-      <Picture asset={featuredImage} visualMaxWidth={1120} />
-    </a>
-  </div>
-  <div class="mx-auto max-w-inner-sm space-y-3 pt-20">
-    <h2 class="text-xl">
-      <a href={`post/${slug}`}>
+  <a class="mx-auto" href={`post/${slug}`}>
+    <div class="mx-auto flex max-w-inner-lg items-center">
+      <div class="mx-auto inline-block">
+        <Picture asset={featuredImage} visualMaxWidth={1120} />
+      </div>
+    </div>
+    <div class="mx-auto max-w-inner-sm space-y-3 pt-10 sm:pt-20">
+      <h2 class="text-xl sm:text-2xl">
         {title}
-      </a>
-    </h2>
-    <Author author={author} />
-    <PortableText portableText={excerpt} />
-  </div>
+      </h2>
+      <Author author={author} link={false} />
+      <PortableText portableText={excerpt} />
+    </div>
+  </a>
 </div>
