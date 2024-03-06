@@ -12,8 +12,8 @@ export default defineConfig({
   prefetch: true,
   integrations: [
     sanityIntegration({
-      projectId: globals.sanityProjectId,
-      dataset: globals.sanityDataset,
+      projectId: "4vy6phvk",
+      dataset: "production",
       useCdn: false,
     }),
     tailwind({
