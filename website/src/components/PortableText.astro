@@ -15,15 +15,16 @@ const components = {
 
 <div
   class="prose
+    prose-lg
     prose-tlon
-    prose-xl
+    sm:prose-xl
     dark:prose-invert
+    prose-headings:pb-4
+    prose-headings:pt-20
     prose-headings:text-md
     prose-headings:font-normal
-    prose-headings:pt-20
-    prose-headings:pb-4
-    prose-blockquote:font-normal
-    hover:prose-a:no-underline"
+    hover:prose-a:no-underline
+    prose-blockquote:font-normal"
 >
   <PortableTextInternal value={portableText} components={components} />
 </div>

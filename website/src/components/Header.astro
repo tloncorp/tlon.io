@@ -5,9 +5,9 @@ const links = await getHeaderNav();
 
 <header
   role="banner"
-  class="flex items-center justify-between p-8 leading-none"
+  class="flex items-center justify-between leading-none sm:px-8 sm:py-6"
 >
-  <a class="inline-block w-4" href="/">
+  <a class="inline-block w-12 p-4" href="/">
     <img src="/icon.svg" alt="Tlon logo" />
   </a>
   {
@@ -19,7 +19,7 @@ const links = await getHeaderNav();
               <a
                 class:list={[
                   {
-                    "dark:hover:bg-mono-800 hover:bg-navHover hover:no-underline":
+                    "dark:sm:hover:bg-mono-800 max-sm:hover:underline hover:sm:bg-navHover":
                       link.displayButton,
                   },
                   { "hover:underline": !link.displayButton },
