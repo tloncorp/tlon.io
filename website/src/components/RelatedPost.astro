@@ -17,7 +17,7 @@ const { author, created, featuredImage, slug, title } = Astro.props;
 ---
 
 <article
-  class="rounded-[24px] border border-blackish/10 hover:border-blackish/30"
+  class="dark:border-mono-800 dark:hover:border-mono-700 rounded-[24px] border border-blackish/10 hover:border-blackish/30"
 >
   <a class="inline-block p-8" href={`/post/${slug}`}>
     <div class="flex justify-center">
@@ -26,7 +26,7 @@ const { author, created, featuredImage, slug, title } = Astro.props;
     <div class="space-y-4 pt-4">
       <h6 class="text-lg leading-9">{title}</h6>
       <Author author={author} large={false} link={false} />
-      <time class="text-md inline-block text-mono-500" datetime={created}>
+      <time class="inline-block text-md text-mono-500" datetime={created}>
         {format(new Date(created), "MMMM d, yyyy")}
       </time>
     </div>

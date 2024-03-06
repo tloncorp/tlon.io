@@ -3,7 +3,7 @@ const { node } = Astro.props;
 ---
 
 <div
-  class="code-block-wrapper not-prose space-y-10 rounded-lg bg-mono-100 p-6 text-base"
+  class="code-block-wrapper not-prose dark:bg-mono-800 space-y-10 rounded-lg bg-mono-100 p-6 text-base"
 >
   <pre
     class="not-prose clear-both max-w-full overflow-scroll leading-[1.625]">{ node.code }</pre>
@@ -21,7 +21,7 @@ const { node } = Astro.props;
       const button = document.createElement("button");
 
       button.innerText = copyButtonLabel;
-      button.classList.add("float-right");
+      button.classList.add("float-right", "hover:underline");
       block.prepend(button);
 
       button.addEventListener("click", async () => {
