@@ -16,6 +16,7 @@ export default {
           200: "#E5E5E5",
           500: "#999999",
           600: "#666666",
+          700: "#4C4C4C",
         },
       },
       maxWidth: {
@@ -45,6 +46,9 @@ export default {
             letterSpacing: "0.00625rem", // 0.1px
           },
         ],
+      },
+      boxShadow: {
+        inverted: "0 0 30px rgba(255, 255, 255, 0.1)",
       },
       typography: ({ theme }) => ({
         tlon: {
