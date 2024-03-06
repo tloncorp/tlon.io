@@ -9,14 +9,26 @@ import PortableText from "./PortableText.astro";
 interface Props {
   body?: any;
   featuredImage?: BlockImage;
+  metaDescription?: string;
+  metaTitle?: string;
   title: string;
   titleAlignment: string;
 }
 
-const { body, featuredImage, title, titleAlignment } = Astro.props;
+const {
+  body,
+  featuredImage,
+  metaDescription,
+  metaTitle,
+  title,
+  titleAlignment,
+} = Astro.props;
 ---
 
-<GlobalLayout>
+<GlobalLayout
+  metaDescription={metaDescription}
+  metaTitle={metaTitle ? metaTitle : title}
+>
   <div>
     <header class="mx-auto max-w-inner-sm">
       <PageTitle title={title} titleAlignment={titleAlignment} />

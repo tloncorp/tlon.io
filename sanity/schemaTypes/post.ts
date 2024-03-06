@@ -115,14 +115,15 @@ export default defineType({
     {
       title: 'Title',
       name: 'metaTitle',
-      description: 'Title for browser tab and search results',
+      description:
+        'Optionally replace the automatically generated title with a custom one for this post/page.',
       type: 'string',
       group: 'meta',
     },
     {
       title: 'Description',
       name: 'metaDescription',
-      description: 'Description for search results',
+      description: 'Optionally replace the global generic description. Max 180 characters.',
       type: 'text',
       group: 'meta',
       validation: (rule) => rule.max(180),

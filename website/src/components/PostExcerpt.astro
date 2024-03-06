@@ -17,7 +17,7 @@ const { author, excerpt, featuredImage, slug, title } = Astro.props;
 ---
 
 <div>
-  <a class="mx-auto" href={`post/${slug}`}>
+  <a class="mx-auto" href={`/post/${slug}`}>
     <div class="mx-auto flex max-w-inner-lg items-center">
       <div class="mx-auto inline-block">
         <Picture asset={featuredImage} visualMaxWidth={1120} />

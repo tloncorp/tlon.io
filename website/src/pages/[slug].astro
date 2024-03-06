@@ -8,7 +8,8 @@ import Page from "../components/Page.astro";
 interface Props {
   body?: any;
   featuredImage?: BlockImage;
-  slug: SlugObj;
+  metaDescription?: string;
+  metaTitle?: string;
   title: string;
   titleAlignment: string;
 }
@@ -22,12 +23,21 @@ export async function getStaticPaths() {
   return await getPages();
 }
 
-const { body, featuredImage, title, titleAlignment } = Astro.props;
+const {
+  body,
+  featuredImage,
+  metaDescription,
+  metaTitle,
+  title,
+  titleAlignment,
+} = Astro.props;
 ---
 
 <Page
   body={body}
   featuredImage={featuredImage}
+  metaDescription={metaDescription}
+  metaTitle={metaTitle}
   title={title}
   titleAlignment={titleAlignment}
 />

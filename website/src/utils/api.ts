@@ -106,6 +106,8 @@ export async function getPages() {
     body,
     titleAlignment,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
+    metaTitle,
+    metaDescription
   }`;
   return paramMap(await sanityClient.fetch(query));
 }

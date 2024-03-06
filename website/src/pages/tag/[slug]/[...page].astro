@@ -31,7 +31,7 @@ export async function getStaticPaths({ paginate }: any) {
 const { page, categorySlug } = Astro.props;
 ---
 
-<GlobalLayout>
+<GlobalLayout metaTitle=`Posts tagged as ${categorySlug}`>
   <header class="mx-auto max-w-inner-sm pb-16">
     <h1 class="text-2xl">
       Posts tagged as:

@@ -31,7 +31,7 @@ export async function getStaticPaths({ paginate }: any) {
 const { page, authorSlug } = Astro.props;
 ---
 
-<GlobalLayout>
+<GlobalLayout metaTitle=`Posts written by ${authorSlug}`>
   <header class="mx-auto max-w-inner-sm pb-16">
     <h1 class="text-2xl">
       Posts written by:
