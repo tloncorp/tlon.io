@@ -5,6 +5,16 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const { metaTitle, metaDescription } = Astro.props;
+const { pathname } = Astro.url;
+
+// Logic for creating dynamic title tag
+const titleAppend = `- ${globals.siteName}`;
+let formattedMetaTitle = metaTitle
+  ? `${metaTitle} ${titleAppend}`
+  : globals.siteName;
+
+// If homepage
+if (pathname === "/") formattedMetaTitle = globals.siteName;
 ---
 
 <html lang="en" class="antialiased">
@@ -18,25 +28,18 @@ const { metaTitle, metaDescription } = Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <!-- Dynamic meta information -->
-    {
-      metaTitle && (
-        <title>
-          {metaTitle} - {globals.siteName}
-        </title>
-      )
-    }
-    {metaDescription && <meta name="description" content={metaDescription} />}
-
     <!-- App Store Meta -->
     <meta name="apple-itunes-app" content="app-id=6451392109" />
 
     <!-- Primary Meta Tags -->
-    <title>{globals.siteName}</title>
-    <meta name="title" content={globals.siteName} />
+    <title>{formattedMetaTitle}</title>
+    <meta name="title" content={formattedMetaTitle} />
+
     <meta
       name="description"
-      content="Tlon exists to build exceptionally well-crafted software for people’s everyday lives."
+      content={metaDescription
+        ? metaDescription
+        : "Tlon exists to build exceptionally well-crafted software for people’s everyday lives."}
     />
 
     <!-- Open Graph / Facebook -->
@@ -45,7 +48,9 @@ const { metaTitle, metaDescription } = Astro.props;
     <meta property="og:title" content={globals.siteName} />
     <meta
       property="og:description"
-      content="Tlon exists to build exceptionally well-crafted software for people’s everyday lives."
+      content={metaDescription
+        ? metaDescription
+        : "Tlon exists to build exceptionally well-crafted software for people’s everyday lives."}
     />
     <meta
       property="og:image"
@@ -57,7 +62,9 @@ const { metaTitle, metaDescription } = Astro.props;
     <meta name="twitter:title" content={globals.siteName} />
     <meta
       name="twitter:description"
-      content="Tlon exists to build exceptionally well-crafted software for people’s everyday lives."
+      content={metaDescription
+        ? metaDescription
+        : "Tlon exists to build exceptionally well-crafted software for people’s everyday lives."}
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
