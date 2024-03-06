@@ -1,5 +1,5 @@
 ---
-import { BlockImage } from "../utils/types";
+import { type BlockImage } from "../utils/types";
 
 import GlobalLayout from "../layouts/global.astro";
 import Picture from "./Picture.astro";
@@ -11,11 +11,6 @@ interface Props {
   featuredImage?: BlockImage;
   title: string;
   titleAlignment: string;
-}
-
-interface SlugObj {
-  current: string;
-  _type: string;
 }
 
 const { body, featuredImage, title, titleAlignment } = Astro.props;

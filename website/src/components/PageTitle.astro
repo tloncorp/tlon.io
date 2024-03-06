@@ -6,7 +6,7 @@ interface Props {
 
 const { title, titleAlignment } = Astro.props;
 
-const alginmentClasses = alignment => {
+const alginmentClasses = (alignment: string | undefined) => {
   switch (alignment) {
     case "center":
       return "text-center";
