@@ -3,28 +3,32 @@ import { get404Page } from "../utils/api";
 
 import { type BlockImage } from "../utils/types";
 
-import Page from "../components/Page.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 interface Props {
   body?: any;
   featuredImage?: BlockImage;
-  slug: SlugObj;
+  metaDescription?: string;
+  metaTitle?: string;
   title: string;
   titleAlignment: string;
 }
 
-interface SlugObj {
-  current: string;
-  _type: string;
-}
-
-const { body, featuredImage, title, titleAlignment } =
-  (await get404Page()) as Props;
+const {
+  body,
+  featuredImage,
+  metaTitle,
+  metaDescription,
+  title,
+  titleAlignment,
+} = (await get404Page()) as Props;
 ---
 
-<Page
+<PageLayout
   body={body}
   featuredImage={featuredImage}
+  metaDescription={metaDescription}
+  metaTitle={metaTitle}
   title={title}
   titleAlignment={titleAlignment}
 />

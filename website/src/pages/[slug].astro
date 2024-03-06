@@ -3,7 +3,7 @@ import { getPages } from "../utils/api";
 
 import { type BlockImage } from "../utils/types";
 
-import Page from "../components/Page.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 
 interface Props {
   body?: any;
@@ -12,11 +12,6 @@ interface Props {
   metaTitle?: string;
   title: string;
   titleAlignment: string;
-}
-
-interface SlugObj {
-  current: string;
-  _type: string;
 }
 
 export async function getStaticPaths() {
@@ -33,7 +28,7 @@ const {
 } = Astro.props;
 ---
 
-<Page
+<PageLayout
   body={body}
   featuredImage={featuredImage}
   metaDescription={metaDescription}
