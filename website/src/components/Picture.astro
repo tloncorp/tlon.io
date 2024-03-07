@@ -17,10 +17,12 @@ interface Props {
 const { asset, visualMaxWidth, rounded, mixBlend = true } = Astro.props;
 
 const uploadedImageWidth = asset.dimensions.width;
+const aspectRatio = asset.dimensions.aspectRatio;
 const savedMaxWidth = visualMaxWidth;
 
 let formattedImageWidth = uploadedImageWidth;
 let formattedMaxWidth = savedMaxWidth;
+const formattedImageHeight = Math.round(formattedImageWidth * aspectRatio);
 
 // If the uploaded image would display smaller than our wrapper max width
 if (uploadedImageWidth / 2 <= savedMaxWidth) {
@@ -47,7 +49,7 @@ const webpUrl = urlForImage(asset.imageRef)
       { rounded: rounded },
       { "mix-blend-color-burn": mixBlend },
     ]}
-    style={`max-width: ${formattedMaxWidth}px;`}
+    style={`max-width: ${formattedMaxWidth}px; aspect-ratio: auto ${aspectRatio};`}
     src={url}
     alt={asset.alt}
   />
