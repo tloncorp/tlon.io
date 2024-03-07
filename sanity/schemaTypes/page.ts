@@ -55,12 +55,9 @@ export default defineType({
     }),
     defineField({
       name: 'featuredImage',
-      title: 'Featured Image',
+      title: 'Featured image',
       type: 'blockImage',
       group: 'content',
-      options: {
-        hotspot: true,
-      },
     }),
     defineField({
       name: 'body',
