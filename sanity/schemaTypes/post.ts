@@ -47,35 +47,11 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      title: 'Featured content',
-      description: 'Featured image video displayed on the homepage list and at top of post',
-      name: 'featuredType',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Image', value: 'image'},
-          {title: 'Video', value: 'video'},
-        ],
-      },
-      initialValue: 'image',
-      group: 'content',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: 'featuredImage',
       title: 'Featured image',
       type: 'blockImage',
-      options: {
-        hotspot: true,
-      },
       group: 'content',
-      hidden: ({document}) => document?.featuredType === 'video',
-      validation: (Rule) =>
-        Rule.custom((field, context) =>
-          context.document?.featuredType === 'image' && field === undefined
-            ? 'This is required'
-            : true,
-        ),
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'featuredVideo',
