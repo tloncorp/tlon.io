@@ -24,14 +24,24 @@ const formattedImageSize = large
   link ? (
     <a class="flex items-center space-x-4" href={`/author/${author.slug}`}>
       <div class={formattedImageSize}>
-        <Picture asset={author.image} visualMaxWidth={32} rounded />
+        <Picture
+          asset={author.image}
+          visualMaxWidth={32}
+          rounded
+          mixBlend={false}
+        />
       </div>
       <span class:list={["opacity-60", formattedTextSize]}>{author.name}</span>
     </a>
   ) : (
     <div class="flex items-center space-x-4">
       <div class={formattedImageSize}>
-        <Picture asset={author.image} visualMaxWidth={32} rounded />
+        <Picture
+          asset={author.image}
+          visualMaxWidth={32}
+          rounded
+          mixBlend={false}
+        />
       </div>
       <span class:list={["opacity-60", formattedTextSize]}>{author.name}</span>
     </div>
