@@ -4,8 +4,6 @@ import {visionTool} from '@sanity/vision'
 import {codeInput} from '@sanity/code-input'
 import {schemaTypes} from './schemaTypes'
 
-import globals from '../website/src/utils/globals'
-
 export default defineConfig({
   name: 'default',
   title: 'Tlon.io',
