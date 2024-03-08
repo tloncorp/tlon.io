@@ -1,4 +1,4 @@
-![Tlon logo](/webiste/public/icon.svg)
+![Tlon logo](/website/public/icon.svg)
 
 # Tlon
 
