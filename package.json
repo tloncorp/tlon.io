@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "postinstall": "(cd website && npm install); (cd sanity && npm install)",
-    "dev:website": "(cd website && npm run dev)",
-    "dev:website:host": "(cd website && npm run dev:host)",
+    "dev:astro": "(cd website && npm run dev)",
+    "dev:astro:host": "(cd website && npm run dev:host)",
     "dev:sanity": "(cd sanity && npm run dev)",
     "dev:sanity:deploy": "(cd sanity && npm run deploy)"
   },
