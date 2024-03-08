@@ -1,3 +1,3 @@
 # Tlon.io
 
-Hello there 👽
+![Tlon logo](public/icon.svg)
