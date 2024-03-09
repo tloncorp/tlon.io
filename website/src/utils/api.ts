@@ -86,7 +86,10 @@ export async function getPosts() {
     },
     title,
     body,
-    "video": video.asset->url,
+    "tags": tags[]->{
+      title,
+      "slug": slug.current
+    },
     "relatedPosts": *[_type == "post" && slug.current != ^.slug.current && count(tags[@._ref in ^.^.tags[]._ref]) > 0] | order(publishedAt desc, _createdAt desc) [0..3] {
       title,
       "slug": slug.current,
