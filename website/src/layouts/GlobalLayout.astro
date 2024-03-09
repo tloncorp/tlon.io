@@ -72,6 +72,19 @@ if (pathname === "/") formattedMetaTitle = import.meta.env.siteName;
     />
 
     <meta name="cf-2fa-verify" content="hj147kyae651DBG6j8fsg" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5Y55Z1B9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HZ5Y55Z1B9");
+    </script>
   </head>
   <body>
     <Header />
