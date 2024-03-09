@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import { sanityIntegration } from "@sanity/astro";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,11 +17,5 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    partytown({
-      // Adds dataLayer.push as a forwarding-event for GA.
-      config: {
-        forward: ["dataLayer.push"],
-      },
-    }),
   ],
 });
