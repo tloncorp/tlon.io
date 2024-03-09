@@ -14,6 +14,12 @@ export interface BlockImage {
   dimensions: dimensionsObj;
 }
 
+export interface BlockVideo {
+  url: string;
+  width: number;
+  height: number;
+}
+
 // Paginated-type pages
 // Homepage, author list of posts, tag list of posts, etc.
 export interface paginatedPageObj {

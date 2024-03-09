@@ -55,11 +55,8 @@ export default defineType({
     }),
     defineField({
       name: 'featuredVideo',
-      title: 'Featured Video',
-      type: 'file',
-      options: {
-        accept: 'video/*',
-      },
+      title: 'Featured video',
+      type: 'blockVideo',
       group: 'content',
     }),
     defineField({

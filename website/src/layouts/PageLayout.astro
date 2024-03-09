@@ -1,14 +1,16 @@
 ---
-import { type BlockImage } from "../utils/types";
+import { type BlockImage, type BlockVideo } from "../utils/types";
 
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import Picture from "../components/Picture.astro";
 import PageTitle from "../components/PageTitle.astro";
 import PortableText from "../components/PortableText.astro";
+import Video from "../components/Video.astro";
 
 interface Props {
   body?: any;
   featuredImage?: BlockImage;
+  featuredVideo?: BlockVideo;
   metaDescription?: string;
   metaTitle?: string;
   title: string;
@@ -18,11 +20,14 @@ interface Props {
 const {
   body,
   featuredImage,
+  featuredVideo,
   metaDescription,
   metaTitle,
   title,
   titleAlignment,
 } = Astro.props;
+
+console.log(featuredImage !== null && featuredVideo === null);
 ---
 
 <GlobalLayout
@@ -35,9 +40,17 @@ const {
     </header>
 
     {
-      featuredImage && (
+      featuredImage && !featuredVideo && (
         <div class="mx-auto flex max-w-inner-lg items-center py-16">
           <Picture asset={featuredImage} visualMaxWidth={1120} />
+        </div>
+      )
+    }
+
+    {
+      featuredVideo && (
+        <div class="mx-auto max-w-inner-lg py-16">
+          <Video asset={featuredVideo} />
         </div>
       )
     }

@@ -1,10 +1,15 @@
 ---
+import { type BlockVideo } from "../utils/types";
 interface Props {
-  url: string;
+  asset: BlockVideo;
 }
-const { url } = Astro.props;
+const { asset } = Astro.props;
+const formattedPaddingPercent = (asset.height / asset.width) * 100 + "%";
 ---
 
-<video class="mx-auto" controls>
-  <source src={url} />
-</video>
+<!-- Intrinsic ratio box to prevent Cumulative Layout Shift (CLS) -->
+<div class="relative h-0" style=`padding-bottom: ${formattedPaddingPercent}`>
+  <video class="absolute h-full w-full" controls>
+    <source src={asset.url} />
+  </video>
+</div>
