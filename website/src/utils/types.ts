@@ -18,6 +18,7 @@ export interface BlockVideo {
   url: string;
   width: number;
   height: number;
+  poster: string;
 }
 
 // Paginated-type pages

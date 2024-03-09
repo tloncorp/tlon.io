@@ -1,15 +1,23 @@
 ---
 import { type BlockVideo } from "../utils/types";
+import { urlForImage } from "../utils/urlForImage";
 interface Props {
   asset: BlockVideo;
 }
 const { asset } = Astro.props;
 const formattedPaddingPercent = (asset.height / asset.width) * 100 + "%";
+const posterUrl = urlForImage(asset.poster)
+  .format("webp")
+  .width(asset.width * 2)
+  .height(asset.height * 2)
+  .fit("fill")
+  .url();
 ---
 
 <!-- Intrinsic ratio box to prevent Cumulative Layout Shift (CLS) -->
 <div class="relative h-0" style=`padding-bottom: ${formattedPaddingPercent}`>
-  <video class="absolute h-full w-full" controls>
+  <video class="absolute h-full w-full" poster={posterUrl} controls>
     <source src={asset.url} />
+    <p>Download the <a href={asset.url}>video</a></p>
   </video>
 </div>

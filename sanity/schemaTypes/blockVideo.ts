@@ -12,6 +12,12 @@ export default {
       },
       fields: [
         {
+          name: 'poster',
+          type: 'image',
+          title: 'Video thumbnail',
+          validation: (rule: any) => rule.required(),
+        },
+        {
           name: 'width',
           type: 'number',
           title: 'Native width?',
