@@ -1,5 +1,4 @@
 ---
-import globals from "../utils/globals";
 import PostExcerpt from "../components/PostExcerpt.astro";
 
 import { type paginatedPageObj } from "../utils/types";
@@ -28,7 +27,7 @@ const { page } = Astro.props;
 }
 
 {
-  page.total >= globals.postsPerPage && (
+  page.total >= Number(import.meta.env.postsPerPage) && (
     <nav class="mx-auto max-w-inner-sm pt-32">
       <ul class="flex">
         {page.url.prev && (

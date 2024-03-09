@@ -1,5 +1,4 @@
 ---
-import globals from "../../../utils/globals";
 import { getAuthorPage } from "../../../utils/api";
 
 import GlobalLayout from "../../../layouts/GlobalLayout.astro";
@@ -23,7 +22,7 @@ export async function getStaticPaths({ paginate }: any) {
     return paginate(filteredPosts.posts, {
       params: { slug: author },
       props: { authorSlug: filteredPosts.slug },
-      pageSize: globals.postsPerPage,
+      pageSize: Number(import.meta.env.postsPerPage),
     });
   });
 }

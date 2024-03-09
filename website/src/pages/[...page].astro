@@ -1,5 +1,4 @@
 ---
-import globals from "../utils/globals";
 import { getHomePosts } from "../utils/api";
 
 import { type paginatedPageObj } from "../utils/types";
@@ -14,7 +13,7 @@ interface Props {
 
 export async function getStaticPaths({ paginate }: any) {
   const posts = await getHomePosts();
-  return paginate(posts, { pageSize: globals.postsPerPage });
+  return paginate(posts, { pageSize: Number(import.meta.env.postsPerPage) });
 }
 
 const { page } = Astro.props;

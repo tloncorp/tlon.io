@@ -4,11 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
 
-import globals from "./src/utils/globals";
-
 // https://astro.build/config
 export default defineConfig({
-  site: globals.siteURL,
+  site: import.meta.env.siteURL,
   prefetch: true,
   integrations: [
     sanityIntegration({
@@ -20,6 +18,11 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap(),
-    partytown(),
+    partytown({
+      // Adds dataLayer.push as a forwarding-event for GA.
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
 });

@@ -16,11 +16,20 @@ Monorepo contains both the website and the CMS. Each has their own respective `p
 | `npm run dev:sanity`        | Starts Sanity dev server at `localhost:3333`     |
 | `npm run dev:sanity:deploy` | Deploys Sanity Studio on a `*.sanity.studio` URL |
 
-## Common variables / configs
+## .env config
 
-- Sanity `projectId` can be found in [`astro.config.mjs`](/website/astro.config.mjs) and [`sanity.config.ts`](/sanity/sanity.config.ts)
-- Website has various [`globals.ts`](/website/src/utils/globals.ts) for the following:
+- Supports the following formats:
+
+  - `.env` and `.env.production` - Publically available variables stored within this repo.
+  - `.env.development` - To be used locally. Must be created on your own machine.
+  - [More info here](https://docs.astro.build/en/guides/environment-variables).
+
+- Current default [`.env`](/website/.env) values:
   - `siteName` - OpenGraph information.
   - `siteURL` - OpenGraph information.
   - `mailchimpSignup` - `POST` method for newsletter signups.
   - `postsPerPage` - Controls number of posts before paginated on homepage, author pages, and tag pages.
+
+## Manual values
+
+- Sanity `projectId` is managed directly within [`sanity.config.ts`](/sanity/sanity.config.ts) and [`astro.config.mjs`](/website/astro.config.mjs).
