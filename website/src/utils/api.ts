@@ -18,7 +18,7 @@ export async function getHomePosts() {
     "slug": slug.current,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
     "author": author-> {
-      name,
+      urbitId,
       "slug": slug.current,
       "image": image.imageRef ${imageRefObj},
     },
@@ -39,7 +39,7 @@ export async function getTagPage() {
       excerpt,
       "featuredImage": featuredImage.imageRef ${imageRefObj},
       "author": author-> {
-        name,
+        urbitId,
         "slug": slug.current,
         "image": image.imageRef ${imageRefObj},
       },
@@ -58,7 +58,7 @@ export async function getAuthorPage() {
       excerpt,
       "featuredImage": featuredImage.imageRef ${imageRefObj},
       "author": author-> {
-        name,
+        urbitId,
         "slug": slug.current,
         "image": image.imageRef ${imageRefObj},
       },
@@ -80,7 +80,7 @@ export async function getPosts() {
       width,
     },
     "author": author-> {
-      name,
+      urbitId,
       "slug": slug.current,
       "image": image.imageRef ${imageRefObj},
     },
@@ -96,7 +96,7 @@ export async function getPosts() {
       "created": _createdAt,
       "featuredImage": featuredImage.imageRef ${imageRefObj},
       "author": author-> {
-        name,
+        urbitId,
         "slug": slug.current,
         "image": image.imageRef ${imageRefObj},
       },

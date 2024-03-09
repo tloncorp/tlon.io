@@ -14,12 +14,27 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'urbitId',
+      title: 'Urbit ID',
+      type: 'string',
+      validation: (rule) =>
+        rule
+          .required()
+          .min(2)
+          .custom((name) => {
+            if (typeof name === 'undefined') return true
+            // @ts-ignore
+            return name.startsWith('~') ? true : 'Must start with ~'
+          })
+          .error(),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       description: 'URL for author page',
       options: {
-        source: 'name',
+        source: 'urbitId',
         maxLength: 96,
       },
       validation: (rule) => rule.required(),

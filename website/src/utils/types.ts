@@ -2,7 +2,7 @@
 
 // author Sanity schema
 export interface AuthorObj {
-  name: string;
+  urbitId: string;
   slug: string;
   image: BlockImage;
 }

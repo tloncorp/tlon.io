@@ -42,7 +42,7 @@ const formattedImageSize = large
           formattedTextSize,
         ]}
       >
-        {author.name}
+        {author.urbitId}
       </span>
     </a>
   ) : (
@@ -55,7 +55,9 @@ const formattedImageSize = large
           mixBlend={false}
         />
       </div>
-      <span class:list={["opacity-60", formattedTextSize]}>{author.name}</span>
+      <span class:list={["opacity-60", formattedTextSize]}>
+        {author.urbitId}
+      </span>
     </div>
   )
 }
