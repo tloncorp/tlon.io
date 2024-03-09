@@ -3,7 +3,7 @@ import {MenuIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'menu',
-  title: 'Header & Footer menus',
+  title: 'Header & Footer navigation',
   icon: MenuIcon,
   type: 'document',
   fields: [

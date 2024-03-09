@@ -11,6 +11,7 @@ export default defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
+      description: 'Only used internally here on Sanity to make things easier',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -52,7 +53,7 @@ export default defineType({
   preview: {
     select: {
       title: 'name',
-      media: 'image',
+      media: 'image.imageRef',
     },
   },
 })

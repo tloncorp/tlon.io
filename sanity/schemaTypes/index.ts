@@ -9,13 +9,13 @@ import post from './post'
 import postTag from './postTag'
 
 export const schemaTypes = [
+  post,
+  postTag,
   author,
+  page,
   blockContent,
   blockImage,
   blockLink,
   blockVideo,
   menu,
-  page,
-  post,
-  postTag,
 ]
