@@ -1,13 +1,14 @@
 ---
 import { getPages } from "../utils/api";
 
-import { type BlockImage } from "../utils/types";
+import { type BlockImage, type BlockVideo } from "../utils/types";
 
 import PageLayout from "../layouts/PageLayout.astro";
 
 interface Props {
   body?: any;
   featuredImage?: BlockImage;
+  featuredVideo?: BlockVideo;
   metaDescription?: string;
   metaTitle?: string;
   title: string;
@@ -21,6 +22,7 @@ export async function getStaticPaths() {
 const {
   body,
   featuredImage,
+  featuredVideo,
   metaDescription,
   metaTitle,
   title,
@@ -31,6 +33,7 @@ const {
 <PageLayout
   body={body}
   featuredImage={featuredImage}
+  featuredVideo={featuredVideo}
   metaDescription={metaDescription}
   metaTitle={metaTitle}
   title={title}

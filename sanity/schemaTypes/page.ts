@@ -60,6 +60,12 @@ export default defineType({
       group: 'content',
     }),
     defineField({
+      name: 'featuredVideo',
+      title: 'Featured Video',
+      type: 'blockVideo',
+      group: 'content',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',

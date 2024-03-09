@@ -1,6 +1,10 @@
 ---
 import { getPosts } from "../../utils/api";
-import { type BlockImage, type AuthorObj } from "../../utils/types";
+import {
+  type BlockImage,
+  type BlockVideo,
+  type AuthorObj,
+} from "../../utils/types";
 
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 
@@ -10,12 +14,14 @@ import PageTitle from "../../components/PageTitle.astro";
 import Picture from "../../components/Picture.astro";
 import PortableText from "../../components/PortableText.astro";
 import RelatedPost from "../../components/RelatedPost.astro";
+import Video from "../../components/Video.astro";
 
 interface Props {
   author: AuthorObj;
   body: any;
   excerpt: any;
   featuredImage: BlockImage;
+  featuredVideo?: BlockVideo;
   metaDescription: string;
   metaTitle: string;
   relatedPosts: relatedPost[];
@@ -39,6 +45,7 @@ const {
   body,
   excerpt,
   featuredImage,
+  featuredVideo,
   metaTitle,
   metaDescription,
   title,
@@ -57,9 +64,17 @@ const {
       <PortableText portableText={excerpt} />
     </header>
 
-    <div class="mx-auto flex max-w-inner-lg items-center py-16">
-      <Picture asset={featuredImage} visualMaxWidth={1120} />
-    </div>
+    {
+      featuredVideo ? (
+        <div class="mx-auto max-w-inner-lg py-16">
+          <Video asset={featuredVideo} />
+        </div>
+      ) : (
+        <div class="mx-auto flex max-w-inner-lg items-center py-16">
+          <Picture asset={featuredImage} visualMaxWidth={1120} />
+        </div>
+      )
+    }
 
     <div class="mx-auto max-w-inner-sm">
       <PortableText portableText={body} />

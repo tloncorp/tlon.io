@@ -14,7 +14,7 @@ const imageRefObj = `
 
 // Homepage post excerpts with author information
 export async function getHomePosts() {
-  const query = `*[_type == "post"] {
+  const query = `*[_type == "post"] | order(_createdAt desc) {
     "slug": slug.current,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
     "author": author-> {
@@ -69,10 +69,16 @@ export async function getAuthorPage() {
 
 // Get all posts and list of related posts based on tag
 export async function getPosts() {
-  const query = `*[_type == "post"] | order(_createdAt desc) {
+  const query = `*[_type == "post"] {
     slug,
     excerpt,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
+    "featuredVideo": featuredVideo.video {
+      "url": asset->url,
+      "poster": poster.asset,
+      height,
+      width,
+    },
     "author": author-> {
       name,
       "slug": slug.current,
@@ -106,6 +112,12 @@ export async function getPages() {
     body,
     titleAlignment,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
+    "featuredVideo": featuredVideo.video {
+      "url": asset->url,
+      "poster": poster.asset->url,
+      height,
+      width,
+    },
     metaTitle,
     metaDescription
   }`;
