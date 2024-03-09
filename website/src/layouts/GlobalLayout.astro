@@ -14,6 +14,8 @@ let formattedMetaTitle = metaTitle
 
 // If homepage
 if (pathname === "/") formattedMetaTitle = import.meta.env.siteName;
+
+// Google analytics env variable
 const analyticsId = import.meta.env.googleAnalytics;
 ---
 
@@ -74,7 +76,7 @@ const analyticsId = import.meta.env.googleAnalytics;
 
     <meta name="cf-2fa-verify" content="hj147kyae651DBG6j8fsg" />
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google analytics -->
     <script
       type="text/partytown"
       src=`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`></script>
@@ -92,9 +94,6 @@ const analyticsId = import.meta.env.googleAnalytics;
     </script>
   </head>
   <body>
-    <p class="block bg-primary p-3 text-white">
-      Your analytics code is: {analyticsId}
-    </p>
     <Header />
     <main class="px-4 pt-16 md:pt-32">
       <slot />
