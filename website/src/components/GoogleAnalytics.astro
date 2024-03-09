@@ -6,13 +6,26 @@ const { measurementId } = Astro.props as Props;
 <script
   type="text/partytown"
   src=`https://www.googletagmanager.com/gtag/js?id=${measurementId}`></script>
-<script type="text/partytown">
-  // @ts-ignore
+<script
+  type="text/partytown"
+  data-ga-measurement-id={measurementId}
+  id="ga-init"
+>
+  // // @ts-ignore
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag() {
+  //   // @ts-ignore
+  //   dataLayer.push(arguments);
+  // }
+
+  const measurementId = document
+    .getElementById("ga-init")
+    .getAttribute("data-ga-measurement-id");
   window.dataLayer = window.dataLayer || [];
   function gtag() {
-    // @ts-ignore
     dataLayer.push(arguments);
   }
+
   // @ts-ignore
   gtag("js", new Date());
   // @ts-ignore
