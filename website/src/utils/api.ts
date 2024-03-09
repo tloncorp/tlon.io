@@ -73,6 +73,7 @@ export async function getPosts() {
     slug,
     excerpt,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
+    "featuredVideo": featuredVideo.asset->url,
     "author": author-> {
       name,
       "slug": slug.current,
@@ -106,6 +107,7 @@ export async function getPages() {
     body,
     titleAlignment,
     "featuredImage": featuredImage.imageRef ${imageRefObj},
+    "featuredVideo": featuredVideo.asset->url,
     metaTitle,
     metaDescription
   }`;

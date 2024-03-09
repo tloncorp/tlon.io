@@ -57,14 +57,10 @@ export default defineType({
       name: 'featuredVideo',
       title: 'Featured Video',
       type: 'file',
+      options: {
+        accept: 'video/*',
+      },
       group: 'content',
-      hidden: ({document}) => document?.featuredType === 'image',
-      validation: (Rule) =>
-        Rule.custom((field, context) =>
-          context.document?.featuredType === 'video' && field === undefined
-            ? 'This is required'
-            : true,
-        ),
     }),
     defineField({
       name: 'tags',

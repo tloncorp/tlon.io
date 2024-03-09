@@ -1,0 +1,10 @@
+---
+interface Props {
+  url: string;
+}
+const { url } = Astro.props;
+---
+
+<video class="mx-auto" controls>
+  <source src={url} />
+</video>

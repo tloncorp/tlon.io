@@ -10,12 +10,14 @@ import PageTitle from "../../components/PageTitle.astro";
 import Picture from "../../components/Picture.astro";
 import PortableText from "../../components/PortableText.astro";
 import RelatedPost from "../../components/RelatedPost.astro";
+import Video from "../../components/Video.astro";
 
 interface Props {
   author: AuthorObj;
   body: any;
   excerpt: any;
   featuredImage: BlockImage;
+  featuredVideo?: string;
   metaDescription: string;
   metaTitle: string;
   relatedPosts: relatedPost[];
@@ -39,6 +41,7 @@ const {
   body,
   excerpt,
   featuredImage,
+  featuredVideo,
   metaTitle,
   metaDescription,
   title,
@@ -58,7 +61,13 @@ const {
     </header>
 
     <div class="mx-auto flex max-w-inner-lg items-center py-16">
-      <Picture asset={featuredImage} visualMaxWidth={1120} />
+      {
+        featuredVideo ? (
+          <Video url={featuredVideo} />
+        ) : (
+          <Picture asset={featuredImage} visualMaxWidth={1120} />
+        )
+      }
     </div>
 
     <div class="mx-auto max-w-inner-sm">
