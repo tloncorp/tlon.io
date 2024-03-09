@@ -76,9 +76,9 @@ const analyticsId = import.meta.env.googleAnalytics;
 
     <!-- Google tag (gtag.js) -->
     <script
-      async
+      type="text/partytown"
       src=`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`></script>
-    <script is:inline define:vars={{ analyticsId }}>
+    <script type="text/partytown" is:inline define:vars={{ analyticsId }}>
       // @ts-ignore
       window.dataLayer = window.dataLayer || [];
       function gtag() {
