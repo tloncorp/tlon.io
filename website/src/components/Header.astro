@@ -19,11 +19,13 @@ const links = await getHeaderNav();
               <a
                 class:list={[
                   {
-                    "dark:sm:hover:bg-mono-800 max-sm:hover:underline hover:sm:bg-navHover":
+                    "max-sm:hover:underline hover:sm:bg-navHover dark:sm:hover:bg-mono-800":
                       link.displayButton,
                   },
-                  { "hover:underline": !link.displayButton },
-                  "inline-block rounded-lg px-4 py-2",
+                  {
+                    "link-underline-hover": !link.displayButton,
+                  },
+                  "inline-block rounded-lg px-4 py-2 transition-colors",
                 ]}
                 href={link.url}
                 target={link.blank ? "_blank" : "_self"}

@@ -25,3 +25,9 @@
     }
   }
 }
+
+@layer components {
+  .link-underline-hover {
+    @apply underline decoration-transparent transition-colors hover:decoration-current;
+  }
+}

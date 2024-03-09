@@ -6,7 +6,7 @@ import ExcerptList from "../../../components/ExcerptList.astro";
 
 interface Props {
   page: any;
-  categorySlug: string;
+  tagSlug: string;
 }
 
 export async function getStaticPaths({ paginate }: any) {
@@ -21,22 +21,19 @@ export async function getStaticPaths({ paginate }: any) {
     );
     return paginate(filteredPosts.posts, {
       params: { slug: tag },
-      props: { categorySlug: filteredPosts.slug },
+      props: { tagSlug: filteredPosts.slug },
       pageSize: Number(import.meta.env.postsPerPage),
     });
   });
 }
 
-const { page, categorySlug } = Astro.props;
+const { page, tagSlug } = Astro.props;
 ---
 
-<GlobalLayout metaTitle=`Posts tagged as ${categorySlug}`>
+<GlobalLayout metaTitle=`Posts tagged as ${tagSlug}`>
   <header class="mx-auto max-w-inner-sm pb-16">
     <h1 class="text-2xl">
-      Posts tagged as:
-      <a class="text-primary hover:underline" href={`/tag/${categorySlug}`}>
-        #{categorySlug}
-      </a>
+      Posts tagged as: <span class="text-primary">#{tagSlug}</span>
     </h1>
   </header>
   <ExcerptList page={page} />

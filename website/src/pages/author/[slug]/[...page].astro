@@ -34,9 +34,7 @@ const { page, authorSlug } = Astro.props;
   <header class="mx-auto max-w-inner-sm pb-16">
     <h1 class="text-2xl">
       Posts written by:
-      <a class="text-primary hover:underline" href={`/author/${authorSlug}`}>
-        ~{authorSlug}
-      </a>
+      <span class="text-primary">~{authorSlug}</span>
     </h1>
   </header>
   <ExcerptList page={page} />

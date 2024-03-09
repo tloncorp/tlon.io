@@ -22,7 +22,10 @@ const formattedImageSize = large
 
 {
   link ? (
-    <a class="flex items-center space-x-4" href={`/author/${author.slug}`}>
+    <a
+      class="group flex items-center space-x-4"
+      href={`/author/${author.slug}`}
+    >
       <div class={formattedImageSize}>
         <Picture
           asset={author.image}
@@ -31,7 +34,16 @@ const formattedImageSize = large
           mixBlend={false}
         />
       </div>
-      <span class:list={["opacity-60", formattedTextSize]}>{author.name}</span>
+      <span
+        class:list={[
+          "opacity-60",
+          "group-hover:opacity-100",
+          "group-hover:text-primary",
+          formattedTextSize,
+        ]}
+      >
+        {author.name}
+      </span>
     </a>
   ) : (
     <div class="flex items-center space-x-4">
