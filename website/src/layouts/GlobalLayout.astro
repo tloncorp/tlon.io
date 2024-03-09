@@ -77,12 +77,15 @@ if (pathname === "/") formattedMetaTitle = import.meta.env.siteName;
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5Y55Z1B9"
     ></script>
     <script>
+      // @ts-ignore
       window.dataLayer = window.dataLayer || [];
       function gtag() {
+        // @ts-ignore
         dataLayer.push(arguments);
       }
+      // @ts-ignore
       gtag("js", new Date());
-
+      // @ts-ignore
       gtag("config", "G-HZ5Y55Z1B9");
     </script>
   </head>
