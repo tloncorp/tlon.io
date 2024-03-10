@@ -1,0 +1,63 @@
+---
+import Picture from "./Picture.astro";
+
+import { type AuthorObj } from "@utils/types";
+
+interface Props {
+  author: AuthorObj;
+  link?: boolean;
+  large?: boolean;
+}
+
+const { author, link = true, large = true } = Astro.props;
+
+const formattedTextSize = large
+  ? "text-md sm:text-2xl"
+  : "text-base lg:text-md leading-none";
+
+const formattedImageSize = large
+  ? "flex max-w-[32px]"
+  : "flex max-w-[20px] lg:max-w-[32px]";
+---
+
+{
+  link ? (
+    <a
+      class="group flex items-center space-x-4"
+      href={`/author/${author.slug}`}
+    >
+      <div class={formattedImageSize}>
+        <Picture
+          asset={author.image}
+          visualMaxWidth={32}
+          rounded
+          mixBlend={false}
+        />
+      </div>
+      <span
+        class:list={[
+          "opacity-60",
+          "group-hover:opacity-100",
+          "group-hover:text-primary",
+          formattedTextSize,
+        ]}
+      >
+        {author.urbitId}
+      </span>
+    </a>
+  ) : (
+    <div class="flex items-center space-x-4">
+      <div class={formattedImageSize}>
+        <Picture
+          asset={author.image}
+          visualMaxWidth={32}
+          rounded
+          mixBlend={false}
+        />
+      </div>
+      <span class:list={["opacity-60", formattedTextSize]}>
+        {author.urbitId}
+      </span>
+    </div>
+  )
+}

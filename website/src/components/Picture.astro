@@ -1,0 +1,55 @@
+---
+/*
+Additional info about formatting image
+https://www.sanity.io/docs/image-url#sanity-image-url
+*/
+
+import { type BlockImage } from "@utils/types";
+import { urlForImage } from "../utils/urlForImage";
+
+interface Props {
+  asset: BlockImage;
+  mixBlend?: boolean;
+  rounded?: boolean;
+  visualMaxWidth: number;
+}
+
+const { asset, visualMaxWidth, rounded, mixBlend = true } = Astro.props;
+
+const uploadedImageWidth = asset.dimensions.width;
+const aspectRatio = asset.dimensions.aspectRatio;
+const savedMaxWidth = visualMaxWidth;
+
+let formattedImageWidth = uploadedImageWidth;
+let formattedMaxWidth = savedMaxWidth;
+
+// If the uploaded image would display smaller than our wrapper max width
+if (uploadedImageWidth / 2 <= savedMaxWidth) {
+  // Set our wrapper max width to that 1x image size
+  formattedMaxWidth = uploadedImageWidth / 2;
+} else {
+  // Otherwise set the image width to the 2x of the of the saved wrapper max width
+  formattedImageWidth = savedMaxWidth * 2;
+}
+
+// Format URLs
+const url = urlForImage(asset.imageRef).width(formattedImageWidth).url();
+const webpUrl = urlForImage(asset.imageRef)
+  .format("webp")
+  .width(formattedImageWidth)
+  .url();
+---
+
+<picture class="mx-auto inline-block">
+  <source srcset={webpUrl} type="image/webp" />
+  <img
+    class:list={[
+      "h-auto w-full",
+      { rounded: rounded },
+      { "dark:mix-blend-color-burn": mixBlend },
+    ]}
+    style={`max-width: ${formattedMaxWidth}px; aspect-ratio: auto ${aspectRatio};`}
+    src={url}
+    alt={asset.alt}
+  />
+</picture>

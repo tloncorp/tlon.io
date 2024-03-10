@@ -1,0 +1,41 @@
+---
+import { getPages } from "../utils/api";
+
+import { type BlockImage, type BlockVideo } from "../utils/types";
+
+import PageLayout from "../layouts/PageLayout.astro";
+
+interface Props {
+  body?: any;
+  featuredImage?: BlockImage;
+  featuredVideo?: BlockVideo;
+  metaDescription?: string;
+  metaTitle?: string;
+  title: string;
+  titleAlignment: string;
+}
+
+export async function getStaticPaths() {
+  return await getPages();
+}
+
+const {
+  body,
+  featuredImage,
+  featuredVideo,
+  metaDescription,
+  metaTitle,
+  title,
+  titleAlignment,
+} = Astro.props;
+---
+
+<PageLayout
+  body={body}
+  featuredImage={featuredImage}
+  featuredVideo={featuredVideo}
+  metaDescription={metaDescription}
+  metaTitle={metaTitle}
+  title={title}
+  titleAlignment={titleAlignment}
+/>

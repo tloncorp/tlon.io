@@ -1,0 +1,31 @@
+---
+import { getHomePosts } from "../utils/api";
+
+import { type paginatedPageObj } from "../utils/types";
+
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
+import ExcerptList from "../components/ExcerptList.astro";
+
+interface Props {
+  page: paginatedPageObj;
+}
+
+export async function getStaticPaths({ paginate }: any) {
+  const posts = await getHomePosts();
+  return paginate(posts, { pageSize: Number(import.meta.env.postsPerPage) });
+}
+
+const { page } = Astro.props;
+---
+
+<GlobalLayout>
+  <div class="mx-auto max-w-inner-sm space-y-8 pb-20 sm:pb-40">
+    <h1 class="text-xl sm:text-2xl">
+      A network-native social computer doesn&rsquo;t exist. Unless?
+    </h1>
+    <NewsletterSignup />
+  </div>
+
+  <ExcerptList page={page} />
+</GlobalLayout>

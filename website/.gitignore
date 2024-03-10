@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # build output
 dist/
-
 # generated types
 .astro/
 
@@ -14,16 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+
 # environment variables
-.env
-.env.production
+.env.development
 
 # macOS-specific files
 .DS_Store
-=======
-# General
-.DS_Store
-
-# Thumbnails
-._*
->>>>>>> anthony-dev/development

@@ -1,23 +1,21 @@
 {
-	"name": "urcad.es",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@astrojs/mdx": "^1.1.0",
-		"@astrojs/prefetch": "^0.4.0",
-		"@astrojs/rss": "^3.0.0",
-		"@astrojs/tailwind": "^5.0.0",
-		"astro": "^3.5.3",
-		"tailwindcss": "^3.2.7"
-	},
-	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.9"
-	}
+  "name": "tlon-q1-2024",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A network-native social computer doesnt exist. Unless?",
+  "keywords": [
+    "website",
+    "astro",
+    "sanity"
+  ],
+  "scripts": {
+    "postinstall": "(cd website && npm install); (cd sanity && npm install)",
+    "dev:astro": "(cd website && npm run dev)",
+    "dev:astro:host": "(cd website && npm run dev:host)",
+    "dev:sanity": "(cd sanity && npm run dev)",
+    "dev:sanity:deploy": "(cd sanity && npm run deploy)"
+  },
+  "engines": {
+    "node": "18.x"
+  }
 }
