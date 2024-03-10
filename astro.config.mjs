@@ -7,7 +7,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.siteURL,
+  site: "https://tlon.io",
   prefetch: true,
   integrations: [
     sanityIntegration({

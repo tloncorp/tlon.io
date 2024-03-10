@@ -11,5 +11,6 @@
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     }
-  }
+  },
+  "exclude": ["sanity", "dist", "node_modules"]
 }
