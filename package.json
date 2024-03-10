@@ -9,11 +9,42 @@
     "sanity"
   ],
   "scripts": {
-    "postinstall": "(cd website && npm install); (cd sanity && npm install)",
-    "dev:astro": "(cd website && npm run dev)",
-    "dev:astro:host": "(cd website && npm run dev:host)",
+    "dev": "astro dev --port 2222",
+    "dev:host": "astro dev --port 2222 --host",
     "dev:sanity": "(cd sanity && npm run dev)",
-    "dev:sanity:deploy": "(cd sanity && npm run deploy)"
+    "dev:sanity:deploy": "(cd sanity && npm run deploy)",
+    "sanity:install": "(cd sanity && npm install)",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format:check": "prettier --check . --plugin=prettier-plugin-astro",
+    "format": "prettier --write . --plugin=prettier-plugin-astro",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.6",
+    "@astrojs/partytown": "^2.0.4",
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "@sanity/astro": "^2.2.1",
+    "@sanity/client": "^6.15.1",
+    "astro": "^4.4.9",
+    "astro-portabletext": "^0.9.6",
+    "date-fns": "^3.3.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@typescript-eslint/parser": "^7.1.0",
+    "astro-eslint-parser": "^0.16.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^0.31.4",
+    "postcss-nesting": "^12.0.4",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.11"
   },
   "engines": {
     "node": "18.x"

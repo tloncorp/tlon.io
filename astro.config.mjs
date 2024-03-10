@@ -1,19 +1,28 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import { sanityIntegration } from "@sanity/astro";
 
-// https://astro.build/config
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
-import prefetch from "@astrojs/prefetch";
-
-// https://astro.build/config
-import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.urcad.es',
-  integrations: [tailwind(), prefetch(), mdx()],
-  prefetch: {
-    prefetchAll: true
-  }
+  site: "https://tlon.io",
+  prefetch: true,
+  integrations: [
+    sanityIntegration({
+      projectId: "4vy6phvk",
+      dataset: "production",
+      useCdn: false,
+    }),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    sitemap(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
 });
