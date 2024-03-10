@@ -43,10 +43,8 @@ export default defineType({
     defineField({
       name: 'image',
       title: 'Avatar',
+      description: 'Image must be square',
       type: 'blockImage',
-      options: {
-        hotspot: true,
-      },
       validation: (rule) => rule.required(),
     }),
   ],
