@@ -50,7 +50,7 @@ export default {
         "2xl": [
           "2rem", // 32px
           {
-            lineHeight: "2.5rem", // 40px
+            lineHeight: "3.125rem", // 50px
             letterSpacing: "0.00625rem", // 0.1px
           },
         ],

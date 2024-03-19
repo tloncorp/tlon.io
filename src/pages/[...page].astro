@@ -1,14 +1,20 @@
 ---
-import { getHomePosts } from "../utils/api";
+import { getHomePosts, getGlobalContent } from "../utils/api";
 
 import { type paginatedPageObj } from "../utils/types";
 
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
 import ExcerptList from "../components/ExcerptList.astro";
+import PageTitle from "@components/PageTitle.astro";
 
 interface Props {
   page: paginatedPageObj;
+}
+
+interface GlobalContent {
+  title: string;
+  titleAlignment: string;
 }
 
 export async function getStaticPaths({ paginate }: any) {
@@ -16,14 +22,17 @@ export async function getStaticPaths({ paginate }: any) {
   return paginate(posts, { pageSize: Number(import.meta.env.postsPerPage) });
 }
 
+const globalContent = (await getGlobalContent()) as GlobalContent;
+
 const { page } = Astro.props;
 ---
 
 <GlobalLayout>
-  <div class="mx-auto max-w-inner-sm space-y-8 pb-20 sm:pb-40">
-    <h1 class="text-xl sm:text-2xl">
-      A network-native social computer doesn&rsquo;t exist. Unless?
-    </h1>
+  <div class="mx-auto max-w-inner-sm space-y-16 pb-20 sm:pb-40">
+    <PageTitle
+      title={globalContent.title}
+      titleAlignment={globalContent.titleAlignment}
+    />
     <NewsletterSignup />
   </div>
 
