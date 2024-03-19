@@ -12,7 +12,7 @@ interface Props {
 const { author, link = true, large = true } = Astro.props;
 
 const formattedTextSize = large
-  ? "text-md sm:text-2xl"
+  ? "text-md sm:text-xl"
   : "text-base lg:text-md leading-none";
 
 const formattedImageSize = large
@@ -34,14 +34,7 @@ const formattedImageSize = large
           mixBlend={false}
         />
       </div>
-      <span
-        class:list={[
-          "opacity-60",
-          "group-hover:opacity-100",
-          "group-hover:text-primary",
-          formattedTextSize,
-        ]}
-      >
+      <span class:list={["group-hover:text-primary", formattedTextSize]}>
         {author.urbitId}
       </span>
     </a>

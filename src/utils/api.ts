@@ -12,6 +12,15 @@ const imageRefObj = `
 }
 `;
 
+export async function getGlobalContent() {
+  const query = `*[_type == "globalContent"][0] {
+    title,
+    titleAlignment
+  }`;
+  const data = await sanityClient.fetch(query);
+  return data;
+}
+
 // Homepage post excerpts with author information
 export async function getHomePosts() {
   const query = `*[_type == "post"] | order(_createdAt desc) {

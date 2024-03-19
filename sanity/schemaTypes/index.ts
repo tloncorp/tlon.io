@@ -6,6 +6,7 @@ import blockVideo from './blockVideo'
 import menu from './menu'
 import page from './page'
 import post from './post'
+import globalContent from './globalContent';
 import postTag from './postTag'
 
 export const schemaTypes = [
@@ -13,6 +14,7 @@ export const schemaTypes = [
   postTag,
   author,
   page,
+  globalContent,
   blockContent,
   blockImage,
   blockLink,
