@@ -44,8 +44,7 @@ export default defineType({
       name: 'image',
       title: 'Avatar',
       description: 'Image must be square',
-      type: 'blockImage',
-      validation: (rule) => rule.required(),
+      type: 'blockImage'
     }),
   ],
   preview: {

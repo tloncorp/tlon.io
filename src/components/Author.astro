@@ -18,35 +18,41 @@ const formattedTextSize = large
 const formattedImageSize = large
   ? "flex max-w-[32px]"
   : "flex max-w-[20px] lg:max-w-[32px]";
+
+const hasAvatar = author.image !== null;
 ---
 
 {
   link ? (
     <a
-      class="group flex items-center space-x-4"
+      class:list={["group flex items-center", { "space-x-4": hasAvatar }]}
       href={`/author/${author.slug}`}
     >
       <div class={formattedImageSize}>
-        <Picture
-          asset={author.image}
-          visualMaxWidth={32}
-          rounded
-          mixBlend={false}
-        />
+        {hasAvatar && (
+          <Picture
+            asset={author.image}
+            visualMaxWidth={32}
+            rounded
+            mixBlend={false}
+          />
+        )}
       </div>
       <span class:list={["group-hover:text-primary", formattedTextSize]}>
         {author.urbitId}
       </span>
     </a>
   ) : (
-    <div class="flex items-center space-x-4">
+    <div class:list={["flex items-center", { "space-x-4": hasAvatar }]}>
       <div class={formattedImageSize}>
-        <Picture
-          asset={author.image}
-          visualMaxWidth={32}
-          rounded
-          mixBlend={false}
-        />
+        {hasAvatar && (
+          <Picture
+            asset={author.image}
+            visualMaxWidth={32}
+            rounded
+            mixBlend={false}
+          />
+        )}
       </div>
       <span class:list={[formattedTextSize]}>{author.urbitId}</span>
     </div>
