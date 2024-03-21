@@ -2,7 +2,6 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {codeInput} from '@sanity/code-input'
-import {vercelDeployTool} from 'sanity-plugin-vercel-deploy'
 import {schemaTypes} from './schemaTypes'
 import {DocumentIcon} from '@sanity/icons'
 
@@ -37,7 +36,7 @@ export default defineConfig({
               S.documentTypeListItem('menu'),
           ])
       },
-  }), visionTool(), codeInput(), vercelDeployTool()],
+  }), visionTool(), codeInput()],
 
   schema: {
     types: schemaTypes,
