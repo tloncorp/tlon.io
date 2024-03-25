@@ -9,12 +9,11 @@ import { urlForImage } from "../utils/urlForImage";
 
 interface Props {
   asset: BlockImage;
-  mixBlend?: boolean;
   rounded?: boolean;
   visualMaxWidth: number;
 }
 
-const { asset, visualMaxWidth, rounded, mixBlend = true } = Astro.props;
+const { asset, visualMaxWidth, rounded } = Astro.props;
 
 const uploadedImageWidth = asset.dimensions.width;
 const aspectRatio = asset.dimensions.aspectRatio;
@@ -43,11 +42,7 @@ const webpUrl = urlForImage(asset.imageRef)
 <picture class="mx-auto inline-block">
   <source srcset={webpUrl} type="image/webp" />
   <img
-    class:list={[
-      "h-auto w-full",
-      { rounded: rounded },
-      { "dark:mix-blend-color-burn": mixBlend },
-    ]}
+    class:list={["h-auto w-full", { rounded: rounded }]}
     style={`max-width: ${formattedMaxWidth}px; aspect-ratio: auto ${aspectRatio};`}
     src={url}
     alt={asset.alt}

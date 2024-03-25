@@ -58,11 +58,14 @@ const {
   metaTitle={metaTitle ? metaTitle : title}
 >
   <article>
-    <header class="mx-auto max-w-inner-sm space-y-8">
+    <header class="max-w-inner-xs mx-auto space-y-4">
       <PageTitle title={title} />
       <Author author={author} />
-      <PortableText portableText={excerpt} />
     </header>
+
+    <div class="max-w-inner-xs mx-auto pt-10">
+      <PortableText portableText={excerpt} />
+    </div>
 
     {
       featuredVideo ? (
@@ -76,7 +79,7 @@ const {
       )
     }
 
-    <div class="mx-auto max-w-inner-sm">
+    <div class="max-w-inner-xs mx-auto">
       <PortableText portableText={body} />
     </div>
 
@@ -103,7 +106,7 @@ const {
       )
     }
 
-    <div class="mx-auto max-w-inner-sm pt-32">
+    <div class="max-w-inner-xs mx-auto pt-32">
       <NewsletterSignup />
     </div>
   </article>

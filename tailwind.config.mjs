@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  important: true,
   theme: {
     fontFamily: {
       sans: ["Inter", "system-ui", "sans-serif"],
@@ -21,7 +22,8 @@ export default {
         },
       },
       maxWidth: {
-        "inner-sm": "34.375rem", // 550px;
+        "inner-xs": "34.375rem", // 550px;
+        "inner-sm": "46.875rem", // 750px
         "inner-md": "52.8125rem", // 845px
         "inner-lg": "70rem", // 1120px
       },
@@ -50,7 +52,7 @@ export default {
         "2xl": [
           "2rem", // 32px
           {
-            lineHeight: "3.125rem", // 50px
+            lineHeight: "2.5rem", // 40px
             letterSpacing: "0.00625rem", // 0.1px
           },
         ],

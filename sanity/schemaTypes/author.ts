@@ -11,7 +11,6 @@ export default defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-      description: 'Only used internally here on Sanity to make things easier',
       validation: (rule) => rule.required(),
     }),
     defineField({

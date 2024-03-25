@@ -12,7 +12,7 @@ const { page } = Astro.props;
 
 {
   page.data && (
-    <div class="space-y-24">
+    <div class="space-y-36">
       {page.data.map((post: any) => (
         <PostExcerpt
           author={post.author}
@@ -28,7 +28,7 @@ const { page } = Astro.props;
 
 {
   page.total >= Number(import.meta.env.postsPerPage) && (
-    <nav class="mx-auto max-w-inner-sm pt-32">
+    <nav class="max-w-inner-xs mx-auto pt-32">
       <ul class="flex">
         {page.url.prev && (
           <li class="grow">

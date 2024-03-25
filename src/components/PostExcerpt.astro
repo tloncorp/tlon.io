@@ -1,13 +1,12 @@
 ---
-import Author from "./Author.astro";
 import Picture from "./Picture.astro";
-import PortableText from "./PortableText.astro";
+import { PortableText as PortableTextInternal } from "astro-portabletext";
 
 import { type BlockImage, type AuthorObj } from "../utils/types";
 
 interface Props {
   author: AuthorObj;
-  excerpt: string;
+  excerpt: any;
   featuredImage: BlockImage;
   slug: string;
   title: string;
@@ -18,17 +17,19 @@ const { author, excerpt, featuredImage, slug, title } = Astro.props;
 
 <div>
   <a class="mx-auto" href={`/post/${slug}`}>
-    <div class="mx-auto flex max-w-inner-lg items-center">
+    <div class="max-w-inner-xs mx-auto items-center">
       <div class="mx-auto inline-block">
         <Picture asset={featuredImage} visualMaxWidth={1120} />
       </div>
-    </div>
-    <div class="mx-auto max-w-inner-sm space-y-3 pt-10 sm:pt-20">
-      <h2 class="text-xl sm:text-2xl">
-        {title}
-      </h2>
-      <Author author={author} />
-      <PortableText portableText={excerpt} />
+      <header class="flex items-center py-2">
+        <h2 class="inline-block text-lg">
+          {title}
+          <span class="whitespace-nowrap opacity-40">{author.label}</span>
+        </h2>
+      </header>
+      <div class="prose prose-lg prose-tlon dark:prose-invert">
+        <PortableTextInternal value={excerpt} />
+      </div>
     </div>
   </a>
 </div>
