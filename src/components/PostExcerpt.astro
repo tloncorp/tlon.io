@@ -21,13 +21,15 @@ const { author, excerpt, featuredImage, slug, title } = Astro.props;
       <div class="mx-auto inline-block">
         <Picture asset={featuredImage} visualMaxWidth={1120} />
       </div>
-      <header class="flex items-center py-2">
+      <header class="flex items-center py-1">
         <h2 class="inline-block text-lg">
           {title}
           <span class="whitespace-nowrap opacity-40">{author.label}</span>
         </h2>
       </header>
-      <div class="prose prose-lg prose-tlon text-justify dark:prose-invert">
+      <div
+        class="prose prose-lg prose-tlon text-justify leading-tight dark:prose-invert"
+      >
         <PortableTextInternal value={excerpt} />
       </div>
     </div>
