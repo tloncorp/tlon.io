@@ -22,6 +22,7 @@ export default defineType({
       // correspond with HTML tags, but you can set any title or value
       // you want and decide how you want to deal with it where you want to
       // use your content.
+      // @ts-ignore
       styles: [
         {title: 'Normal', value: 'normal'},
         // {title: 'H1', value: 'h1'},
@@ -74,6 +75,9 @@ export default defineType({
     }),
     defineArrayMember({
       type: 'code',
+    }),
+    defineArrayMember({
+      type: 'separator',
     }),
   ],
 })

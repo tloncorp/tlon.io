@@ -8,6 +8,7 @@ import page from './page'
 import post from './post'
 import globalContent from './globalContent';
 import postTag from './postTag'
+import separator from './separator'
 
 export const schemaTypes = [
   post,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   blockLink,
   blockVideo,
   menu,
+  separator
 ]
