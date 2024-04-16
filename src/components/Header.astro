@@ -5,10 +5,10 @@ const links = await getHeaderNav();
 
 <header
   role="banner"
-  class="flex items-center justify-between px-4 leading-none md:px-8 md:py-6  w-full fixed top-0 left-0 bg-white md:bg-transparent"
+  class="fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-white px-4 leading-none md:bg-transparent md:px-8 md:py-6 dark:bg-blackish dark:md:bg-transparent"
 >
   <a class="inline-block w-12 p-4" href="/">
-    <img src="/icon.svg" alt="Tlon logo" />
+    <img id="t-block" src="/icon.svg" alt="Tlon logo" />
   </a>
   {
     links && (
@@ -39,3 +39,28 @@ const links = await getHeaderNav();
     )
   }
 </header>
+
+<script>
+  // Safari doesn't support prefers-color-scheme media query in SVGs,
+  // so we need to manually swap the logo based on the user's preference.
+
+  // @ts-nocheck
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (isSafari) {
+    const logoSwap = () => {
+      const logo = document.querySelector("img#t-block");
+      if (matchMedia("(prefers-color-scheme: dark)").matches) {
+        logo.src = "/icon-white.svg";
+      } else {
+        logo.src = "/icon.svg";
+      }
+    };
+
+    logoSwap();
+
+    const mql = matchMedia("(prefers-color-scheme: dark)");
+    mql.addEventListener("change", () => {
+      logoSwap();
+    });
+  }
+</script>
