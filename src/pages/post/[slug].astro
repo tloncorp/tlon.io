@@ -57,7 +57,7 @@ const {
   metaTitle={metaTitle ? metaTitle : title}
 >
   <article>
-    <header class="max-w-inner-xs mx-auto space-y-4">
+    <header class="max-w-inner-xs md:max-w-inner-sm mx-auto space-y-4">
       <PageTitle title={title} />
       <Author author={author} />
     </header>
@@ -70,12 +70,12 @@ const {
         </div>
       ) : (
         <div class="mx-auto flex max-w-inner-lg items-center py-16">
-          <Picture asset={featuredImage} visualMaxWidth={550} />
+          <Picture asset={featuredImage} visualMaxWidth={750} />
         </div>
       )
     }
 
-    <div class="max-w-inner-xs mx-auto">
+    <div class="max-w-inner-xs md:max-w-inner-sm mx-auto">
       <PortableText portableText={body} />
     </div>
 
@@ -102,7 +102,7 @@ const {
       )
     }
 
-    <div class="max-w-inner-xs mx-auto pt-32">
+    <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-32">
       <NewsletterSignup />
     </div>
   </article>
