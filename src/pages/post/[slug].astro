@@ -43,7 +43,6 @@ export async function getStaticPaths() {
 const {
   author,
   body,
-  excerpt,
   featuredImage,
   featuredVideo,
   metaTitle,
@@ -63,9 +62,6 @@ const {
       <Author author={author} />
     </header>
 
-    <!-- <div class="max-w-inner-xs mx-auto pt-10">
-      <PortableText portableText={excerpt} />
-    </div> -->
 
     {
       featuredVideo ? (
