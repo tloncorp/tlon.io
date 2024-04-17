@@ -9,15 +9,24 @@ export default defineType({
       title: 'Type',
       name: 'type',
       type: 'string',
-      initialValue: 'hr', 
-      hidden: true, 
-      readOnly: true 
+      initialValue: 'dots', 
+      options: {
+        list: [
+          {title: 'Dots', value: 'dots'},
+          {title: 'Character', value: 'character'},
+          {title: 'Horizontal rule', value: 'hr'}
+        ],
+        layout: 'dropdown'
+      }
     }
   ],
   preview: {
-    prepare() {
+    select: {
+      style: 'type' 
+    },
+    prepare({style}) {
       return {
-        title: 'Separator'
+        title: `Separator (${style})` 
       };
     }
   }
