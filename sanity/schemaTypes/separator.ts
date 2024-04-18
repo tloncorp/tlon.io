@@ -14,7 +14,10 @@ export default defineType({
         list: [
           {title: 'Dots', value: 'dots'},
           {title: 'Character', value: 'character'},
-          {title: 'Horizontal rule', value: 'hr'}
+          {title: 'Horizontal rule', value: 'hr'},
+          {title: 'Semicircles', value: 'semicircles'},
+          {title: 'Metaball', value: 'metaball'},
+          {title: 'Line-circles', value: 'linecircles'}
         ],
         layout: 'dropdown'
       }
