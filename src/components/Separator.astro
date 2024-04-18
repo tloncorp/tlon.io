@@ -4,6 +4,79 @@ const { type } = node;
 ---
 
 <div class="py-4 text-blackish dark:text-white">
+  {
+    type == "semicircles" && (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.8 118.59">
+        <path
+          class="e"
+          style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+          d="M382.48,62.78h76.84c-1.76,19.67-18.29,35.09-38.42,35.09s-36.66-15.42-38.42-35.09Zm38.42-42.06c-20.13,0-36.66,15.42-38.42,35.09h76.84c-1.76-19.67-18.29-35.09-38.42-35.09Z"
+        />
+      </svg>
+    )
+  }
+  {
+    type == "metaball" && (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.8 118.59">
+        <path
+          class="e"
+          style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+          d="M344.97,44.11c8.39-8.39,21.99-8.39,30.37,0,8.39,8.39,21.99,8.39,30.37,0,8.39-8.39,21.98-8.39,30.37,0,8.39,8.39,21.99,8.39,30.37,0s21.99-8.39,30.37,0c8.39,8.39,8.39,21.99,0,30.37-8.39,8.39-21.99,8.39-30.37,0-8.39-8.39-21.98-8.39-30.37,0-8.39,8.39-21.99,8.39-30.37,0s-21.99-8.39-30.37,0c-8.39,8.39-21.99,8.39-30.37,0-8.39-8.39-8.39-21.99,0-30.37Z"
+        />
+      </svg>
+    )
+  }
+  {
+    type == "linecircles" && (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.8 118.59">
+        <g id="b">
+          <g id="c">
+            <g>
+              <g>
+                <circle
+                  class="e"
+                  cx="353.93"
+                  cy="59.29"
+                  r="33.49"
+                  style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+                />
+                <circle
+                  class="e"
+                  style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+                  cx="420.9"
+                  cy="59.29"
+                  r="33.49"
+                />
+              </g>
+              <circle
+                class="e"
+                cx="487.87"
+                cy="59.29"
+                r="33.49"
+                style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+              />
+              <line
+                class="e"
+                x1="376.33"
+                y1="59.29"
+                x2="398.5"
+                y2="59.29"
+                style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+              />
+              <line
+                class="e"
+                x1="443.3"
+                y1="59.29"
+                x2="465.47"
+                y2="59.29"
+                style="fill:#a5a699;stroke:#000;stroke-miterlimit:10;stroke-width:3px;"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>
+    )
+  }
   {type == "hr" && <hr class="border-t-2 border-blackish dark:border-white" />}
   {
     type === "character" && (
