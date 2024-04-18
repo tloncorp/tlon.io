@@ -8,5 +8,5 @@ const webpUrl = urlForImage(asset).format("webp").width(1100).url();
 
 <picture>
   <source srcset={webpUrl} type="image/webp" />
-  <img class="dark:mix-blend-color-burn" src={url} alt={alt} />
+  <img src={url} alt={alt} />
 </picture>
