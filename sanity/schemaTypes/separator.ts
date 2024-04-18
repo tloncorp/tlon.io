@@ -17,7 +17,10 @@ export default defineType({
           {title: 'Horizontal rule', value: 'hr'},
           {title: 'Semicircles', value: 'semicircles'},
           {title: 'Metaball', value: 'metaball'},
-          {title: 'Line-circles', value: 'linecircles'}
+          {title: 'Line-circles', value: 'linecircles'},
+          {title: 'Flower', value: 'flower'},
+          {title: 'Metaball in circle', value: 'metaballcircle'},
+          {title: 'Dots in circle', value: 'dotscircle'},
         ],
         layout: 'dropdown'
       }
