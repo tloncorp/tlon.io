@@ -33,7 +33,7 @@ const {
   metaTitle={metaTitle ? metaTitle : title}
 >
   <div>
-    <header class="max-w-inner-xs mx-auto">
+    <header class="max-w-inner-xs md:max-w-inner-sm mx-auto">
       <PageTitle title={title} titleAlignment={titleAlignment} />
     </header>
 
@@ -55,7 +55,7 @@ const {
 
     {
       body && (
-        <div class="max-w-inner-xs mx-auto pt-16">
+        <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-16">
           <PortableText portableText={body} />
         </div>
       )
