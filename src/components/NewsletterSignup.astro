@@ -8,11 +8,14 @@
     method="post"
     target="_self"
     class="relative font-medium leading-none"
+    id="email-form"
+    onsubmit="return validateEmail()"
   >
     <input
       type="email"
       name="EMAIL"
       autocomplete="off"
+      required
       class="block w-full text-ellipsis rounded-2xl border border-blackish/10 px-6 py-4 pr-36 shadow-lg transition-colors hover:border-blackish/30 focus:border-blackish/30 focus:outline-none dark:border-white/30 dark:bg-black dark:shadow-inverted dark:placeholder:text-mono-700 dark:hover:border-white/50 dark:focus:border-white/50"
       placeholder="Hear about it first"
     />
@@ -32,3 +35,21 @@
     </button>
   </form>
 </div>
+
+<script is:inline>
+  // eslint-disable-next-line no-unused-vars
+  function validateEmail() {
+    var form = document.getElementById("emailForm");
+    var emailInput = form.elements["EMAIL"];
+
+    if (!emailInput.value) {
+      return false;
+    }
+
+    if (!emailInput.validity.valid) {
+      return false;
+    }
+
+    return true;
+  }
+</script>
