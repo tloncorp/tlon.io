@@ -1,0 +1,41 @@
+---
+import { getHomePosts, getGlobalContent } from "../utils/api";
+
+import { type paginatedPageObj } from "../utils/types";
+
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
+import ExcerptList from "../components/ExcerptList.astro";
+import PageTitle from "@components/PageTitle.astro";
+import HomeLayout from "@layouts/GlobalLayout.astro";
+
+interface Props {
+  page: paginatedPageObj;
+}
+
+interface GlobalContent {
+  title: string;
+  titleAlignment: string;
+}
+
+export async function getStaticPaths({ paginate }: any) {
+  const posts = await getHomePosts();
+  return paginate(posts, { pageSize: Number(import.meta.env.postsPerPage) });
+}
+
+const globalContent = (await getGlobalContent()) as GlobalContent;
+
+const { page } = Astro.props;
+---
+
+<GlobalLayout>
+  <div class="max-w-inner-xs mx-auto space-y-16 pb-36 pt-24 sm:pb-36">
+    <PageTitle
+      title={globalContent.title}
+      titleAlignment={globalContent.titleAlignment}
+    />
+    <NewsletterSignup />
+  </div>
+
+  <ExcerptList page={page} />
+</GlobalLayout>

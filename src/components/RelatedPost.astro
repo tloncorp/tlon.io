@@ -1,0 +1,37 @@
+---
+import { format } from "date-fns";
+import { type AuthorObj, type BlockImage } from "../utils/types";
+
+import Author from "./Author.astro";
+import Picture from "./Picture.astro";
+
+interface Props {
+  author: AuthorObj;
+  created: string;
+  featuredImage: BlockImage;
+  slug: string;
+  title: string;
+}
+
+const { author, created, featuredImage, slug, title } = Astro.props;
+---
+
+<article
+  class="inline-block max-w-[350px] rounded-lg border border-blackish/10 transition-colors hover:border-blackish/30 lg:rounded-[24px] dark:border-mono-800 dark:hover:border-mono-700"
+>
+  <a class="block p-4 lg:p-8" href={`/post/${slug}`}>
+    <div class="flex w-full justify-center">
+      <Picture asset={featuredImage} visualMaxWidth={350} />
+    </div>
+    <div class="space-y-4 pt-4">
+      <h6 class="text-md lg:text-lg">{title}</h6>
+      <Author author={author} large={false} />
+      <time
+        class="inline-block text-base text-mono-500 lg:text-md"
+        datetime={created}
+      >
+        {format(new Date(created), "MMMM d, yyyy")}
+      </time>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  titleAlignment?: string;
+}
+
+const { title, titleAlignment } = Astro.props;
+
+const alginmentClasses = (alignment: string | undefined) => {
+  switch (alignment) {
+    case "center":
+      return "text-center";
+    case "right":
+      return "text-right";
+    default:
+      return false;
+  }
+};
+---
+
+<h1 class:list={["text-xl sm:text-2xl", alginmentClasses(titleAlignment)]}>
+  {title}
+</h1>

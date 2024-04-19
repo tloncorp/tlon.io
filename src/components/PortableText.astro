@@ -1,0 +1,38 @@
+---
+import { PortableText as PortableTextInternal } from "astro-portabletext";
+import PortableTextImage from "./PortableTextImage.astro";
+import PortableTextCode from "./PortableTextCode.astro";
+import Separator from "./Separator.astro";
+
+const { portableText } = Astro.props;
+
+const components = {
+  type: {
+    image: PortableTextImage,
+    code: PortableTextCode,
+    separator: Separator,
+  },
+};
+---
+
+<div
+  class="prose
+    prose-lg
+    prose-tlon
+    sm:prose-xl
+    dark:prose-invert
+    prose-headings:mt-2
+    prose-headings:pb-4
+    prose-headings:pt-4
+    prose-headings:text-md
+    prose-headings:font-semibold
+    prose-p:leading-8
+    prose-a:font-normal
+    hover:prose-a:no-underline
+    prose-blockquote:border-l-2
+    prose-blockquote:font-normal
+    prose-li:my-1.5
+    prose-li:leading-7"
+>
+  <PortableTextInternal value={portableText} components={components} />
+</div>

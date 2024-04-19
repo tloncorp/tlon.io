@@ -1,0 +1,100 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { metaTitle, metaDescription } = Astro.props;
+const { pathname } = Astro.url;
+
+// Logic for creating dynamic title tag
+const titleAppend = `- ${import.meta.env.siteName}`;
+let formattedMetaTitle = metaTitle
+  ? `${metaTitle} ${titleAppend}`
+  : import.meta.env.siteName;
+
+// If homepage
+if (pathname === "/") formattedMetaTitle = import.meta.env.siteName;
+
+// Google analytics env variable
+const analyticsId = import.meta.env.googleAnalytics;
+---
+
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Primary Meta Tags -->
+    <title>{formattedMetaTitle}</title>
+    <meta name="title" content={formattedMetaTitle} />
+
+    <meta
+      name="description"
+      content={metaDescription
+        ? metaDescription
+        : "Tlon exists to build exceptionally well-crafted software for people’s everyday lives."}
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={import.meta.env.siteURL} />
+    <meta property="og:title" content={import.meta.env.siteName} />
+    <meta
+      property="og:description"
+      content={metaDescription
+        ? metaDescription
+        : "Tlon exists to build exceptionally well-crafted software for people’s everyday lives."}
+    />
+    <meta
+      property="og:image"
+      content="https://d2w9rnfcy7mm78.cloudfront.net/20991844/original_05337a7edcadf2b018a2c4d14d4a3139.png"
+    />
+
+    <!-- Twitter cards -->
+    <meta name="twitter:site" content="@tloncorporation" />
+    <meta name="twitter:title" content={import.meta.env.siteName} />
+    <meta
+      name="twitter:description"
+      content={metaDescription
+        ? metaDescription
+        : "Tlon exists to build exceptionally well-crafted software for people’s everyday lives."}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://d2w9rnfcy7mm78.cloudfront.net/20991844/original_05337a7edcadf2b018a2c4d14d4a3139.png"
+    />
+
+    <meta name="cf-2fa-verify" content="hj147kyae651DBG6j8fsg" />
+
+    <!-- Google analytics -->
+    <script
+      type="text/partytown"
+      src=`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`></script>
+    <script type="text/partytown" is:inline define:vars={{ analyticsId }}>
+      // @ts-ignore
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore
+        dataLayer.push(arguments);
+      }
+      // @ts-ignore
+      gtag("js", new Date());
+      // @ts-ignore
+      gtag("config", analyticsId);
+    </script>
+  </head>
+  <body class="pt-12 lg:pt-24">
+    <Header />
+    <main class="px-8 pt-16 md:pt-32">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
