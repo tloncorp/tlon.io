@@ -33,7 +33,16 @@ const analyticsId = import.meta.env.googleAnalytics;
     <!-- Primary Meta Tags -->
     <title>{formattedMetaTitle}</title>
     <meta name="title" content={formattedMetaTitle} />
-
+    <meta
+      name="theme-color"
+      content="#1A1818"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta
+      name="background-color"
+      content="#1A1818"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta
       name="description"
       content={metaDescription
