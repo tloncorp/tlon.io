@@ -1,0 +1,14 @@
+---
+import slugify from "slugify";
+
+const { node } = Astro.props;
+const slug = slugify(node.children[0].text, {
+  lower: true,
+  strict: true,
+  locale: "en",
+});
+const HeadingElement = node.style;
+---
+
+<a class="hidden" href={`#${slug}`} aria-hidden="true" tab-index={-1}>#</a>
+<HeadingElement id={slug}><slot /></HeadingElement>

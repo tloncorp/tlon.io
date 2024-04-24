@@ -1,12 +1,18 @@
 ---
+import React from "react";
 import { PortableText as PortableTextInternal } from "astro-portabletext";
 import PortableTextImage from "./PortableTextImage.astro";
 import PortableTextCode from "./PortableTextCode.astro";
 import Separator from "./Separator.astro";
+import CustomHeading from "./CustomHeading.astro";
 
 const { portableText } = Astro.props;
 
 const components = {
+  block: {
+    h2: CustomHeading,
+    h3: CustomHeading,
+  },
   type: {
     image: PortableTextImage,
     code: PortableTextCode,
