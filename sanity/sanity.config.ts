@@ -34,6 +34,7 @@ export default defineConfig({
               S.documentTypeListItem('author'),
               S.documentTypeListItem('page'),
               S.documentTypeListItem('menu'),
+              S.documentTypeListItem('homeCard'),
           ])
       },
   }), visionTool(), codeInput()],

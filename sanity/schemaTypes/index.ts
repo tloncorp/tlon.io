@@ -9,6 +9,7 @@ import post from './post'
 import globalContent from './globalContent';
 import postTag from './postTag'
 import separator from './separator'
+import homeCard from './homeCard'
 
 export const schemaTypes = [
   post,
@@ -21,5 +22,6 @@ export const schemaTypes = [
   blockLink,
   blockVideo,
   menu,
-  separator
+  separator,
+  homeCard,
 ]
