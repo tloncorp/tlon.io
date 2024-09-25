@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [
     sanityIntegration({
       projectId: "4vy6phvk",
-      dataset: "production",
+      dataset: "staging",
       useCdn: false,
     }),
     tailwind({
