@@ -10,7 +10,7 @@ export default defineConfig({
   title: 'Tlon.io',
 
   projectId: '4vy6phvk',
-  dataset: 'production',
+  dataset: 'staging',
 
   plugins: [structureTool({
     structure: (S) => {

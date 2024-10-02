@@ -1,0 +1,57 @@
+---
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+import HomeCardReact from "../components/HomeCardReact";
+import { getHomeCards } from "../utils/api";
+
+const homeCards = await getHomeCards();
+---
+
+<GlobalLayout>
+  <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-16">
+    {homeCards.length > 0 && (
+      <HomeCardReact
+        cardType={homeCards[0].cardType}
+        headline={homeCards[0].headline}
+        body={homeCards[0].body}
+        bodyMinimized={homeCards[0].bodyMinimized}
+        media={homeCards[0].media}
+        button={homeCards[0].button}
+        isTopCard={true}
+        index={0}
+        client:load
+      />
+    )}
+
+    <HomeCardReact
+      cardType="cta"
+      headline=""
+      body=""
+      isTopCard={false}
+      index={1}
+      client:load
+    />
+
+    <HomeCardReact
+      cardType="posts"
+      headline=""
+      body=""
+      isTopCard={false}
+      index={2}
+      client:load
+    />
+
+    {homeCards.slice(1).map((card: any, index: number) => (
+      <HomeCardReact
+        cardType={card.cardType}
+        headline={card.headline}
+        body={card.body}
+        bodyMinimized={card.bodyMinimized}
+        media={card.media}
+        button={card.button}
+        isTopCard={false}
+        index={index + 3}
+        client:load
+      />
+    ))}
+  </div>
+</GlobalLayout>

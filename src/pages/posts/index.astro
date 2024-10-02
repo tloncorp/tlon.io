@@ -1,0 +1,36 @@
+---
+import { getHomePosts, getGlobalContent } from "../../utils/api";
+import GlobalLayout from "../../layouts/GlobalLayout.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import ExcerptList from "../../components/ExcerptList.astro";
+import PageTitle from "@components/PageTitle.astro";
+
+const posts = await getHomePosts();
+const globalContent = await getGlobalContent();
+
+const page = {
+  data: posts,
+  total: posts.length,
+  url: {
+    prev: null,
+    next: null
+  },
+  start: 0, // or appropriate value
+  end: posts.length, // or appropriate value
+  size: posts.length, // or appropriate value
+  currentPage: 1, // or appropriate value
+  lastPage: 1 // or appropriate value
+};
+
+---
+
+<GlobalLayout>
+  <div class="max-w-inner-xs mx-auto space-y-16 pb-36 pt-24 sm:pb-36">
+    <PageTitle
+      title={globalContent.title}
+      titleAlignment={globalContent.titleAlignment}
+    />
+    <NewsletterSignup />
+  </div>
+  <ExcerptList page={page} />
+</GlobalLayout>
