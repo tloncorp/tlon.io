@@ -4,24 +4,31 @@ import GlobalLayout from "../../layouts/GlobalLayout.astro";
 import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import ExcerptList from "../../components/ExcerptList.astro";
 import PageTitle from "@components/PageTitle.astro";
+import type { paginatedPageObj } from "../../utils/types";
 
 const posts = await getHomePosts();
 const globalContent = await getGlobalContent();
 
-const page = {
+const postsPerPage = 10;
+const currentPage = parseInt(Astro.url.searchParams.get('page') || '1');
+const start = (currentPage - 1) * postsPerPage;
+const end = start + postsPerPage;
+const paginatedPosts = posts.slice(start, end);
+
+const page: paginatedPageObj = {
   data: posts,
   total: posts.length,
   url: {
-    prev: null,
-    next: null
+    current: `/posts?page=${currentPage}`,
+    prev: currentPage > 1 ? `/posts?page=${currentPage - 1}` : undefined,
+    next: end < posts.length ? `/posts?page=${currentPage + 1}` : undefined
   },
-  start: 0, // or appropriate value
-  end: posts.length, // or appropriate value
-  size: posts.length, // or appropriate value
-  currentPage: 1, // or appropriate value
-  lastPage: 1 // or appropriate value
+  start: 0, 
+  end: posts.length, 
+  size: posts.length,
+  currentPage: 1, 
+  lastPage: 1
 };
-
 ---
 
 <GlobalLayout>

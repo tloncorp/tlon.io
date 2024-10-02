@@ -87,32 +87,13 @@ export default function HomeCardReact({ cardType, headline, body, bodyMinimized,
   const ctaCardClasses = `${baseCardClasses} aspect-[3/4] md:aspect-[6/2] p-6`; // Shorter on desktop
 
   const toggleFullscreen = (event: React.MouseEvent) => {
-    event.preventDefault(); // Prevent default click behavior
-    event.stopPropagation(); // Prevent event from bubbling up
+    event.preventDefault();
+    event.stopPropagation();
     if (!videoRef.current) return;
-
     if (!document.fullscreenElement) {
-      // Enter fullscreen
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      } else if ((videoRef.current as any).webkitRequestFullscreen) {
-        (videoRef.current as any).webkitRequestFullscreen();
-      } else if ((videoRef.current as any).mozRequestFullScreen) {
-        (videoRef.current as any).mozRequestFullScreen();
-      } else if ((videoRef.current as any).msRequestFullscreen) {
-        (videoRef.current as any).msRequestFullscreen();
-      }
+      videoRef.current.requestFullscreen();
     } else {
-      // Exit fullscreen
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if ((document as any).webkitExitFullscreen) {
-        (document as any).webkitExitFullscreen();
-      } else if ((document as any).mozCancelFullScreen) {
-        (document as any).mozCancelFullScreen();
-      } else if ((document as any).msExitFullscreen) {
-        (document as any).msExitFullscreen();
-      }
+      document.exitFullscreen();
     }
   };
 
@@ -127,15 +108,9 @@ export default function HomeCardReact({ cardType, headline, body, bodyMinimized,
     };
 
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
 
     return () => {
       document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
     };
   }, []);
 
