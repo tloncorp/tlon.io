@@ -1,0 +1,39 @@
+---
+import HomeCardReact from './HomeCardReact';
+
+interface Props {
+  cardType: string;
+  headline: string;
+  body: string;
+  bodyMinimized?: string;
+  media?: {
+    type?: 'photo' | 'video';
+    photo?: any;
+    video?: any;
+  };
+  button?: {
+    title?: string;
+    url?: string;
+    openNewWindow?: boolean;
+  };
+  isTopCard?: boolean;
+  index?: number;
+}
+
+const { cardType, headline, body, bodyMinimized, media, button, isTopCard = false, index = 0 } = Astro.props;
+
+console.log('HomeCard.astro props:', Astro.props);
+
+---
+
+<HomeCardReact
+  client:load
+  cardType={cardType}
+  headline={headline}
+  body={body}
+  bodyMinimized={bodyMinimized}
+  media={media}
+  button={button}
+  isTopCard={isTopCard}
+  index={index}
+/>

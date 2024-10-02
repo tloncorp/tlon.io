@@ -38,6 +38,26 @@ export async function getHomePosts() {
   return data;
 }
 
+// Get Homecards for homepage
+export async function getHomeCards() {
+  const query = `*[_type == "homeCard" ] | order(order asc) {
+    order,
+    cardType,
+    headline,
+    body,
+    bodyMinimized,
+    media,
+    button {
+      title,
+      url,
+      openNewWindow
+    }  
+  }`;
+  const data = await sanityClient.fetch(query);
+  return data;
+}
+
+
 // Tag page with all posts related to that tag
 export async function getTagPage() {
   const query = `*[_type == "tag"] {
