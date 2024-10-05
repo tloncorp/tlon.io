@@ -21,6 +21,24 @@ export interface BlockVideo {
   poster: string;
 }
 
+// HomeCard Sanity schema
+export interface HomeCard {
+  cardType: string;
+  headline: string;
+  body: string;
+  bodyMinimized?: string;
+  media?: {
+    type?: 'photo' | 'video';
+    photo?: any;
+    video?: any;
+  };
+  button?: {
+    title?: string;
+    url?: string;
+    openNewWindow?: boolean;
+  };
+}
+
 // Paginated-type pages
 // Homepage, author list of posts, tag list of posts, etc.
 export interface paginatedPageObj {

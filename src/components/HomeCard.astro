@@ -1,32 +1,30 @@
 ---
-import HomeCardReact from './HomeCardReact';
+import type { HomeCard } from '../utils/types';
+import FeatureCard from './HomeCards/FeatureCard';
+import HeroCard from './HomeCards/HeroCard';
+import StoryCard from './HomeCards/StoryCard';
+import CTACard from './HomeCards/CTACard';
+import PostsCard from './HomeCards/PostsCard';
+import FooterCard from './HomeCards/FooterCard';
 
-interface Props {
-  cardType: string;
-  headline: string;
-  body: string;
-  bodyMinimized?: string;
-  media?: {
-    type?: 'photo' | 'video';
-    photo?: any;
-    video?: any;
-  };
-  button?: {
-    title?: string;
-    url?: string;
-    openNewWindow?: boolean;
-  };
+interface Props extends HomeCard {
   isTopCard?: boolean;
   index?: number;
 }
 
 const { cardType, headline, body, bodyMinimized, media, button, isTopCard = false, index = 0 } = Astro.props;
 
-console.log('HomeCard.astro props:', Astro.props);
-
+const CardComponent = {
+  feature: FeatureCard,
+  hero: HeroCard,
+  story: StoryCard,
+  cta: CTACard,
+  posts: PostsCard,
+  footer: FooterCard
+}[cardType] || FeatureCard;
 ---
 
-<HomeCardReact
+<CardComponent
   client:load
   cardType={cardType}
   headline={headline}
