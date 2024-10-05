@@ -6,9 +6,11 @@ import StoryCard from "../components/HomeCards/StoryCard";
 import CTACard from "../components/HomeCards/CTACard";
 import PostsCard from "../components/HomeCards/PostsCard";
 import FooterCard from "../components/HomeCards/FooterCard";
-import { getHomeCards } from "../utils/api";
+import { getHomeCards, getHomePosts } from "../utils/api";
+import { urlForImage } from "../utils/urlForImage";
 
 const homeCards = await getHomeCards();
+const posts = (await getHomePosts()).reverse();
 ---
 
 <GlobalLayout>
@@ -73,6 +75,7 @@ const homeCards = await getHomeCards();
       body=""
       isTopCard={false}
       index={2}
+      posts={posts}
       client:load
     />
 

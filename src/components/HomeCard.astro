@@ -10,9 +10,10 @@ import FooterCard from './HomeCards/FooterCard';
 interface Props extends HomeCard {
   isTopCard?: boolean;
   index?: number;
+  posts?: any[];
 }
 
-const { cardType, headline, body, bodyMinimized, media, button, isTopCard = false, index = 0 } = Astro.props;
+const { cardType, headline, body, bodyMinimized, media, button, isTopCard = false, index = 0, posts } = Astro.props;
 
 const CardComponent = {
   feature: FeatureCard,
@@ -34,4 +35,5 @@ const CardComponent = {
   button={button}
   isTopCard={isTopCard}
   index={index}
+  posts={posts ?? []}
 />

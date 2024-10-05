@@ -57,7 +57,6 @@ export async function getHomeCards() {
   return data;
 }
 
-
 // Tag page with all posts related to that tag
 export async function getTagPage() {
   const query = `*[_type == "tag"] {

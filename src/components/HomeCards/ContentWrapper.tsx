@@ -5,6 +5,7 @@ import { urlForImage, urlForVideo } from '../../utils/urlForImage';
 const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, media }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const formatHeadline = (text: string) => {
     const words = text.split(' ');
@@ -18,15 +19,23 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
     );
   };
 
-  const toggleFullscreen = (event: React.MouseEvent) => {
+  const togglePlayAndFullscreen = (event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
     if (!videoRef.current) return;
 
-    if (!document.fullscreenElement) {
+    if (!isPlaying) {
+      videoRef.current.muted = false;
+      videoRef.current.currentTime = 0; // Reset video to the beginning
+      videoRef.current.play();
+      setIsPlaying(true);
       videoRef.current.requestFullscreen();
     } else {
-      document.exitFullscreen();
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        videoRef.current.requestFullscreen();
+      }
     }
   };
 
@@ -38,6 +47,11 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
+      if (!document.fullscreenElement && videoRef.current) {
+        videoRef.current.muted = true;
+        videoRef.current.play();
+        setIsPlaying(false);
+      }
     };
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     return () => {
@@ -87,14 +101,14 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
       {media && media.type === 'video' && (
         <div 
           className="absolute inset-0 cursor-pointer"
-          onClick={toggleFullscreen}
+          onClick={togglePlayAndFullscreen}
         >
           <video 
             ref={videoRef}
             src={urlForVideo(media.video)} 
-            autoPlay 
             loop 
-            muted 
+            muted
+            autoPlay
             playsInline 
             className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[250%] z-[-1]"
             onClick={preventVideoToggle}
@@ -102,11 +116,11 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
           <div className="absolute bottom-4 left-4">
             <button 
               className="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-60 hover:scale-110 transition-all duration-300"
-              onClick={toggleFullscreen}
+              onClick={togglePlayAndFullscreen}
             >
-              {isFullscreen ? (
+              {isPlaying ? (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-                  <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z" clipRule="evenodd" />
                 </svg>
               ) : (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
