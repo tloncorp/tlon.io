@@ -5,7 +5,7 @@ import { urlForImage, urlForVideo } from '../../utils/urlForImage';
 const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, media }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const formatHeadline = (text: string) => {
     const words = text.split(' ');
@@ -19,23 +19,20 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
     );
   };
 
-  const togglePlayAndFullscreen = (event: React.MouseEvent) => {
+  const toggleFullscreen = (event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
     if (!videoRef.current) return;
 
-    if (!isPlaying) {
-      videoRef.current.muted = false;
-      videoRef.current.currentTime = 0; // Reset video to the beginning
-      videoRef.current.play();
-      setIsPlaying(true);
-      videoRef.current.requestFullscreen();
+    if (!document.fullscreenElement) {
+      videoRef.current.currentTime = 0; // Reset video to beginning
+      videoRef.current.muted = false; // Unmute the video
+      setIsMuted(false);
+      videoRef.current.requestFullscreen().then(() => {
+        videoRef.current?.play(); // Ensure video plays after going fullscreen
+      });
     } else {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        videoRef.current.requestFullscreen();
-      }
+      document.exitFullscreen();
     }
   };
 
@@ -44,13 +41,22 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
     event.stopPropagation();
   };
 
+  const toggleMute = (event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-      if (!document.fullscreenElement && videoRef.current) {
+      const isFullscreen = !!document.fullscreenElement;
+      setIsFullscreen(isFullscreen);
+      if (!isFullscreen && videoRef.current) {
         videoRef.current.muted = true;
-        videoRef.current.play();
-        setIsPlaying(false);
+        setIsMuted(true);
       }
     };
     document.addEventListener('fullscreenchange', handleFullscreenChange);
@@ -92,7 +98,7 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
       {cardType === 'feature' && media && media.type === 'photo' && (
         <div className="mt-8 relative">
           <img 
-            src={media.photo ? urlForImage(media.photo).url() : ''} 
+            src={urlForImage(media.photo)} 
             alt="Feature illustration" 
             className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[80%] max-w-[300px]"
           />
@@ -101,26 +107,26 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
       {media && media.type === 'video' && (
         <div 
           className="absolute inset-0 cursor-pointer"
-          onClick={togglePlayAndFullscreen}
+          onClick={toggleFullscreen}
         >
           <video 
             ref={videoRef}
             src={urlForVideo(media.video)} 
+            autoPlay 
             loop 
-            muted
-            autoPlay
+            muted={true} // Always muted in card view
             playsInline 
             className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 scale-[250%] z-[-1]"
             onClick={preventVideoToggle}
           />
-          <div className="absolute bottom-4 left-4">
+          <div className="absolute bottom-4 left-4 flex space-x-2">
             <button 
               className="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-60 hover:scale-110 transition-all duration-300"
-              onClick={togglePlayAndFullscreen}
+              onClick={toggleFullscreen}
             >
-              {isPlaying ? (
+              {isFullscreen ? (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-                  <path fillRule="evenodd" d="M6.75 5.25a.75.75 0 01.75-.75H9a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H7.5a.75.75 0 01-.75-.75V5.25zm7.5 0A.75.75 0 0115 4.5h1.5a.75.75 0 01.75.75v13.5a.75.75 0 01-.75.75H15a.75.75 0 01-.75-.75V5.25z" clipRule="evenodd" />
+                  <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
                 </svg>
               ) : (
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
@@ -128,6 +134,23 @@ const ContentWrapper: React.FC<HomeCard> = ({ cardType, headline, body, button, 
                 </svg>
               )}
             </button>
+            {isFullscreen && (
+              <button 
+                className="w-10 h-10 bg-white bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-60 hover:scale-110 transition-all duration-300"
+                onClick={toggleMute}
+              >
+                {isMuted ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+                    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM17.78 9.22a.75.75 0 10-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 001.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L20.56 12l1.72-1.72a.75.75 0 00-1.06-1.06l-1.72 1.72-1.72-1.72z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+                    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z" />
+                    <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z" />
+                  </svg>
+                )}
+              </button>
+            )}
           </div>
         </div>
       )}
