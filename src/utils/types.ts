@@ -23,19 +23,19 @@ export interface BlockVideo {
 
 // HomeCard Sanity schema
 export interface HomeCard {
-  cardType: string;
+  order: number;
+  cardType: 'hero' | 'feature' | 'story' | 'cta' | 'posts' | 'footer';
   headline: string;
   body: string;
-  bodyMinimized?: string;
-  media?: {
-    type?: 'photo' | 'video';
-    photo?: any;
-    video?: any;
-  };
   button?: {
-    title?: string;
-    url?: string;
-    openNewWindow?: boolean;
+    title: string;
+    url: string;
+    openNewWindow: boolean;
+  };
+  media?: {
+    type: 'photo' | 'video';
+    photo?: any; // Sanity image reference
+    video?: any; // Sanity file reference
   };
 }
 

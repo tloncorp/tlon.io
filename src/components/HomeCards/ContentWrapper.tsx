@@ -111,13 +111,25 @@ const ContentWrapper: React.FC<HomeCard> = ({
           </a>
         </div>
       )}
-      {cardType === "feature" && media && media.type === "photo" && (
+      {cardType === "feature" && media && (
         <div className="relative mt-8">
-          <img
-            src={urlForImage(media.photo).url()}
-            alt="Feature illustration"
-            className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
-          />
+          {media.type === "photo" && (
+            <img
+              src={urlForImage(media.photo).url()}
+              alt="Feature illustration"
+              className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
+            />
+          )}
+          {media.type === "video" && (
+            <video
+              src={urlForVideo(media.video)}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
+            />
+          )}
         </div>
       )}
       {media && media.type === "video" && (
