@@ -23,8 +23,7 @@ export interface BlockVideo {
 
 // HomeCard Sanity schema
 export interface HomeCard {
-  order: number;
-  cardType: 'hero' | 'feature' | 'story' | 'cta' | 'posts' | 'footer';
+  cardType: "hero" | "feature" | "story" | "cta" | "posts" | "footer";
   headline: string;
   body: string;
   button?: {
@@ -32,11 +31,13 @@ export interface HomeCard {
     url: string;
     openNewWindow: boolean;
   };
+  order?: number;
   media?: {
-    type: 'photo' | 'video';
+    type: "photo" | "video";
     photo?: any; // Sanity image reference
     video?: any; // Sanity file reference
   };
+  bodyMinimized?: string;
 }
 
 // Paginated-type pages
