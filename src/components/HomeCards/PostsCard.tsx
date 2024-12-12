@@ -32,12 +32,14 @@ const PostsCard: React.FC<PostsCardProps> = ({ posts, ...props }) => {
     return <BaseCard {...props}><div>No posts available</div></BaseCard>;
   }
 
+  const recentPosts = posts.slice(0, 4).reverse();
+
   return (
     <BaseCard {...props}>
       <div className="posts-card bg-[#f9f9f9] h-full flex items-center">
         <div className="p-6 md:p-12 w-full">
           <ul className="list-none p-0 flex flex-col gap-6 md:gap-8">
-            {posts.slice(0, 1).map((post, index) => (
+            {recentPosts.slice(0, 1).map((post, index) => (
               <li key={index} 
                   className="flex flex-col gap-4 items-center cursor-pointer text-redfont-medium tracking-tight hover:bg-[#f0f0f0] transition-colors duration-300 rounded-lg p-4 md:hidden"
                   onClick={() => window.location.href = `/posts/${post.slug}`}>
@@ -54,7 +56,7 @@ const PostsCard: React.FC<PostsCardProps> = ({ posts, ...props }) => {
                 </div>
               </li>
             ))}
-            {posts.map((post, index) => (
+            {recentPosts.map((post, index) => (
               <li key={index} 
                   className="hidden md:flex flex-row gap-6 items-center cursor-pointer font-medium tracking-tight hover:bg-[#f0f0f0] transition-colors duration-300 rounded-lg p-4"
                   onClick={() => window.location.href = `/posts/${post.slug}`}>
