@@ -82,16 +82,14 @@ const ContentWrapper: React.FC<HomeCard> = ({
       <h2
         className={`mb-2 text-center text-lg font-medium leading-[1.2] tracking-tight ${
           cardType === "feature" ? "text-[#222]" : "text-white"
-        } ${cardType === "story" ? "text-2xl" : ""}`}
+        }`}
       >
-        {cardType === "hero" || cardType === "story"
-          ? formatHeadline(headline)
-          : headline}
+        {cardType === "hero" ? formatHeadline(headline) : headline}
       </h2>
       <p
         className={`mx-auto mb-2 mt-2 max-w-[260px] text-center md:max-w-[340px] ${
           cardType === "feature" ? "text-[#999]" : "text-white"
-        } ${cardType === "story" ? "text-lg" : ""}`}
+        }`}
       >
         {body}
       </p>
@@ -111,25 +109,25 @@ const ContentWrapper: React.FC<HomeCard> = ({
           </a>
         </div>
       )}
-      {cardType === "feature" && media && (
+      {cardType !== "feature" && media && media.type === "photo" && (
         <div className="relative mt-8">
-          {media.type === "photo" && (
-            <img
-              src={urlForImage(media.photo).url()}
-              alt="Feature illustration"
-              className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
-            />
-          )}
-          {media.type === "video" && (
-            <video
-              src={urlForVideo(media.video)}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
-            />
-          )}
+          <img
+            src={urlForImage(media.photo).url()}
+            alt="Feature illustration"
+            className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
+          />
+        </div>
+      )}
+      {cardType !== "feature" && media && media.type === "video" && (
+        <div className="relative mt-8">
+          <video
+            src={urlForVideo(media.video)}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute left-1/2 top-0 w-[80%] max-w-[300px] -translate-x-1/2 transform"
+          />
         </div>
       )}
       {media && media.type === "video" && (

@@ -23,9 +23,9 @@ export interface BlockVideo {
 
 // HomeCard Sanity schema
 export interface HomeCard {
-  cardType: "hero" | "feature" | "story" | "cta" | "posts" | "footer";
-  headline: string;
-  body: string;
+  cardType: "hero" | "feature" | "posts" | "videoGallery";
+  headline?: string;
+  body?: string;
   button?: {
     title: string;
     url: string;
@@ -34,10 +34,18 @@ export interface HomeCard {
   order?: number;
   media?: {
     type: "photo" | "video";
-    photo?: any; // Sanity image reference
-    video?: any; // Sanity file reference
+    photo?: any;
+    video?: any;
   };
   bodyMinimized?: string;
+  // Add these for videoGallery type
+  title?: string;
+  subtitle?: string;
+  videos?: {
+    title: string;
+    duration: string;
+    video: BlockVideo;
+  }[];
 }
 
 // Paginated-type pages
@@ -76,4 +84,14 @@ interface dimensionsObj {
 interface AssetReference {
   _type: string;
   _ref: string;
+}
+
+export interface VideoGallery {
+  title: string;
+  subtitle: string;
+  videos: {
+    title: string;
+    duration: string;
+    video: BlockVideo;
+  }[];
 }

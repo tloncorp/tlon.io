@@ -2,139 +2,50 @@
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 import FeatureCard from "../components/HomeCards/FeatureCard";  
 import HeroCard from "../components/HomeCards/HeroCard";
-import StoryCard from "../components/HomeCards/StoryCard";
-import CTACard from "../components/HomeCards/CTACard";
 import PostsCard from "../components/HomeCards/PostsCard";
-import FooterCard from "../components/HomeCards/FooterCard";
+import VideoGalleryCard from "../components/HomeCards/VideoGalleryCard";
 import { getHomeCards, getHomePosts } from "../utils/api";
-import { urlForImage } from "../utils/urlForImage";
 
-const homeCards = await getHomeCards();
+const homeCardsResponse = await getHomeCards();
+const homeCards = homeCardsResponse?.cards || [];
 const posts = (await getHomePosts()).reverse();
 ---
 
 <GlobalLayout>
   <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-16">
-    {homeCards.length > 0 && (
-      <>
-        {homeCards[0].cardType === 'feature' && (
-          <FeatureCard
-            cardType={homeCards[0].cardType}
-            headline={homeCards[0].headline}
-            body={homeCards[0].body}
-            bodyMinimized={homeCards[0].bodyMinimized}
-            media={homeCards[0].media}
-            button={homeCards[0].button}
-            isTopCard={true}
-            index={0}
-            client:load
-          />
-        )}
-        {homeCards[0].cardType === 'hero' && (
-          <HeroCard
-            cardType={homeCards[0].cardType}
-            headline={homeCards[0].headline}
-            body={homeCards[0].body}
-            bodyMinimized={homeCards[0].bodyMinimized}
-            media={homeCards[0].media}
-            button={homeCards[0].button}
-            isTopCard={true}
-            index={0}
-            client:load
-          />
-        )}
-        {homeCards[0].cardType === 'story' && (
-          <StoryCard
-            cardType={homeCards[0].cardType}
-            headline={homeCards[0].headline}
-            body={homeCards[0].body}
-            bodyMinimized={homeCards[0].bodyMinimized}
-            media={homeCards[0].media}
-            button={homeCards[0].button}
-            isTopCard={true}
-            index={0}
-            client:load
-          />
-        )}
-        {/* Add similar conditions for other card types if needed */}
-      </>
+    {homeCards.find(card => card.cardType === 'hero') && (
+      <HeroCard 
+        {...homeCards.find(card => card.cardType === 'hero')} 
+        isTopCard={true}
+        index={0}
+        client:load
+      />
     )}
-
-    <CTACard
-      cardType="cta"
-      headline=""
-      body=""
-      isTopCard={false}
-      index={1}
-      client:load
-    />
 
     <PostsCard
       cardType="posts"
-      headline=""
+      headline="Latest Posts"
       body=""
       isTopCard={false}
-      index={2}
+      index={1}
       posts={posts}
       client:load
     />
 
-    {homeCards.slice(1).map((card: any, index: number) => (
-      <>
-        {card.cardType === 'feature' && (
-          <FeatureCard
-            cardType={card.cardType}
-            headline={card.headline}
-            body={card.body}
-            bodyMinimized={card.bodyMinimized}
-            media={card.media}
-            button={card.button}
-            isTopCard={false}
-            index={index + 3}
-            client:load
-          />
-        )}
-        {card.cardType === 'hero' && (
-          <HeroCard
-            cardType={card.cardType}
-            headline={card.headline}
-            body={card.body}
-            bodyMinimized={card.bodyMinimized}
-            media={card.media}
-            button={card.button}
-            isTopCard={false}
-            index={index + 3}
-            client:load
-          />
-        )}
-        {card.cardType === 'story' && (
-          <StoryCard
-            cardType={card.cardType}
-            headline={card.headline}
-            body={card.body}
-            bodyMinimized={card.bodyMinimized}
-            media={card.media}
-            button={card.button}
-            isTopCard={false}
-            index={index + 3}
-            client:load
-          />
-        )}
-        {card.cardType === 'footer' && (
-          <FooterCard
-            cardType={card.cardType}
-            headline={card.headline}
-            body={card.body}
-            bodyMinimized={card.bodyMinimized}
-            media={card.media}
-            button={card.button}
-            isTopCard={false}
-            index={index + 3}
-            client:load
-          />
-        )}
-        {/* Add similar conditions for other card types if needed */}
-      </>
-    ))}
+    {homeCards
+      .filter(card => card.cardType !== 'hero')
+      .map((card: any, index: number) => {
+        const props = {
+          ...card,
+          isTopCard: false,
+          index: index + 2,
+        };
+
+        switch (card.cardType) {
+          case 'feature': return <FeatureCard {...props} client:load />;
+          case 'videoGallery': return <VideoGalleryCard {...props} client:load />;
+          default: return null;
+        }
+    })}
   </div>
 </GlobalLayout>

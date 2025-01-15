@@ -22,7 +22,7 @@ export default defineType({
           { title: 'Story', value: 'story' },
           { title: 'CTA', value: 'cta' },
           { title: 'Posts', value: 'posts' },
-          { title: 'Footer', value: 'footer' },
+          { title: 'Video Gallery', value: 'videoGallery' },
         ],
       },
     },
@@ -110,6 +110,34 @@ export default defineType({
         },
       ],
     },
+    {
+      name: 'videos',
+      title: 'Videos',
+      type: 'array',
+      hidden: ({parent}) => parent?.cardType !== 'videoGallery',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'duration',
+              title: 'Duration',
+              type: 'string',
+            },
+            {
+              name: 'video',
+              title: 'Video',
+              type: 'blockVideo',
+            }
+          ]
+        }
+      ]
+    }
   ],
   preview: {
     select: {
