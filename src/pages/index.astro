@@ -13,9 +13,9 @@ const posts = (await getHomePosts()).reverse();
 
 <GlobalLayout>
   <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-16">
-    {homeCards.find(card => card.cardType === 'hero') && (
+    {homeCards.find((card: any) => card.cardType === 'hero') && (
       <HeroCard 
-        {...homeCards.find(card => card.cardType === 'hero')} 
+        {...homeCards.find((card: any) => card.cardType === 'hero')} 
         isTopCard={true}
         index={0}
         client:load
@@ -33,7 +33,7 @@ const posts = (await getHomePosts()).reverse();
     />
 
     {homeCards
-      .filter(card => card.cardType !== 'hero')
+      .filter((card: any) => card.cardType !== 'hero')
       .map((card: any, index: number) => {
         const props = {
           ...card,

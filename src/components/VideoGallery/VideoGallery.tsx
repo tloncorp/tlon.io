@@ -1,13 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { urlForImage } from '../../utils/urlForImage';
 
 interface VideoGalleryProps {
-  title: string;
-  subtitle: string;
-  headline: string;
-  body: string;
-  videos: {
+  headline?: string;
+  body?: string;
+  videos?: {
     title: string;
     video: {
       url: string;
@@ -18,13 +16,12 @@ interface VideoGalleryProps {
   }[];
 }
 
-const VideoGallery: React.FC<VideoGalleryProps> = ({ title, subtitle, headline, body, videos }) => {
+const VideoGallery: React.FC<VideoGalleryProps> = ({ headline = '', body = '', videos = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Add safety check
   if (!videos || videos.length === 0) {
-    console.log('No videos provided:', videos);
     return <div>No videos available</div>;
   }
 

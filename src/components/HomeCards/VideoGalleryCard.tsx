@@ -1,23 +1,41 @@
 import React from 'react';
 import BaseCard from './BaseCard';
 import VideoGallery from '../VideoGallery/VideoGallery';
-import type { HomeCard } from '../../utils/types';
 
-interface VideoGalleryCardProps extends HomeCard {
-  isTopCard: boolean;
-  index: number;
+interface BlockVideo {
+  url: string;
+  poster: string | null;
+  width: number | null;
+  height: number | null;
 }
 
-const VideoGalleryCard: React.FC<VideoGalleryCardProps> = (props) => {
+interface VideoGalleryCardProps {
+  headline?: string;
+  body?: string;
+  videos?: {
+    title: string;
+    duration: string;
+    video: BlockVideo;
+  }[];
+  isTopCard: boolean;
+  index: number;
+  cardType: "hero" | "feature" | "posts" | "videoGallery";
+}
+
+const VideoGalleryCard: React.FC<VideoGalleryCardProps> = ({ isTopCard, index, cardType, ...props }) => {
+  // Transform the videos data to match the expected format
+  const transformedVideos = props.videos?.map(v => ({
+    title: v.title,
+    video: v.video
+  }));
+
   return (
-    <BaseCard {...props}>
+    <BaseCard isTopCard={isTopCard} index={index} cardType={cardType}>
       <div className="video-gallery-card h-full bg-white">
         <VideoGallery
-          title={props.title || ''}
-          subtitle={props.subtitle || ''}
           headline={props.headline || ''}
           body={props.body || ''}
-          videos={props.videos || []}
+          videos={transformedVideos}
         />
       </div>
     </BaseCard>

@@ -1,13 +1,13 @@
 import React from 'react';
 import type { HomeCard } from '../../utils/types';
 
-interface BaseCardProps extends HomeCard {
-  isTopCard: boolean;
+interface BaseCardProps {
   index: number;
+  cardType: "hero" | "feature" | "posts" | "videoGallery";
   children: React.ReactNode;
 }
 
-const BaseCard: React.FC<BaseCardProps> = ({ isTopCard, index, children }) => {
+const BaseCard: React.FC<BaseCardProps> = ({ index, children }) => {
   return (
     <div 
       className="card w-full rounded-2xl overflow-hidden relative mb-[12vh] aspect-[3/4] md:aspect-square"

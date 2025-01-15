@@ -84,7 +84,7 @@ const ContentWrapper: React.FC<HomeCard> = ({
           cardType === "feature" ? "text-[#222]" : "text-white"
         }`}
       >
-        {cardType === "hero" ? formatHeadline(headline) : headline}
+        {cardType === "hero" ? formatHeadline(headline || '') : headline}
       </h2>
       <p
         className={`mx-auto mb-2 mt-2 max-w-[260px] text-center md:max-w-[340px] ${
