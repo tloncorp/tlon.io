@@ -44,7 +44,7 @@ const BaseCard: React.FC<BaseCardProps> = ({ isTopCard, index, children }) => {
   return (
     <motion.div 
       ref={ref} 
-      className="card w-full rounded-2xl overflow-hidden relative mb-[12vh] aspect-[3/4] md:aspect-square"
+      className="card w-full rounded-2xl overflow-hidden relative mb-[12vh] aspect-[2/3] md:aspect-square border border-[#f0f0f0]"
       style={{ scale, boxShadow: shadow }}
       initial={{ opacity: 0, y: 50 }}
       animate={controls}

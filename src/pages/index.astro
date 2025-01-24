@@ -12,7 +12,7 @@ const posts = (await getHomePosts()).reverse();
 ---
 
 <GlobalLayout>
-  <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-16">
+  <div class="max-w-inner-xs md:max-w-inner-sm mx-auto">
     {homeCards.find((card: any) => card.cardType === 'hero') && (
       <HeroCard 
         {...homeCards.find((card: any) => card.cardType === 'hero')} 

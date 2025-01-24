@@ -55,8 +55,8 @@ const VideoGallery: React.FC<VideoGalleryProps> = ({ headline = '', body = '', v
       </div>
 
       {/* Carousel Video Layout */}
-      <div className="max-w-[250rem] mx-auto relative overflow-hidden h-[calc(100%-12rem)] flex flex-col justify-between">
-        <div className="flex items-center justify-center -mx-[80%] flex-1 mt-12">
+      <div className="max-w-[100%] md:max-w-[250rem] mx-auto relative overflow-hidden h-100 -mt-12 md:h-[calc(100%-12rem)] flex flex-col justify-between">
+        <div className="flex items-center justify-center md:-mx-[80%] flex-1 mt-12">
           {/* Previous Video Preview */}
           <div className="hidden md:block w-[1200%] cursor-pointer transition-opacity" onClick={handlePrev}>
             <div className="aspect-video">

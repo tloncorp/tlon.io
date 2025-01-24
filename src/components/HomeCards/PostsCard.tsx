@@ -36,7 +36,7 @@ const PostsCard: React.FC<PostsCardProps> = ({ posts, ...props }) => {
 
   return (
     <BaseCard {...props}>
-      <div className="posts-card bg-[#f9f9f9] h-full flex items-center">
+      <div className="posts-card bg-[#fff] h-full flex items-center">
         <div className="p-6 md:p-12 w-full">
           <ul className="list-none p-0 flex flex-col gap-6 md:gap-8">
             {recentPosts.slice(0, 1).map((post, index) => (
