@@ -11,29 +11,42 @@ interface HeroCardProps extends HomeCard {
 }
 
 const HeroCard: React.FC<HeroCardProps> = (props) => {
-  const backgroundImageUrl = props.media?.photo?.asset ? 
+  const desktopImageUrl = props.media?.photo?.asset ? 
     urlForImage(props.media.photo)
       .url()
       + '?v=1'
     : '';
 
+  const mobileImageUrl = props.media?.mobilePhoto?.asset ? 
+    urlForImage(props.media.mobilePhoto)
+      .url()
+      + '?v=1'
+    : desktopImageUrl; // Fallback to desktop image if no mobile image
+
   return (
     <BaseCard {...props}>
       <div 
         className="cta-card bg-[#fff] h-full relative overflow-hidden" 
-        style={{ 
-          backgroundImage: `url(${backgroundImageUrl})`, 
-          backgroundSize: 'contain',
-          backgroundPosition: 'bottom',
-          backgroundRepeat: 'no-repeat'
-        }}
       >
-        <div className="flex h-full flex-col justify-start p-6 md:p-12">
-          <div className="mx-auto max-w-[600px] w-full">
+        {/* Desktop Image */}
+        <div 
+          className="hidden md:block absolute inset-0" 
+          style={{ 
+            backgroundImage: `url(${desktopImageUrl})`, 
+            backgroundSize: 'contain',
+            backgroundPosition: 'bottom',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        {/* Mobile Image */}
+
+        
+        <div className="flex h-full flex-col md:block p-6 md:p-12 relative">
+          <div className="mx-auto max-w-[600px] w-full flex flex-col flex-1 md:flex-none justify-center md:justify-start">
             <h2 className="text-lg text-[#222] mb-4 font-medium tracking-tight text-center break-words">
               {props.headline}
             </h2>
-            <h2 className="text-base text-[#666] mb-8 md:mb-12 font-normal tracking-tight text-center">
+            <h2 className="text-base text-neutral-400 mb-8 md:mb-12 font-normal tracking-tight text-center">
               {props.body}
             </h2>
             <div className="flex flex-row gap-2 md:gap-4 w-full justify-center">
@@ -73,6 +86,15 @@ const HeroCard: React.FC<HeroCardProps> = (props) => {
               </a>
             </div>
           </div>
+          <div 
+            className="w-full h-[50%] md:hidden mt-6" 
+            style={{
+              backgroundImage: `url(${mobileImageUrl})`, 
+              backgroundSize: '80%',
+              backgroundPosition: '50% 50%',
+              backgroundRepeat: 'no-repeat'
+            }}
+          />
         </div>
       </div>
     </BaseCard>

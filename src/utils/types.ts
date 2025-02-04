@@ -35,6 +35,7 @@ export interface HomeCard {
   media?: {
     type: "photo" | "video";
     photo?: any;
+    mobilePhoto?: any;
     video?: any;
   };
   bodyMinimized?: string;

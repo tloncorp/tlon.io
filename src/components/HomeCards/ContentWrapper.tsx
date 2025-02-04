@@ -72,35 +72,19 @@ const ContentWrapper: React.FC<HomeCard> = ({
   }, []);
 
   return (
-    <div
-      className={`mx-auto max-w-[400px] ${
-        cardType === "feature"
-          ? "flex h-full flex-col justify-start pt-[4.25rem] md:pt-[4.25rem]"
-          : "flex h-full flex-col justify-center"
-      }`}
-    >
-      <h2
-        className={`mb-2 text-center text-lg font-medium leading-[1.2] tracking-tight ${
-          cardType === "feature" ? "text-[#222]" : "text-white"
-        }`}
-      >
-        {cardType === "hero" ? formatHeadline(headline || '') : headline}
+    <div className={`mx-auto max-w-[600px] w-full flex flex-col flex-1 md:flex-none justify-center md:justify-start ${
+      cardType === "feature" ? "" : ""
+    }`}>
+      <h2 className="text-lg text-[#222] mb-4 mt-4 font-medium tracking-tight text-center break-words max-w-[300px] mx-auto">
+        {headline}
       </h2>
-      <p
-        className={`mx-auto mb-2 mt-2 max-w-[260px] text-center md:max-w-[340px] ${
-          cardType === "feature" ? "text-[#999]" : "text-white"
-        }`}
-      >
+      <p className="text-base text-neutral-400 mb-8 md:mb-12 font-normal tracking-tight text-center max-w-[300px] mx-auto">
         {body}
       </p>
       {button && button.title && button.url && (
-        <div className="mt-4 text-center">
+        <div className="flex justify-center">
           <a
-            className={`inline-block rounded-full px-4 py-2 ${
-              cardType === "feature"
-                ? "bg-[#222] text-white"
-                : "bg-white text-[#222]"
-            }`}
+            className="rounded-lg px-6 py-3 bg-[#222] text-white hover:bg-[#444] transition-colors duration-300"
             href={button.url}
             target={button.openNewWindow ? "_blank" : "_self"}
             rel={button.openNewWindow ? "noopener noreferrer" : ""}

@@ -64,9 +64,16 @@ export default defineType({
         },
         {
           name: 'photo',
-          title: 'Photo',
+          title: 'Desktop Photo',
           type: 'image',
           hidden: ({ parent }) => parent?.type !== 'photo',
+        },
+        {
+          name: 'mobilePhoto',
+          title: 'Mobile Photo',
+          type: 'image',
+          hidden: ({ parent }) => parent?.type !== 'photo',
+          description: 'Optional. Used for mobile devices.',
         },
         {
           name: 'video',

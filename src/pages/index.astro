@@ -22,30 +22,33 @@ const posts = (await getHomePosts()).reverse();
       />
     )}
 
-    <PostsCard
-      cardType="posts"
-      headline="Latest Posts"
-      body=""
-      isTopCard={false}
-      index={1}
-      posts={posts}
-      client:load
-    />
-
     {homeCards
       .filter((card: any) => card.cardType !== 'hero')
       .map((card: any, index: number) => {
+        const isLastCard = index === homeCards.filter((card: any) => card.cardType !== 'hero').length - 1;
         const props = {
           ...card,
           isTopCard: false,
-          index: index + 2,
+          index: index + 1,
         };
 
-        switch (card.cardType) {
-          case 'feature': return <FeatureCard {...props} client:load />;
-          case 'videoGallery': return <VideoGalleryCard {...props} client:load />;
-          default: return null;
-        }
+        return (
+          <>
+            {isLastCard && (
+              <PostsCard
+                cardType="posts"
+                headline="Latest Posts"
+                body=""
+                isTopCard={false}
+                index={index + 1}
+                posts={posts}
+                client:load
+              />
+            )}
+            {card.cardType === 'feature' && <FeatureCard {...props} client:load />}
+            {card.cardType === 'videoGallery' && <VideoGalleryCard {...props} client:load />}
+          </>
+        );
     })}
   </div>
 </GlobalLayout>
