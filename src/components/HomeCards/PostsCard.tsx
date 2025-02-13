@@ -52,7 +52,6 @@ const PostsCard: React.FC<PostsCardProps> = ({ posts, ...props }) => {
                 </div>
                 <div className="flex flex-col gap-1 text-center">
                   <span className="text-lg tracking-tighter font-medium text-[#222] mt-4 mb-1">{post.title}</span>
-                  <p className="text-base text-[#999] mb-1">by {post.author.label}</p>
                 </div>
               </li>
             ))}
@@ -67,7 +66,6 @@ const PostsCard: React.FC<PostsCardProps> = ({ posts, ...props }) => {
                 />
                 <div className="flex flex-col gap-1 text-left">
                   <span className="text-lg font-medium tracking-tight text-[#222]">{post.title}</span>
-                  <p className="text-base text-[#999]">by {post.author.label}</p>
                 </div>
               </li>
             ))}
