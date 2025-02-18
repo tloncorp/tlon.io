@@ -52,7 +52,7 @@ const HeroCard: React.FC<HeroCardProps> = (props) => {
             <div className="flex flex-row gap-2 md:gap-4 w-full justify-center">
               <a
                 className="rounded-lg px-3 md:px-6 py-1.5 md:py-3 bg-[#E2E3E0] text-[#666] w-[140px] md:w-[200px] hover:bg-[#d6d7d4] transition-colors duration-300 flex items-center justify-center md:justify-start"
-                href="https://apps.apple.com/your-app-store-link"
+                href="https://apps.apple.com/us/app/tlon-tlon-messenger/id6451392109"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -69,7 +69,7 @@ const HeroCard: React.FC<HeroCardProps> = (props) => {
               </a>
               <a
                 className="rounded-lg px-3 md:px-6 py-1.5 md:py-3 bg-[#E2E3E0] text-[#666] w-[140px] md:w-[200px] hover:bg-[#d6d7d4] transition-colors duration-300 flex items-center justify-center md:justify-start"
-                href="https://play.google.com/store/your-play-store-link"
+                href="https://play.google.com/store/apps/details?id=io.tlon.groups"
                 target="_blank"
                 rel="noopener noreferrer"
               >
