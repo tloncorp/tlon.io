@@ -27,7 +27,7 @@ const NewsletterSignup: React.FC = () => {
           autoComplete="off"
           required
           className="block w-full text-ellipsis rounded-2xl border border-blackish/10 px-6 py-4 pr-36 shadow-lg transition-colors hover:border-blackish/30 focus:border-blackish/30 focus:outline-none"
-          placeholder="Sign up for early access"
+          placeholder="Sign up to join the waitlist"
         />
         <div className="absolute left-[-5000px]" aria-hidden="true">
           <input
