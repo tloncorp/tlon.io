@@ -26,8 +26,8 @@ const NewsletterSignup: React.FC = () => {
           name="EMAIL"
           autoComplete="off"
           required
-          className="block w-full text-ellipsis rounded-2xl border border-blackish/10 px-6 py-4 pr-36 shadow-lg transition-colors hover:border-blackish/30 focus:border-blackish/30 focus:outline-none"
-          placeholder="Sign up to join the waitlist"
+          className="block w-full text-ellipsis rounded-2xl border border-blackish/10 px-6 py-4 pr-24 shadow-lg transition-colors hover:border-blackish/30 focus:border-blackish/30 focus:outline-none"
+          placeholder="Join the waitlist"
         />
         <div className="absolute left-[-5000px]" aria-hidden="true">
           <input
@@ -40,7 +40,7 @@ const NewsletterSignup: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="absolute right-0 top-1/2 inline-block -translate-y-1/2 rounded-2xl p-4 text-mono-500 transition-colors hover:text-black dark:text-mono-600 dark:hover:text-mono-500"
+          className="absolute right-0 top-1/2 inline-block -translate-y-1/2 rounded-2xl bg-transparent p-4 text-mono-500 transition-colors hover:text-black dark:text-mono-600 dark:hover:text-mono-500"
         >
           Subscribe
         </button>

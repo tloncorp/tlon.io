@@ -43,8 +43,8 @@ const HeroCard: React.FC<HeroCardProps> = props => {
             </h2>
             <NewsletterSignup />
             <div className="mt-8 flex flex-row justify-center gap-2 md:gap-4">
-              <p className="text-sm font-normal tracking-tight text-neutral-400">
-                Using Tlon already? Download for{" "}
+              <p className="text-center text-sm font-normal tracking-tight text-neutral-400">
+                Have an invite or account? Download for{" "}
                 <a
                   className="underline"
                   href="https://apps.apple.com/us/app/tlon-tlon-messenger/id6451392109"
