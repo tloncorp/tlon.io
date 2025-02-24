@@ -34,7 +34,8 @@ const NewsletterSignup: React.FC = () => {
             type="text"
             name="b_f9f52f752b920bad5e8b46282_5f71947001"
             tabIndex={-1}
-            value=""
+            defaultValue=""
+            readOnly
           />
         </div>
         <button
