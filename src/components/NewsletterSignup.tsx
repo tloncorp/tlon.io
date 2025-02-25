@@ -1,12 +1,37 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // TODO: Load this dynamically
 const MAILCHIMP_SIGNUP =
-  "https://tlon.us14.list-manage.com/subscribe/post?u=f9f52f752b920bad5e8b46282&id=6d15c14b9a&f_id=004bfde5f0";
+  "https://tlon.us14.list-manage.com/subscribe/post?u=f9f52f752b920bad5e8b46282&id=1bad02b13e&f_id=00dbb4e5f0";
 
 const NewsletterSignup: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // Create a unique ID for the iframe
+  const iframeId = "mailchimp-iframe";
+
+  // Set up the iframe once on component mount
+  useEffect(() => {
+    // Create iframe if it doesn't exist
+    if (!document.getElementById(iframeId)) {
+      const iframe = document.createElement("iframe");
+      iframe.id = iframeId;
+      iframe.name = iframeId;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+
+    // Cleanup on unmount
+    return () => {
+      const iframe = document.getElementById(iframeId);
+      if (iframe) {
+        document.body.removeChild(iframe);
+      }
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,11 +43,13 @@ const NewsletterSignup: React.FC = () => {
       return false;
     }
 
+    setIsSubmitting(true);
+
     // Create a hidden form to submit to Mailchimp
     const tempForm = document.createElement("form");
     tempForm.action = MAILCHIMP_SIGNUP;
     tempForm.method = "post";
-    tempForm.target = "_blank";
+    tempForm.target = iframeId; // Target the hidden iframe
     tempForm.style.display = "none";
 
     // Add the email input
@@ -40,10 +67,14 @@ const NewsletterSignup: React.FC = () => {
     // Append to body, submit, and remove
     document.body.appendChild(tempForm);
     tempForm.submit();
-    document.body.removeChild(tempForm);
 
-    // Show success message
-    setIsSubmitted(true);
+    // Show success message after a short delay
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      document.body.removeChild(tempForm);
+    }, 1000);
+
     return true;
   };
 
@@ -66,12 +97,14 @@ const NewsletterSignup: React.FC = () => {
             required
             className="block w-full text-ellipsis rounded-2xl border border-blackish/10 px-6 py-4 pr-24 shadow-lg transition-colors hover:border-blackish/30 focus:border-blackish/30 focus:outline-none"
             placeholder="Join the waitlist"
+            disabled={isSubmitting}
           />
           <button
             type="submit"
             className="absolute right-0 top-1/2 inline-block -translate-y-1/2 rounded-2xl bg-transparent p-4 text-mono-500 transition-colors hover:text-black dark:text-mono-600 dark:hover:text-mono-500"
+            disabled={isSubmitting}
           >
-            Subscribe
+            {isSubmitting ? "Subscribing..." : "Subscribe"}
           </button>
         </form>
       )}
