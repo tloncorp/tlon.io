@@ -82,7 +82,7 @@ const NewsletterSignup: React.FC = () => {
     <div>
       {isSubmitted ? (
         <div className="rounded-2xl border border-green-500 bg-green-50 p-4 text-center text-green-700">
-          Thank you for subscribing to our newsletter!
+          Thanks. We'll be in touch soon.
         </div>
       ) : (
         <form
