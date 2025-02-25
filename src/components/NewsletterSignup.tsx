@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-// Properly formatted URL with actual & characters instead of HTML entities
+// TODO: Load this dynamically
 const MAILCHIMP_SIGNUP =
   "https://tlon.us14.list-manage.com/subscribe/post?u=f9f52f752b920bad5e8b46282&id=6d15c14b9a&f_id=004bfde5f0";
 
