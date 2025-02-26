@@ -1,17 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 
-// TODO: Load this dynamically
-const MAILCHIMP_SIGNUP =
-  "https://tlon.us14.list-manage.com/subscribe/post?u=f9f52f752b920bad5e8b46282&id=1bad02b13e&f_id=00dbb4e5f0";
+const MAILCHIMP_SIGNUP = import.meta.env.PUBLIC_MAILCHIMP_SIGNUP;
+if (!MAILCHIMP_SIGNUP) {
+  console.warn(
+    "Environment variable 'PUBLIC_MAILCHIMP_SIGNUP' is not defined."
+  );
+}
 
 const NewsletterSignup: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-
   // Create a unique ID for the iframe
   const iframeId = "mailchimp-iframe";
+  const signupUrl = MAILCHIMP_SIGNUP;
 
   // Set up the iframe once on component mount
   useEffect(() => {
@@ -47,7 +49,7 @@ const NewsletterSignup: React.FC = () => {
 
     // Create a hidden form to submit to Mailchimp
     const tempForm = document.createElement("form");
-    tempForm.action = MAILCHIMP_SIGNUP;
+    tempForm.action = signupUrl;
     tempForm.method = "post";
     tempForm.target = iframeId; // Target the hidden iframe
     tempForm.style.display = "none";

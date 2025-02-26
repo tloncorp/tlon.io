@@ -4,7 +4,7 @@ import { getHomePosts, getGlobalContent } from "../utils/api";
 import { type paginatedPageObj } from "../utils/types";
 
 import GlobalLayout from "../layouts/GlobalLayout.astro";
-import NewsletterSignup from "../components/NewsletterSignup.astro";
+import NewsletterSignup from "../components/NewsletterSignup.tsx";
 import ExcerptList from "../components/ExcerptList.astro";
 import PageTitle from "@components/PageTitle.astro";
 import HomeLayout from "@layouts/GlobalLayout.astro";
@@ -29,12 +29,12 @@ const { page } = Astro.props;
 ---
 
 <GlobalLayout>
-  <div class="max-w-inner-xs mx-auto space-y-16 pb-36 pt-24 sm:pb-36">
+  <div class="mx-auto max-w-inner-xs space-y-16 pb-36 pt-24 sm:pb-36">
     <PageTitle
       title={globalContent.title}
       titleAlignment={globalContent.titleAlignment}
     />
-    <NewsletterSignup />
+    <NewsletterSignup client:load />
   </div>
 
   <ExcerptList page={page} />

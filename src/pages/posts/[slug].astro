@@ -9,7 +9,7 @@ import {
 import GlobalLayout from "../../layouts/GlobalLayout.astro";
 
 import Author from "../../components/Author.astro";
-import NewsletterSignup from "../../components/NewsletterSignup.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.tsx";
 import PageTitle from "../../components/PageTitle.astro";
 import Picture from "../../components/Picture.astro";
 import PortableText from "../../components/PortableText.astro";
@@ -57,11 +57,12 @@ const {
   metaTitle={metaTitle ? metaTitle : title}
 >
   <article>
-    <header class="max-w-inner-xs md:max-w-inner-sm mx-auto space-y-4 font-medium tracking-tight">
+    <header
+      class="mx-auto max-w-inner-xs space-y-4 font-medium tracking-tight md:max-w-inner-sm"
+    >
       <PageTitle title={title} />
       <Author author={author} />
     </header>
-
 
     {
       featuredVideo ? (
@@ -70,14 +71,14 @@ const {
         </div>
       ) : (
         <div class="mx-auto flex max-w-inner-lg items-center justify-center py-16">
-          <div class="overflow-hidden rounded-2xl aspect-[16/9]">
+          <div class="aspect-[16/9] overflow-hidden rounded-2xl">
             <Picture asset={featuredImage} visualMaxWidth={750} />
           </div>
         </div>
       )
     }
 
-    <div class="max-w-inner-xs md:max-w-inner-sm mx-auto">
+    <div class="mx-auto max-w-inner-xs md:max-w-inner-sm">
       <PortableText portableText={body} />
     </div>
 
@@ -104,8 +105,8 @@ const {
       )
     }
 
-    <div class="max-w-inner-xs md:max-w-inner-sm mx-auto pt-32">
-      <NewsletterSignup />
+    <div class="mx-auto max-w-inner-xs pt-32 md:max-w-inner-sm">
+      <NewsletterSignup client:load />
     </div>
   </article>
 </GlobalLayout>
