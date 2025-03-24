@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import type { HomeCard } from "../../utils/types";
 import { urlForImage, urlForVideo } from "../../utils/urlForImage";
+import VideoGallery from "./VideoGallery";
 
 const ContentWrapper: React.FC<HomeCard> = ({
   cardType,
@@ -8,6 +9,7 @@ const ContentWrapper: React.FC<HomeCard> = ({
   body,
   button,
   media,
+  videos,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -71,6 +73,11 @@ const ContentWrapper: React.FC<HomeCard> = ({
     };
   }, []);
 
+
+  if (cardType === 'videoGallery') {
+    return <VideoGallery headline={headline} body={body} videos={videos} />;
+  }
+
   return (
     <div className={`mx-auto max-w-[600px] w-full flex flex-col flex-1 md:flex-none justify-center md:justify-start ${
       cardType === "feature" ? "" : ""
@@ -91,6 +98,45 @@ const ContentWrapper: React.FC<HomeCard> = ({
           >
             {button.title}
           </a>
+        </div>
+      )}
+      {cardType === 'videoGallery' && videos && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {videos.map((videoItem, index) => (
+            <div key={index} className="relative">
+              <a 
+                href={videoItem.video.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                {videoItem.video.thumbnail && (
+                  <div className="aspect-video relative rounded-lg overflow-hidden">
+                    <img
+                      src={urlForImage(videoItem.video.thumbnail).url()}
+                      alt={videoItem.video.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <svg 
+                        className="w-12 h-12 text-white" 
+                        viewBox="0 0 24 24" 
+                        fill="currentColor"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                )}
+                <div className="mt-3">
+                  <h3 className="text-[#222] font-medium">{videoItem.title}</h3>
+                  {videoItem.duration && (
+                    <span className="text-sm text-neutral-400">{videoItem.duration}</span>
+                  )}
+                </div>
+              </a>
+            </div>
+          ))}
         </div>
       )}
       {cardType !== "feature" && media && media.type === "photo" && (

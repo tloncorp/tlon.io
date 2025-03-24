@@ -23,30 +23,28 @@ export interface BlockVideo {
 
 // HomeCard Sanity schema
 export interface HomeCard {
-  cardType: "hero" | "feature" | "posts" | "videoGallery";
-  headline?: string;
-  body?: string;
+  cardType: 'hero' | 'feature' | 'story' | 'cta' | 'posts' | 'videoGallery';
+  headline: string;
+  body: string;
   button?: {
     title: string;
     url: string;
     openNewWindow: boolean;
   };
-  order?: number;
   media?: {
-    type: "photo" | "video";
+    type: 'photo' | 'video';
     photo?: any;
-    mobilePhoto?: any;
     video?: any;
   };
-  bodyMinimized?: string;
-  // Add these for videoGallery type
-  title?: string;
-  subtitle?: string;
-  videos?: {
+  videos?: Array<{
     title: string;
     duration: string;
-    video: BlockVideo;
-  }[];
+    video: {
+      thumbnail: any;
+      title: string;
+      url: string;
+    };
+  }>;
 }
 
 // Paginated-type pages

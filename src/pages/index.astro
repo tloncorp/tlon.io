@@ -3,7 +3,7 @@ import GlobalLayout from "../layouts/GlobalLayout.astro";
 import FeatureCard from "../components/HomeCards/FeatureCard";  
 import HeroCard from "../components/HomeCards/HeroCard";
 import PostsCard from "../components/HomeCards/PostsCard";
-//import VideoGalleryCard from "../components/HomeCards/VideoGalleryCard";
+import VideoGalleryCard from "../components/HomeCards/VideoGalleryCard";
 import { getHomeCards, getHomePosts } from "../utils/api";
 
 const homeCardsResponse = await getHomeCards();
@@ -46,7 +46,7 @@ const posts = (await getHomePosts()).reverse();
               />
             )}
             {card.cardType === 'feature' && <FeatureCard {...props} client:load />}
-            {/* {card.cardType === 'videoGallery' && <VideoGalleryCard {...props} client:load />} */}
+            {card.cardType === 'videoGallery' && <VideoGalleryCard {...props} client:load />}
           </>
         );
     })}

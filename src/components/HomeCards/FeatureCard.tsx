@@ -10,6 +10,7 @@ interface FeatureCardProps extends HomeCard {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = (props) => {
+//  console.log('FeatureCard props:', props);
   const desktopImageUrl = props.media?.photo?.asset ? 
     urlForImage(props.media.photo)
       .url()
