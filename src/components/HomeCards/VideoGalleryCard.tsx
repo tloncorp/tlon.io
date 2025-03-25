@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import type { CSSProperties } from 'react';
 import BaseCard from './BaseCard';
 import type { HomeCard } from '../../utils/types';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,7 +14,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
 
 interface VideoGalleryCardProps extends HomeCard {
-  // Any additional props needed
+  isTopCard: boolean;
+  index: number;
+  title?: string;
+  subtitle?: string;
 }
 
 // YouTube Lightbox component using portal for full viewport positioning
@@ -93,7 +97,7 @@ const YouTubeLightbox = ({ videoUrl, onClose }: { videoUrl: string, onClose: () 
 };
 
 const VideoGalleryCard: React.FC<VideoGalleryCardProps> = (props) => {
-  const { headline, body, title, subtitle, videos } = props;
+  const { headline, body, title, subtitle, videos, isTopCard, index } = props;
   const swiperRef = useRef<SwiperType>();
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
@@ -106,7 +110,12 @@ const VideoGalleryCard: React.FC<VideoGalleryCardProps> = (props) => {
   const displayBody = body || subtitle || '';
 
   // Custom styles for Swiper elements
-  const swiperStyles = {
+  const swiperStyles: {
+    container: CSSProperties;
+    prevButton: CSSProperties;
+    nextButton: CSSProperties;
+    paginationContainer: CSSProperties;
+  } = {
     // Container styles
     container: {
       margin: '0 -24px', // Negative margin to create full bleed effect

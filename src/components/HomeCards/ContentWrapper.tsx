@@ -75,7 +75,7 @@ const ContentWrapper: React.FC<HomeCard> = ({
 
 
   if (cardType === 'videoGallery') {
-    return <VideoGallery headline={headline} body={body} videos={videos} />;
+    return <VideoGallery headline={headline} body={body} videos={videos || []} />;
   }
 
   return (
@@ -100,7 +100,7 @@ const ContentWrapper: React.FC<HomeCard> = ({
           </a>
         </div>
       )}
-      {cardType === 'videoGallery' && videos && (
+      {(cardType as HomeCard['cardType']) === 'videoGallery' && videos && videos.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {videos.map((videoItem, index) => (
             <div key={index} className="relative">

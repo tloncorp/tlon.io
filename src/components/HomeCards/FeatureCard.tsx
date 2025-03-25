@@ -17,7 +17,7 @@ const FeatureCard: React.FC<FeatureCardProps> = (props) => {
       + '?v=1'
     : '';
 
-  const mobileImageUrl = props.media?.mobilePhoto?.asset ? 
+  const mobileImageUrl = props.media && 'mobilePhoto' in props.media && props.media.mobilePhoto?.asset ? 
     urlForImage(props.media.mobilePhoto)
       .url()
       + '?v=1'
