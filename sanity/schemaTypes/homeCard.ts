@@ -132,11 +132,6 @@ export default defineType({
               type: 'string',
             },
             {
-              name: 'duration',
-              title: 'Duration',
-              type: 'string',
-            },
-            {
               name: 'video',
               title: 'Video',
               type: 'blockVideo',

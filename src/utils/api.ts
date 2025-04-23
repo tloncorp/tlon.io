@@ -55,10 +55,9 @@ export async function getHomeCards() {
         title,
         duration,
         video {
-          "url": video.asset->url,
-          "poster": video.poster.asset->url,
-          width,
-          height
+          title,
+          url,
+          "thumbnail": thumbnail.asset->url
         }
       }
     }
