@@ -70,7 +70,7 @@ const HeroCard: React.FC<HeroCardProps> = props => {
             className="mt-6 h-[50%] w-full md:hidden"
             style={{
               backgroundImage: `url(${mobileImageUrl})`,
-              backgroundSize: "80%",
+              backgroundSize: "65%",
               backgroundPosition: "50% 50%",
               backgroundRepeat: "no-repeat",
             }}
