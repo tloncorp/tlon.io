@@ -35,7 +35,7 @@ const HeroCard: React.FC<HeroCardProps> = props => {
         />
         <div className="relative flex h-full flex-col p-6 md:block md:p-12">
           <div className="mx-auto flex w-full max-w-[600px] flex-1 flex-col justify-center md:flex-none md:justify-start">
-            <h2 className="mb-4 break-words text-center text-lg font-medium tracking-tight text-[#222]">
+            <h2 className="mb-4 break-words text-center text-lg font-medium tracking-tight text-[#222] leading-none">
               {props.headline}
             </h2>
             <h2 className="mb-4 text-center text-base font-normal tracking-tight text-neutral-400 md:mb-8">
