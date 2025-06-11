@@ -28,6 +28,7 @@ export default defineConfig([
                   .documentId('53c46b24-cf16-438f-9f9c-12537707112a'),
               ),
               S.documentTypeListItem('post'),
+              S.documentTypeListItem('changelog'),
               S.documentTypeListItem('author'),
               S.documentTypeListItem('page'),
               S.documentTypeListItem('menu'),
