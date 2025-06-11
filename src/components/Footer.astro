@@ -2,7 +2,6 @@
 import { getFooterNav } from "../utils/api";
 
 const links = await getFooterNav();
-const year = new Date().getFullYear();
 ---
 
 <footer role="contentinfo" class="space-y-3 py-32 text-center">
@@ -24,6 +23,11 @@ const year = new Date().getFullYear();
           <li>
             <a href="/posts" class="link-underline-hover inline-block">
               Posts
+            </a>
+          </li>
+          <li>
+            <a href="/changelog" class="link-underline-hover inline-block">
+              Changelog
             </a>
           </li>
         </ul>
