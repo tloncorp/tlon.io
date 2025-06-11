@@ -1,5 +1,3 @@
-// blockImage Sanity schema
-
 // author Sanity schema
 export interface AuthorObj {
   label: string;
@@ -19,6 +17,20 @@ export interface BlockVideo {
   width: number;
   height: number;
   poster: string;
+}
+
+// Changelog Sanity schema
+export interface ChangelogEntry {
+  slug: string;
+  app: string;
+  version: string;
+  releaseType: "major" | "minor" | "patch" | "hotfix" | "beta" | "security";
+  releaseDate: string;
+  featuredImage?: BlockImage;
+  summary: any;
+  changes: any;
+  breakingChanges?: any;
+  migrationNotes?: any;
 }
 
 // HomeCard Sanity schema
