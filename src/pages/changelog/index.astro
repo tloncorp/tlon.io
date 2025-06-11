@@ -15,7 +15,10 @@ const changelogEntries = await getChangelog();
 >
   <div class="mx-auto max-w-inner-xs space-y-16 pb-36 pt-24 sm:pb-36">
     <header>
-      <PageTitle title="Changelog" />
+      <PageTitle
+        title="Changelog"
+        titleAlignment="left"
+      />
     </header>
     <ChangelogList entries={changelogEntries} />
     <NewsletterSignup client:load />

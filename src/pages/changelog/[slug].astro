@@ -82,9 +82,9 @@ function formatDate(date: string) {
     >
       <PageTitle title={`${app} ${version}`} />
       <div class="pb-12 flex items-center gap-3">
-        <span class="text-lg text-gray-900">Released on {formatDate(releaseDate)}</span>
+        <span class="text-md">{formatDate(releaseDate)}</span>
         <span
-          class={`inline-flex items-center rounded-lg px-3 py-1 text-sm font-medium ${getReleaseTypeColor(releaseType)}`}
+          class={`inline-flex items-center rounded-lg px-2 py-1 text-xs font-medium ${getReleaseTypeColor(releaseType)}`}
         >
           {getReleaseTypeLabel(releaseType)}
         </span>
