@@ -103,7 +103,7 @@ const NewsletterSignup: React.FC = () => {
           />
           <button
             type="submit"
-            className="absolute right-0 top-1/2 inline-block -translate-y-1/2 rounded-2xl bg-transparent p-4 text-mono-500 transition-colors hover:text-black dark:text-mono-600 dark:hover:text-mono-500"
+            className="absolute right-0 top-1/2 inline-block -translate-y-1/2 rounded-2xl bg-transparent p-4 text-black transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Subscribing..." : "Subscribe"}
