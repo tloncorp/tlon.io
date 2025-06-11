@@ -1,0 +1,31 @@
+---
+import ChangelogExcerpt from "./ChangelogExcerpt.astro";
+import { type ChangelogEntry } from "../utils/types";
+
+interface Props {
+  entries: ChangelogEntry[];
+}
+
+const { entries } = Astro.props;
+---
+{entries && entries.length > 0 ? (
+  <div class="space-y-24 pb-24">
+    {entries.map((entry: ChangelogEntry) => (
+      <ChangelogExcerpt
+        app={entry.app}
+        version={entry.version}
+        releaseType={entry.releaseType}
+        releaseDate={entry.releaseDate}
+        summary={entry.summary}
+        featuredImage={entry.featuredImage}
+        slug={entry.slug}
+      />
+    ))}
+  </div>
+) : (
+  <div class="text-center py-12">
+    <p class="text-gray-500 mb-4">
+      No changelog entries found yet.
+    </p>
+  </div>
+)} 

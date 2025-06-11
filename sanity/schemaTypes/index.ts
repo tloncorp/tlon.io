@@ -3,6 +3,7 @@ import blockContent from './blockContent'
 import blockImage from './blockImage'
 import blockLink from './blockLink'
 import blockVideo from './blockVideo'
+import changelog from './changelog'
 import menu from './menu'
 import page from './page'
 import post from './post'
@@ -13,6 +14,7 @@ import homeCard from './homeCard'
 
 export const schemaTypes = [
   post,
+  changelog,
   postTag,
   author,
   page,

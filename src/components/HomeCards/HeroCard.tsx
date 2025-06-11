@@ -1,9 +1,7 @@
 import React from "react";
 import BaseCard from "./BaseCard";
-import ContentWrapper from "./ContentWrapper";
 import { urlForImage } from "../../utils/urlForImage";
 import type { HomeCard } from "../../utils/types";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
 import NewsletterSignup from "../NewsletterSignup";
 
 interface HeroCardProps extends HomeCard {
@@ -70,7 +68,7 @@ const HeroCard: React.FC<HeroCardProps> = props => {
             className="mt-6 h-[50%] w-full md:hidden"
             style={{
               backgroundImage: `url(${mobileImageUrl})`,
-              backgroundSize: "80%",
+              backgroundSize: "contain",
               backgroundPosition: "50% 50%",
               backgroundRepeat: "no-repeat",
             }}

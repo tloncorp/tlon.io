@@ -218,8 +218,42 @@ export async function getVideoGallery(id: string) {
       }
     }
   }`;
-  
+
   return sanityClient.fetch(query, { id });
+}
+
+// Get all changelog entries for listing
+export async function getChangelog() {
+  const query = `*[_type == "changelog"] | order(releaseDate desc) {
+    "slug": slug.current,
+    app,
+    version,
+    releaseType,
+    releaseDate,
+    "featuredImage": featuredImage.imageRef ${imageRefObj},
+    summary,
+    changes,
+    breakingChanges,
+    migrationNotes,
+  }`;
+  return await sanityClient.fetch(query);
+}
+
+// Get changelog entries for static path generation
+export async function getChangelogPaths() {
+  const query = `*[_type == "changelog"] | order(releaseDate desc) {
+    slug,
+    app,
+    version,
+    releaseType,
+    releaseDate,
+    "featuredImage": featuredImage.imageRef ${imageRefObj},
+    summary,
+    changes,
+    breakingChanges,
+    migrationNotes,
+  }`;
+  return paramMap(await sanityClient.fetch(query));
 }
 
 function paramMap(items: any) {

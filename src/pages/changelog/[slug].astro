@@ -1,0 +1,155 @@
+---
+import { getChangelogPaths } from "../../utils/api";
+import type { ChangelogEntry, BlockImage, AuthorObj } from "../../utils/types";
+
+import GlobalLayout from "../../layouts/GlobalLayout.astro";
+import PageTitle from "../../components/PageTitle.astro";
+import Picture from "../../components/Picture.astro";
+import PortableText from "../../components/PortableText.astro";
+
+interface Props extends ChangelogEntry {
+  relatedChangelog?: RelatedChangelogEntry[];
+}
+
+interface RelatedChangelogEntry {
+  title: string;
+  slug: string;
+  version: string;
+  releaseDate: string;
+  author: AuthorObj;
+  featuredImage?: BlockImage;
+}
+
+export async function getStaticPaths() {
+  return await getChangelogPaths();
+}
+
+const {
+  app,
+  version,
+  releaseType,
+  releaseDate,
+  featuredImage,
+  summary,
+  changes,
+  breakingChanges,
+  migrationNotes,
+} = Astro.props;
+
+function getReleaseTypeColor(type: string) {
+  const colors = {
+    major: "bg-red-100 text-red-800 border-red-200",
+    minor: "bg-blue-100 text-blue-800 border-blue-200",
+    patch: "bg-green-100 text-green-800 border-green-200",
+    hotfix: "bg-orange-100 text-orange-800 border-orange-200",
+    beta: "bg-purple-100 text-purple-800 border-purple-200",
+    security: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  };
+  return (
+    colors[type as keyof typeof colors] ||
+    "bg-gray-100 text-gray-800 border-gray-200"
+  );
+}
+
+function getReleaseTypeLabel(type: string) {
+  const labels = {
+    major: "Major Release",
+    minor: "Minor Release",
+    patch: "Patch",
+    hotfix: "Hotfix",
+    beta: "Beta",
+    security: "Security Update",
+  };
+  return labels[type as keyof typeof labels] || type;
+}
+
+function formatDate(date: string) {
+  const d = new Date(date);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `~${year}.${month}.${day}`;
+}
+---
+
+<GlobalLayout
+  metaDescription={`${app} ${version} release notes and changelog`}
+  metaTitle={`${app} ${version}`}
+>
+  <article>
+    <header
+      class="mx-auto max-w-inner-xs space-y-4 font-medium tracking-tight md:max-w-inner-sm"
+    >
+      <PageTitle title={`${app} ${version}`} />
+      <div class="pb-12 flex items-center gap-3">
+        <span class="text-md">{formatDate(releaseDate)}</span>
+        <span
+          class={`inline-flex items-center rounded-lg px-2 py-1 text-xs font-medium ${getReleaseTypeColor(releaseType)}`}
+        >
+          {getReleaseTypeLabel(releaseType)}
+        </span>
+      </div>
+
+    </header>
+
+    {
+      featuredImage && (
+        <div class="mx-auto flex max-w-inner-lg items-center justify-center py-16">
+          <div class="aspect-[16/9] overflow-hidden rounded-2xl">
+            <Picture asset={featuredImage} visualMaxWidth={750} />
+          </div>
+        </div>
+      )
+    }
+
+    <div class="mx-auto max-w-inner-xs md:max-w-inner-sm">
+      {
+        summary && (
+          <section class="mb-12 prose prose-lg prose-tlon sm:prose-xl prose-headings:mt-2 prose-headings:pb-4 prose-headings:pt-4 prose-headings:text-md prose-headings:font-semibold prose-p:leading-8 prose-a:font-normal hover:prose-a:no-underline prose-blockquote:border-l-2 prose-blockquote:font-normal prose-li:my-1.5 prose-li:leading-7">
+            <h2>Summary</h2>
+            <PortableText portableText={summary} />
+          </section>
+        )
+      }
+
+      {
+        changes && (
+          <section class="mb-12 prose prose-lg prose-tlon sm:prose-xl prose-headings:mt-2 prose-headings:pb-4 prose-headings:pt-4 prose-headings:text-md prose-headings:font-semibold prose-p:leading-8 prose-a:font-normal hover:prose-a:no-underline prose-blockquote:border-l-2 prose-blockquote:font-normal prose-li:my-1.5 prose-li:leading-7">
+            <h2>What's Changed</h2>
+            <PortableText portableText={changes} />
+          </section>
+        )
+      }
+
+      {
+        breakingChanges && (
+          <section class="mb-12 prose prose-lg prose-tlon mb-12 sm:prose-xl prose-headings:mt-2 prose-headings:pb-4 prose-headings:pt-4 prose-headings:text-md prose-headings:font-semibold prose-p:leading-8 prose-a:font-normal hover:prose-a:no-underline prose-blockquote:border-l-2 prose-blockquote:font-normal prose-li:my-1.5 prose-li:leading-7">
+            <h3>Breaking Changes</h3>
+            <PortableText portableText={breakingChanges} />
+          </section>
+        )
+      }
+
+      {
+        migrationNotes && (
+          <section class="mb-12 prose prose-lg prose-tlon sm:prose-xl prose-headings:mt-2 prose-headings:pb-4 prose-headings:pt-4 prose-headings:text-md prose-headings:font-semibold prose-p:leading-8 prose-a:font-normal hover:prose-a:no-underline prose-blockquote:border-l-2 prose-blockquote:font-normal prose-li:my-1.5 prose-li:leading-7">
+            <h3>Migration Guide</h3>
+            <PortableText portableText={migrationNotes} />
+          </section>
+        )
+      }
+    </div>
+
+    <div class="mx-auto max-w-inner-xs pt-16 md:max-w-inner-sm">
+      <div class="text-center">
+        <a
+          href="/changelog"
+          class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors
+          max-sm:hover:underline hover:sm:bg-navHover"
+        >
+          ← Back to Changelog
+        </a>
+      </div>
+    </div>
+  </article>
+</GlobalLayout>

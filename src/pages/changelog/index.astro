@@ -1,0 +1,26 @@
+---
+import { getChangelog } from "../../utils/api";
+
+import GlobalLayout from "../../layouts/GlobalLayout.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.tsx";
+import PageTitle from "../../components/PageTitle.astro";
+import ChangelogList from "../../components/ChangelogList.astro";
+
+const changelogEntries = await getChangelog();
+---
+
+<GlobalLayout
+  metaTitle="Changelog - Release Notes & Updates"
+  metaDescription="Stay up to date with the latest features, improvements, and fixes. View our complete changelog and release history."
+>
+  <div class="mx-auto max-w-inner-xs space-y-16 pb-36 pt-24 sm:pb-36">
+    <header>
+      <PageTitle
+        title="Changelog"
+        titleAlignment="left"
+      />
+    </header>
+    <ChangelogList entries={changelogEntries} />
+    <NewsletterSignup client:load />
+  </div>
+</GlobalLayout>
