@@ -14,7 +14,7 @@ const HeroCard: React.FC<HeroCardProps> = props => {
     ? urlForImage(props.media.photo).url() + "?v=1"
     : "";
 
-  const mobileImageUrl = props.media?.mobilePhoto?.asset
+  const mobileImageUrl = props.media && 'mobilePhoto' in props.media && props.media.mobilePhoto?.asset
     ? urlForImage(props.media.mobilePhoto).url() + "?v=1"
     : desktopImageUrl; // Fallback to desktop image if no mobile image
 
